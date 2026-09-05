@@ -16,3 +16,7 @@ Lightweight chronological ledger for operational, tactical, and micro-decisions 
 | **DEC-20260905-03** | 2026-09-05 | State | Use Git commits as immutable ledger; drop parallel JSONL. | YAGNI; eliminates JSON parsing errors and token bloat. | **ACTIVE** |
 | **DEC-20260905-04** | 2026-09-05 | Execution | Complexity-tiered turn budgets (5 to 100 turns). | Gives headroom for `/goal` workflows with 25-turn checkpoints. | **ACTIVE** |
 | **DEC-20260905-05** | 2026-09-05 | Tooling | Automated self-healing catalog generator (`tools/generate_catalog.py`). | Prevents manual documentation drift across 184 skills. | **ACTIVE** |
+| **DEC-20260905-06** | 2026-09-05 | Architecture | 3-Tier Map of Content (MOC) progressive disclosure for all skills. | Keeps resident prompt <300 tokens; prevents 27k token context blowout. | **ACTIVE** |
+| **DEC-20260905-07** | 2026-09-05 | Governance | Hardcode Disler anti-fancy laws and CP counter-points in `AGENTS.md`. | Enforces strict scope containment, YAGNI, and exit code 0 proof. | **ACTIVE** |
+| **DEC-20260905-08** | 2026-09-05 | Orchestration | Complexity-adaptive hybrid skill intent inference ladder. | T1 skips skills, T2 checks domain triggers, T3/T4 activates MOC. | **ACTIVE** |
+

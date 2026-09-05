@@ -20,14 +20,15 @@ Establish a zero-bloat, unified multi-agent engineering foundation centered on `
 8. `CONTINUATION.md` maintained after every atomic step. [COMPLETED]
 
 ## Active Phase
-Phase 6: Skill Discovery & Historical Decision Synthesis
+Phase 6: Skill Discovery & Intent Inference Architecture Codified
 
 ## Evidence & Verification
 - `Commit 3c21848`: feat(governance): codify universal agent contract, distilled living rules, and ADR 0001.
 - `Commit 967bdf7`: chore(adapters): prune redundant Python wrappers in src/adapters and tests/adapters (-2,761 lines).
-- `AGENTS.md`: Universal Agent Contract codified (99 lines, <=150 cap).
+- `Commit 8e55bd9`: feat(governance): hardcode Disler operational boundaries, CP counter-points, and skill MOC.
+- `AGENTS.md`: Universal Agent Contract codified with Disler laws and MOC (107 lines, <=150 cap).
 - `rules/`: 4 distilled living rule files (`communication.md`, `task-tracking.md`, `hygiene.md`, `verification.md`) with YAML frontmatter.
-- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` (Level B operational ledger).
+- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` (Level B operational ledger with DEC-01 through DEC-08).
 - `tools/generate_catalog.py`: Auto-generates `rules/README.md` and `docs/decisions/README.md`.
 - `make catalog`: Exited 0.
 - `make garden`: 0 errors.
@@ -41,7 +42,8 @@ Phase 6: Skill Discovery & Historical Decision Synthesis
 - P3: Sync historical retrospectives into `/Users/man/Brain`.
 
 ## Next Immediate Action
-Synthesize historical nuances from legacy dump into `DECISION_LOG.md` and execute skill metadata backfill.
+Execute skill metadata backfill across plugins/*/skills/ to ensure spec compliance.
+
 
 
 
