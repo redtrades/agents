@@ -25,7 +25,7 @@ Finalize `/Users/man/agents` as the sovereign, unified multi-agent operating eng
 13. Finalize `AGENTS.md` with inlined communication grammar, SDLC worktree/queue invariants, and dual-mission intent while maintaining <=150 lines. [COMPLETED]
 14. Codify Mandatory A Priori Research & Counter-Points invariant into `AGENTS.md` and author canonical SOTA Swarm SDLC and Extraction Architecture plan (`docs/plans/20260905-sota-swarm-sdlc-and-extraction-architecture.md`). [COMPLETED]
 15. Implement native worktree lifecycle recipes and zero-loss backup automation (`tools/worktree_manager.py`, `Makefile`, `tools/tests/test_worktree_manager.py`). Closed Issue #1. [COMPLETED]
-16. Historic estate triage: selectively distill candidate tools/skills, pack unneeded `agent-*` to `~/archive/`, and verify swarm SDLC. [IN_PROGRESS]
+16. Historic estate triage: selectively distill candidate tools/skills, pack unneeded `agent-*` to `~/archive/`, and verify swarm SDLC. [COMPLETED]
 17. Brain knowledge archive hygiene & 8-digit date-prefix versioning: moved/renamed 83 files across numbered folders and reports in `/Users/man/Brain`; authored Canonical Definitive Estate Plan (`docs/plans/20260905-canonical-definitive-estate-plan.md`). [COMPLETED]
 18. Historical estate excavation from May OpenClaw to now: salvaged 50 root receipts and 91 Claude scratchpad files from `/private/tmp/` into `~/agent-reports/tmp-historical-salvage-2026-09-05/`; promoted 9 platform rules to `Brain/100-governance-safety-and-evidence/` and 3 deep research docs to `agents/docs/research/`. [COMPLETED]
 19. Brain consolidation & zero dangling documents: consolidated `/Users/man/Brain` directly into `/Users/man/agents/brain/`, created backward-compatible symlinks (`/Users/man/Brain` and `/Users/man/agent-knowledge-archive`), organized 5 loose market reports and 2 loose audits/tasks into dated brain folders, archived all remaining backups into `~/archive/`. [COMPLETED]
@@ -34,6 +34,7 @@ Finalize `/Users/man/agents` as the sovereign, unified multi-agent operating eng
 Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 
 ## Evidence & Verification
+- `Evals & Safety Hooks Distillation (Issue #2 Closed)`: Extracted root write-blocking hook to `tools/hooks/block-home-root-writes.sh` and wired `make install-hooks` for pre-commit mechanical enforcement. Extracted Apple Silicon M1 Max roofline benchmark to `tools/bench/m1_roofline.py` with unit tests (`tools/tests/test_bench_roofline.py`) and `make bench` recipe. All 589 tests passing cleanly. Closed Issue #2 on GitHub `redtrades/agents` and updated Project 13 to Done.
 - `Legacy Estate Cold Archiving (Issue #3 Closed)`: Relocated all 6 legacy repositories (`agent-mesh`, `agent-configs`, `agent-platform`, `agent-workspace`, `agent-sdlc`, `agent-tools`) into `/Users/man/archive/` without redundant backup bloat. Authored canonical archive inventory in `/Users/man/archive/README.md` with standard YAML frontmatter. Verified `/Users/man/agents` is the sole active repo in `~`. Closed Issue #3 on GitHub `redtrades/agents` and updated Project 13 to Done.
 - `Brain Consolidation & Zero Dangling Documents`: Consolidated `/Users/man/Brain` directly into `/Users/man/agents/brain/` (tracked natively under `redtrades/agents`), backed up previous git history to `~/archive/Brain-git-history-20260905.tar.gz`, created symlinks `/Users/man/Brain -> /Users/man/agents/brain` and `/Users/man/agent-knowledge-archive -> /Users/man/agents/brain`. Swept all loose files from `~`: moved 5 market/competitive reports into `brain/120-market-and-open-source-research/` with 8-digit date prefixes, moved 2 platform audits/tasks into `brain/110-failures-postmortems-and-lessons/`, and moved 4 backup archives into `~/archive/`. All 4 quality gates pass cleanly.
 - `Historical Estate Excavation & Scratchpad Salvage`: Salvaged 50 root session receipts and 91 Claude scratchpad files from `/private/tmp` into `~/agent-reports/tmp-historical-salvage-2026-09-05/` preventing reboot data loss; promoted 9 extracted platform rules into `Brain/100-governance-safety-and-evidence/`, second-brain architecture to `Brain/70-knowledge-context-and-memory/`, issue 106/117 handovers to `Brain/110-failures-postmortems-and-lessons/`, and 3 deep research docs into `agents/docs/research/`.
@@ -47,12 +48,12 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - `Skills Consolidation`: Distilled 104 raw skills into 6 first-class native plugins (41 curated skills). Total skills: 225 across 100 plugins.
 - `Skills MOC Integrity`: All skills verified <=8 KB. Automated MOC generator (`tools/generate_catalog.py`) built `docs/skills-moc.md`.
 - `Zero Em Dashes`: Full codebase and markdown docs verified 100% clean of em/en dashes.
-- `Quality Gates`: `make validate STRICT=1` (OK across 5 harnesses), `make garden` (0 errors), `npm test` (16 passed), `make test` (582 passed).
+- `Quality Gates`: `make validate STRICT=1` (OK across 5 harnesses), `make garden` (0 errors), `npm test` (16 passed), `make test` (589 passed).
 - `Upstream Detachment`: Active git remote removed; read-only innovation check available via `make check-upstream`.
 
 ## Parked Backlog (On The Board / Tracked on GitHub redtrades/agents)
 - **Issue #1** (`sdlc:done`): Implement native worktree lifecycle recipes and session backup automation. [CLOSED]
-- **Issue #2** (`sdlc:backlog`): Distill candidate evaluation harnesses from `agent-mesh` and hooks from `agent-configs`.
+- **Issue #2** (`sdlc:done`): Distill candidate evaluation harnesses from `agent-mesh` and hooks from `agent-configs`. [CLOSED]
 - **Issue #3** (`sdlc:done`): Package unneeded legacy `agent-*` repositories to `~/archive/` and prune filesystem. [CLOSED]
 - **Issue #4** (`sdlc:backlog`): Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall.
 - **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
@@ -60,4 +61,4 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - **Parked (P3)**: Set up Jules GitHub App issue automation on `redtrades/agents`.
 
 ## Next Immediate Action
-Claim Issue #2: Inspect `agent-mesh` evals via triage manifest and distill high-leverage benchmarks into `tools/bench/` and hooks into `agents/rules/`.
+Claim Issue #4: Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall.

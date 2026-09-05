@@ -36,25 +36,27 @@
 15. **Historical Estate Excavation & Scratchpad Salvage:** Salvaged 50 root receipts and 91 Claude scratchpad files from `/private/tmp` into `~/agent-reports/tmp-historical-salvage-2026-09-05/` preventing reboot loss; promoted 9 platform rules to `Brain/100-governance-safety-and-evidence/`, second-brain architecture to `Brain/70-knowledge-context-and-memory/`, issue 106/117 handovers to `Brain/110-failures-postmortems-and-lessons/`, and 3 deep research docs to `agents/docs/research/`.
 16. **Brain Consolidation & Zero Dangling Documents:** Consolidated `/Users/man/Brain` directly into `/Users/man/agents/brain/` (tracked natively under `redtrades/agents`), created backward-compatible symlinks (`/Users/man/Brain` and `/Users/man/agent-knowledge-archive`), swept all loose documents from `~` (moved 5 market reports to `brain/120-market-and-open-source-research/`, 2 postmortems/tasks to `brain/110-failures-postmortems-and-lessons/`, and 4 backups to `~/archive/`). All 4 quality gates verified.
 17. **Legacy Estate Cold Archiving (Issue #3 Closed):** Relocated all 6 legacy repositories (`agent-mesh`, `agent-configs`, `agent-platform`, `agent-workspace`, `agent-sdlc`, `agent-tools`) into `/Users/man/archive/` without backup bloat. Authored canonical archive inventory in `/Users/man/archive/README.md` with standard YAML frontmatter. Updated Project 13 to Done and closed Issue #3 on GitHub.
+18. **Evals & Safety Hooks Distillation (Issue #2 Closed):** Extracted write-blocking hook to `tools/hooks/block-home-root-writes.sh` and wired `make install-hooks`. Extracted M1 Max roofline benchmark to `tools/bench/m1_roofline.py` with unit tests and `make bench`. Closed Issue #2 on GitHub Project 13. All 589 tests pass.
 
 ---
 
 ## 3. Active Step (In Progress)
-- **Step Name:** Claim and Execute Issue #2 (Cluster 1: agent-mesh evals extraction)
-- **Target:** Inspect `docs/research/20260905-historic-estate-triage.json` for `agent-mesh`, extract high-leverage benchmark suites into `plugins/plugin-eval/` and `tools/tests/`.
+- **Step Name:** Claim and Execute Issue #4 (GBrain PGLite WASM MCP Memory Wiring)
+- **Target:** Configure Bun + PGLite WASM MCP server (`~/.gbrain/brain.pglite`) pointing to `/Users/man/agents/brain/` Tier A canonical knowledge.
 
 ---
 
 ## 4. Modified & Staged Files
+- `tools/hooks/block-home-root-writes.sh`
+- `tools/bench/m1_roofline.py`
+- `tools/tests/test_bench_roofline.py`
 - `Makefile`
-- `tools/worktree_manager.py`
-- `tools/tests/test_worktree_manager.py`
 - `TASK.md`
 - `CONTINUATION.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Transition Issue #2 to `sdlc:in-flight` on GitHub.
-2. Extract vetted benchmark suites from `agent-mesh`.
-3. Run quality gates to confirm clean integration.
+1. Transition Issue #4 to `sdlc:in-flight` on GitHub Project 13.
+2. Wire GBrain PGLite WASM MCP server for cross-session recall.
+3. Verify sub-second retrieval across sessions.

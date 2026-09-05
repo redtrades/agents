@@ -22,7 +22,7 @@ UV_TOOLS := uv run $(EVAL_PROJECT) python
 RUFF_PATHS := ../../tools/ src/plugin_eval/
 TY_PATHS := ../../tools/adapters/ ../../tools/generate.py ../../tools/validate_generated.py ../../tools/doc_gardener.py ../../tools/install_opencode.py ../../tools/install_copilot.py ../../tools/install_antigravity.py ../../tools/check_agent_name_collisions.py ../../tools/tests/ src/plugin_eval/
 
-.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response
+.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks
 
 help:
 	@echo "claude-agents — multi-harness plugin marketplace"
@@ -207,6 +207,15 @@ check-upstream:
 
 lint-response:
 	python3 tools/lint_response.py $(if $(FILE),$(FILE),$(if $(TEXT),--text '$(TEXT)',))
+
+bench:
+	python3 tools/bench/m1_roofline.py
+
+install-hooks:
+	mkdir -p .git/hooks
+	cp tools/hooks/block-home-root-writes.sh .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+	@echo "Pre-commit hook installed: root home writes mechanically blocked."
 
 
 # Code-quality gates. These MUST run from plugins/plugin-eval/, which is where the
