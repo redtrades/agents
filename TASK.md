@@ -19,28 +19,24 @@ Establish a zero-bloat, unified multi-agent engineering foundation centered on `
 7. All repository quality gates pass (`make validate STRICT=1`, `make garden`, `make test`, `npm test`). [COMPLETED]
 8. `CONTINUATION.md` maintained after every atomic step. [COMPLETED]
 9. SOTA Patterns & Anti-Patterns catalog authored (`docs/research/20260905-sota-patterns-and-anti-patterns.md`). [COMPLETED]
-10. Unified Intent & North Star ratified in Brain vault (`/Users/man/Brain/10-intent-and-north-star/`). [COMPLETED]
+10. All 9 oversize skills refactored into MOC + references/details.md (0 skill warnings in make garden). [COMPLETED]
+11. One-at-a-time decision ratification protocol active with Mike. [IN_PROGRESS]
 
 ## Active Phase
-Phase 7: Horizon 2 Estate Consolidation & Asset Extraction
+Phase 7: Horizon 2 Estate Consolidation & Foundation Hardening
 
 ## Evidence & Verification
-- `Origin Sync`: Pushed commits up to `546d8e2` to `git@github.com:redtrades/agents.git`.
-- `Brain Established`: Renamed `/Users/man/agent-knowledge-archive` to `/Users/man/Brain` cleanly; committed `20260905-unified-intent-and-north-star.md`.
-- `SOTA Catalog`: Authored `docs/research/20260905-sota-patterns-and-anti-patterns.md` synthesizing 13 research reports and benchmarks across 8 operational domains.
-- `AGENTS.md`: Full operating constitution with L1-L4 Autonomy, Anti-Wholesale Ingestion Law, and Distilled Operational Guidance (107 lines, <=150 cap, zero em dashes).
-- `rules/`: 4 distilled living rule files (`communication.md`, `task-tracking.md`, `hygiene.md`, `verification.md`).
-- `docs/GLOSSARY.md`: Authoritative estate glossary and taxonomy.
-- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` with 5-state lifecycle (`PROPOSED`, `RATIFIED`, `SUPERSEDED`, `STALE`, `REJECTED`) recording DEC-01 through DEC-19.
-- `Quality Gates`: `make garden` (0 errors), `make validate STRICT=1` (OK), `npm test` (16 passed), `make test` (568 passed).
+- `Skills MOC Integrity`: Refactored all 9 oversize skills (>8 KB) into `references/details.md`. `make garden` reports 0 `SKILL_OVER_CODEX_CAP` warnings.
+- `Quality Gates`: `make validate STRICT=1` (OK across 5 harnesses), `make garden` (0 errors), `npm test` (16 passed), `make test` (568 passed).
+- `Decision Rollback`: Re-classified DEC-14 (SSSF), DEC-18 (fork split), DEC-19 (estate namespace), and DEC-20 (conflict policy) as `PROPOSED` pending explicit one-at-a-time ratification.
+- `AGENTS.md`: Distilled SOTA operating constitution (111 lines, commands first, MOC pointers, zero em dashes).
 
 ## Parked Backlog (On The Board / Side Inquiries)
-- P1: Review and selectively harvest candidate tool clusters (`agent-mesh/evals`, `agent-configs/hooks`) following SDLC gates.
+- P1: Review candidate tool clusters (`agent-mesh/evals`, `agent-configs/hooks`) following SDLC gates.
 - P2: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
 - P3: Set up Jules GitHub App issue automation on `redtrades/agents`.
 - P4: Wire Garry Tan GBrain MCP memory server.
-- P5: Separate proprietary estate skills into dedicated namespaces (`plugins/estate-orchestration/`, `plugins/govcon-deliverables/`).
-- P6: Package historic `agent-*` folders to `~/archive/` and clean up `~` and iCloud Drive.
+- P5: Package historic `agent-*` folders to `~/archive/` and clean up `~` and iCloud Drive.
 
 ## Next Immediate Action
-Execute automated skill metadata backfill across plugins/*/skills/ and split 9 oversize skills into references/details.md to bring make garden warnings to 0.
+Present Question 1 to Mike (Model Tiering & Architecture Composability) for explicit ratification.

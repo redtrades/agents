@@ -7,6 +7,9 @@ Production-ready agentic operating foundation: **94 plugins** (92 local + 2 exte
 ## Map
 
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** : top-level architectural overview (adapter framework, source-of-truth invariant, capability matrix summary)
+- **[rules/README.md](rules/README.md)** : living operational rules (communication, hygiene, task-tracking, verification)
+- **[docs/decisions/README.md](docs/decisions/README.md)** : architecture decision records (ADR) and operational decision log
+- **[docs/GLOSSARY.md](docs/GLOSSARY.md)** : canonical estate glossary and taxonomy
 - **[docs/architecture.md](docs/architecture.md)** : detailed design principles
 - **[docs/plugins.md](docs/plugins.md)** : full plugin catalog (94 plugins by category)
 - **[docs/agents.md](docs/agents.md)** : agent reference (202 agents, model tiers)
