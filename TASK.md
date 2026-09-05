@@ -20,30 +20,26 @@ Establish a zero-bloat, unified multi-agent engineering foundation centered on `
 8. `CONTINUATION.md` maintained after every atomic step. [COMPLETED]
 
 ## Active Phase
-Phase 6: Skill Discovery & Intent Inference Architecture Codified
+Phase 7: Horizon 2 Estate Consolidation & Asset Extraction
 
 ## Evidence & Verification
-- `Commit 3c21848`: feat(governance): codify universal agent contract, distilled living rules, and ADR 0001.
-- `Commit 967bdf7`: chore(adapters): prune redundant Python wrappers in src/adapters and tests/adapters (-2,761 lines).
-- `Commit 8e55bd9`: feat(governance): hardcode Disler operational boundaries, CP counter-points, and skill MOC.
-- `Commit bf8ba07`: feat(governance): adopt Boris Cherny, Karpathy, and OpenClaw constitution in AGENTS.md.
+- `Origin Sync`: Pushed commits up to `115d1bb` to `git@github.com:redtrades/agents.git`.
+- `Brain Established`: Renamed `/Users/man/agent-knowledge-archive` to `/Users/man/Brain` cleanly (no symlink).
+- `Task Ledger`: Created `docs/tasks/README.md` for completed task lifecycle and GitHub commit binding.
+- `Mechanical Triage`: Built and ran `tools/triage_historic_estate.py` (scanned 8,731 files across 5 historic repos with zero LLM tokens; indexed 6 ADRs, 8 rules, 450 tools).
 - `AGENTS.md`: Boris Cherny + Karpathy + Garry Tan + OpenClaw §0 constitution (99 lines, <=150 cap).
-- `rules/`: 4 distilled living rule files (`communication.md`, `task-tracking.md`, `hygiene.md`, `verification.md`) with YAML frontmatter.
-- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` (Level B operational ledger with DEC-01 through DEC-11).
-- `tools/generate_catalog.py`: Auto-generates `rules/README.md` and `docs/decisions/README.md`.
-- `make catalog`: Exited 0.
-- `make garden`: 0 errors.
-- `make test`: 568 passed, 0 failed.
-- `make validate STRICT=1`: OK across 5 harnesses.
-- `npm test`: 16/16 passed.
+- `rules/`: 4 distilled living rule files (`communication.md`, `task-tracking.md`, `hygiene.md`, `verification.md`).
+- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` (Level B ledger DEC-01 through DEC-11).
+- `Quality Gates`: `make garden` (0 errors), `make validate STRICT=1` (OK), `npm test` (16 passed), `make test` (568 passed).
 
 ## Parked Backlog (Next In Line)
 - P1: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
 - P2: Set up Jules GitHub App issue automation on `redtrades/agents`.
-- P3: Sync historical retrospectives into `/Users/man/Brain`.
+- P3: Wire Garry Tan GBrain MCP memory server.
 
 ## Next Immediate Action
-Review Karpathy Wiki, AutoResearch, LLM Council, and OpenClaw synthesis with Mike; proceed to skill metadata backfill.
+Execute Stage 2 of the extraction pipeline: harvest unique decisions and reusable tools from triage manifest, then backfill skill metadata.
+
 
 
 
