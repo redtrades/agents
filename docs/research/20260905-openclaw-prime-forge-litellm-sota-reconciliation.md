@@ -90,10 +90,10 @@ To satisfy the requirement that the entire swarm can be stood up on any machine,
 
 | OpenClaw Concept | Historic Implementation | Modern SOTA Adopt-First Solution | Status |
 |---|---|---|---|
-| **Role Separation** | Complex custom agent loops | Baseline 5 roles (Prime, Forge, Scout, Sentinel, Operator) codified in [`agents/docs/roles/`](file:///Users/man/agents/docs/roles/) | **Keep & Formalize** |
+| **Role Separation** | Complex custom agent loops | Baseline 5 roles (Prime, Forge, Scout, Sentinel, Operator) codified in `agents/docs/roles/` | **Keep & Formalize** |
 | **Inference Router** | Hand-rolled Python routing | Self-hosted **LiteLLM Proxy** / FreeLLMAPI on port 3100 with fallback configs | **Adopt Maintained OSS** |
 | **Ephemeral Runners** | Heavy Kubernetes cluster | Ephemeral Git worktrees with 10-min launchd reaper + GitHub Jules for cloud | **Radical Simplification** |
 | **Knowledge Vault** | Complex custom database | **Karpathy Wiki-LLM** (Obsidian Markdown vault with wikilinks in `Brain`) | **Adopt SOTA Pattern** |
 | **Agent Memory** | Monolithic prompt injection | **Garry Tan GBrain** (PGLite WASM vector + BM25 via MCP at `~/.gbrain/`) | **Adopt Maintained OSS** |
 | **Task State Machine** | Custom SQLite queues | **GitHub Issues** as authoritative state machine + Fusion port 4040 for visual DAG | **Adopt Proven Tools** |
-| **Declarative Bootstrap** | Custom multi-repo setup | Single declarative repository ([`/Users/man/agents`](file:///Users/man/agents)) + Nix / `bootstrap.sh` | **Zero Overhead** |
+| **Declarative Bootstrap** | Custom multi-repo setup | Single declarative repository (`/Users/man/agents`) + Nix / `bootstrap.sh` | **Zero Overhead** |

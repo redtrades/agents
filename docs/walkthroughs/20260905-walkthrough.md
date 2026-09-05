@@ -4,7 +4,7 @@
 
 Across Passes 5, 6, and 7, the heterogeneous multi-agent estate was transformed from a fragmented, drifting web of symlinks and 70 dangling worktrees into a unified, token-efficient foundation centered on `/Users/man/agents` (backed by GitHub fork `redtrades/agents` tracking upstream `wshobson/agents` with Jules AISDLC governance contract `src/aisdlc.ts`).
 
-All 183 technical marketplace skills, 202 agents, 105 commands, and 104 estate skills were compiled and installed across all major harnesses (Google Antigravity CLI, OpenAI Codex CLI, OpenCode, and Claude Code). The core operational rules, anti-patterns, tiered execution contracts, and multi-harness onboarding pathways are fully codified in the master blueprint (`docs/HANDOVER_BLUEPRINT.md`).
+All 183 technical marketplace skills, 202 agents, 105 commands, and 104 estate skills were compiled and installed across all major harnesses (Google Antigravity CLI, OpenAI Codex CLI, OpenCode, and Claude Code). The core operational rules, anti-patterns, tiered execution contracts, and multi-harness onboarding pathways are fully codified in the master blueprint (`docs/20260905-HANDOVER_BLUEPRINT.md`).
 
 ---
 
@@ -32,7 +32,7 @@ Audited the 70 worktrees registered in `/Users/man/agent-sdlc`:
 - Established zero-loss safety procedure: commit uncommitted changes to `backup/worktree/*` branches and snapshot to tarball before any prune.
 
 ### 4. Master Handover Blueprint Codified
-Created `/Users/man/agents/docs/HANDOVER_BLUEPRINT.md` establishing:
+Created `/Users/man/agents/docs/20260905-HANDOVER_BLUEPRINT.md` establishing:
 - North Star alignment: GovCon proposal factory generating $8,000 to $10,000 monthly profit.
 - The 7 Core Operational Rules: 2-Try Circuit Breaker, Request Complexity Tiering (Tier 1 quick fixes need 0 reviews and no smoke tests; Tier 2 MVP needs lean build; Tier 3/4 need cross-model review), 95% Intent Certainty, Structured Communication (no em dashes), Durable Disk State, Isolated Worktrees, Cross-Model Review Separation.
 - Anti-Patterns: Monolithic context dumps, circular symlinks, rules about rules, ghost tasks, blind worktree deletion.
@@ -51,4 +51,4 @@ Created `/Users/man/agents/docs/HANDOVER_BLUEPRINT.md` establishing:
 | Codex CLI Skills | `ls ~/.codex/skills` | **288 skills linked** | **PASS** |
 | Claude Code Skills | `ls ~/.claude/skills` | **286 skills linked** | **PASS** |
 | Git Repository Status | `git status` in `/Users/man/agents` | **Working tree clean on main** | **PASS** |
-| Handover Blueprint | `test -f docs/HANDOVER_BLUEPRINT.md` | **Documented & verified** | **PASS** |
+| Handover Blueprint | `test -f docs/20260905-HANDOVER_BLUEPRINT.md` | **Documented & verified** | **PASS** |

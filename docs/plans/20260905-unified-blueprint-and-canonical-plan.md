@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-05  
 **Canonical Source of Truth:** `/Users/man/agents` (backed by GitHub `redtrades/agents`)  
-**Operating Contracts:** `agent-configs/rules/`, `agent-sdlc/src/aisdlc.ts`, `agents/docs/HANDOVER_BLUEPRINT.md`  
+**Operating Contracts:** `agent-configs/rules/`, `agent-sdlc/src/aisdlc.ts`, `agents/docs/20260905-HANDOVER_BLUEPRINT.md`  
 **Harnesses Governed:** Google Antigravity CLI (`agy`), Claude Code, OpenAI Codex CLI, OpenCode, Hermes/Buzz, Grok, Jules, OpenHands, Pi  
 
 ---
