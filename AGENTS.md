@@ -28,6 +28,7 @@ This file is the canonical context file. Codex / Cursor / OpenCode / Antigravity
 - File Naming & Hygiene: All new docs, plans, analyses, and walkthroughs created by agents MUST begin with an 8-digit date prefix: `YYYYMMDD-<name>.md` (e.g., `docs/plans/20260905-plan.md`).
 - Artifact Persistence: Plans and walkthroughs must be committed to `docs/plans/` and `docs/walkthroughs/`, never left only in ephemeral memory.
 - 2-Try Circuit Breaker: If an action or test fails twice, STOP immediately. Consult documentation or web search; never guess.
+- Continuation Protocol: Maintain `CONTINUATION.md` in the repository root. After every step, commit diffs incrementally. On session reset, rate limit, or quota cutoff, incoming agents read `CONTINUATION.md` and resume in <500 tokens without re-ingesting conversation history.
 - Proportional Rigor: Tier 1 (quick fix/doc/config) executes directly (<2 min) with no reviews or smoke tests; Tier 2 (MVP) tests focused diffs; Tier 3/4 require formal plans and cross-model review.
 - Strict Anti-Slop: Zero em dashes anywhere in code, docs, or messages.
 - Never commit secrets. Never run destructive git (force-push, `reset --hard`, branch -D) without explicit ask.
