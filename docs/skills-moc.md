@@ -2,7 +2,7 @@
 
 Master index of all specialized skills across the estate. Used by agents to infer and load matching skills Just-In-Time based on user request keywords and task complexity tiers.
 
-**Total Registered Skills:** 225 across 58 plugins.
+**Total Registered Skills:** 226 across 58 plugins.
 
 ## Complexity Tiers
 - **Tier 1 (Quick):** Focused single-file fixes, formatting, syntax, and direct configs (<2 min).
@@ -149,6 +149,7 @@ Master index of all specialized skills across the estate. Used by agents to infe
 | Skill | Plugin | Tier | Trigger Keywords / Activation |
 | :--- | :--- | :--- | :--- |
 | [continuation-protocol](../plugins/context-management/skills/continuation-protocol/SKILL.md) | `context-management` | **Tier 2 (MVP)** | Use whenever executing multi-step tasks, before handoffs, or when approaching token exhaustion and rate limits |
+| [gbrain-memory](../plugins/context-management/skills/gbrain-memory/SKILL.md) | `context-management` | **Tier 2 (MVP)** | Use when searching for documents or prior research, recalling past architectural decisions, looking up postmortems, or storing durable entity facts across sessions |
 
 ### Data Engineering & Pipelines
 

@@ -6,9 +6,8 @@ description: Research a question against primary sources and write cited Markdow
 
 ## Method
 
-1. **Primary sources only.** Official docs, source code, specs, first-party APIs
-    -  not a secondary write-up of them. Follow every claim back to the source
-   that owns it.
+0. **Check GBrain first.** Before external web search or broad scanning, query GBrain (`recall` MCP tool or `gbrain query "<terms>"`) to check if prior estate research exists in `brain/120-market-and-open-source-research/` or `docs/research/`.
+1. **Primary sources only.** Official docs, source code, specs, first-party APIs (not a secondary write-up of them). Follow every claim back to the source that owns it.
 2. **Cite every factual claim** with its source: URL, file path and line, or doc
    section.
 3. **Be specific and quantified.** "The matcher stage takes ~2.3s per notice due

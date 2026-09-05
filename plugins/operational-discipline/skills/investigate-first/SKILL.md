@@ -6,6 +6,7 @@ description: Diagnose ambiguous failures before editing. Use for unknown causes,
 
 Gather evidence before changing product code.
 
+- Query GBrain (`recall` MCP tool or `gbrain query`) for relevant historical postmortems in `brain/110-failures-postmortems-and-lessons/`.
 - Separate observed symptom from inferred cause.
 - Trace inputs, state transitions, ownership boundaries, and failure output.
 - Rank hypotheses by evidence and cheap falsification value.

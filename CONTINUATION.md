@@ -38,21 +38,25 @@
 17. **Legacy Estate Cold Archiving (Issue #3 Closed):** Relocated all 6 legacy repositories (`agent-mesh`, `agent-configs`, `agent-platform`, `agent-workspace`, `agent-sdlc`, `agent-tools`) into `/Users/man/archive/` without backup bloat. Authored canonical archive inventory in `/Users/man/archive/README.md` with standard YAML frontmatter. Updated Project 13 to Done and closed Issue #3 on GitHub.
 18. **Evals & Safety Hooks Distillation (Issue #2 Closed):** Extracted write-blocking hook to `tools/hooks/block-home-root-writes.sh` and wired `make install-hooks`. Extracted M1 Max roofline benchmark to `tools/bench/m1_roofline.py` with unit tests and `make bench`. Closed Issue #2 on GitHub Project 13. All 589 tests pass.
 19. **GBrain PGLite WASM MCP Memory Wiring (Issue #4 Closed):** Wired Garry Tan GBrain PGLite memory (`~/.gbrain/brain.pglite`) into `redtrades/agents`. Built lean MCP proxy `tools/gbrain_mcp.py` with 5 unit tests (`tools/tests/test_gbrain_mcp.py`), capped token overhead at 286 tokens (limit 800), indexed 373 brain markdown files (2,162 chunks), verified 64.6ms warm query latency, and configured `.mcp.json`, `~/.claude/settings.json`, `~/.claude.json`, and `~/.codex/config.toml`. Closed Issue #4 on GitHub and updated Project 13 to Done.
+20. **GBrain Rules & Skills Codification:** Added Mandatory GBrain Knowledge Grounding invariant to `AGENTS.md`. Created `rules/memory.md` (`v1.0.0`) and updated `rules/README.md`. Created native `gbrain-memory` skill (`plugins/context-management/skills/gbrain-memory/SKILL.md`) and integrated GBrain into `research` and `investigate-first` skills. Synchronized all 5 harnesses (`make generate-all`), updated `docs/skills-moc.md` (226 skills), and verified all quality gates pass.
 
 ---
 
 ## 3. Active Step (Completed / Pending Next Claim)
-- **Step Name:** Project 13 Four Core Issues Completed (Worktrees, Extraction, Archiving, Memory)
+- **Step Name:** GBrain Rules & Skills Codification Complete
 - **Target:** Review next priority track with Mike (Parked P3 Jules Cloud Task Automation or Parked P2 Hermes Progressive Disclosure).
 
 ---
 
 ## 4. Modified & Staged Files
-- `tools/gbrain_mcp.py`
-- `tools/tests/test_gbrain_mcp.py`
-- `.mcp.json`
-- `Makefile`
-- `brain/corpus/first-party/agent-workspace/bc44e05be7c3d3f6e65c885e793c30c44b6eaa8b/tasks/TASK-0002.md`
+- `AGENTS.md`
+- `rules/memory.md`
+- `rules/README.md`
+- `plugins/context-management/skills/gbrain-memory/SKILL.md`
+- `plugins/deep-research/skills/research/SKILL.md`
+- `plugins/operational-discipline/skills/investigate-first/SKILL.md`
+- `README.md`
+- `docs/skills-moc.md`
 - `TASK.md`
 - `CONTINUATION.md`
 
