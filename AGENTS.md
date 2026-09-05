@@ -1,4 +1,4 @@
-# claude-agents — multi-harness agentic plugin marketplace
+# claude-agents : multi-harness agentic plugin marketplace
 
 Production-ready agentic-workflow building blocks: **94 plugins** (92 local + 2 external), **202 agents**, **183 skills**, **105 commands**. Native source-of-truth for Claude Code; also consumed by OpenAI Codex CLI, Cursor, OpenCode, and the Google Antigravity CLI (`agy`) from a single Markdown source.
 
@@ -8,24 +8,28 @@ This file is the canonical context file. Codex / Cursor / OpenCode / Antigravity
 
 ## Map
 
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** — top-level architectural overview (adapter framework, source-of-truth invariant, capability matrix summary)
-- **[docs/architecture.md](docs/architecture.md)** — detailed design principles
-- **[docs/plugins.md](docs/plugins.md)** — full plugin catalog (94 plugins by category)
-- **[docs/agents.md](docs/agents.md)** — agent reference (202 agents, model tiers)
-- **[docs/agent-skills.md](docs/agent-skills.md)** — skill reference (progressive disclosure model)
-- **[docs/usage.md](docs/usage.md)** — commands, workflows, examples
-- **[docs/authoring.md](docs/authoring.md)** — portable-content style guide (read before adding plugins)
-- **[docs/harnesses.md](docs/harnesses.md)** — per-harness capability matrix
-- **[docs/plugin-eval.md](docs/plugin-eval.md)** — three-layer quality evaluation framework
-- **[docs/round-trip-results.md](docs/round-trip-results.md)** — real-CLI verification recipes
-- **[docs/mlops.md](docs/mlops.md)** — MLOps lab pipeline (W&B, Hugging Face, model release)
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to contribute
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** : top-level architectural overview (adapter framework, source-of-truth invariant, capability matrix summary)
+- **[docs/architecture.md](docs/architecture.md)** : detailed design principles
+- **[docs/plugins.md](docs/plugins.md)** : full plugin catalog (94 plugins by category)
+- **[docs/agents.md](docs/agents.md)** : agent reference (202 agents, model tiers)
+- **[docs/agent-skills.md](docs/agent-skills.md)** : skill reference (progressive disclosure model)
+- **[docs/usage.md](docs/usage.md)** : commands, workflows, examples
+- **[docs/authoring.md](docs/authoring.md)** : portable-content style guide (read before adding plugins)
+- **[docs/harnesses.md](docs/harnesses.md)** : per-harness capability matrix
+- **[docs/plugin-eval.md](docs/plugin-eval.md)** : three-layer quality evaluation framework
+- **[docs/round-trip-results.md](docs/round-trip-results.md)** : real-CLI verification recipes
+- **[docs/mlops.md](docs/mlops.md)** : MLOps lab pipeline (W&B, Hugging Face, model release)
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** : how to contribute
 
 ## Working in this repo
 
 - Python tooling: **uv** (package manager), **ruff** (lint/format), **ty** (type check). Do not use pip / mypy / black.
-- Plugins live under `plugins/<name>/` with auto-discovery — see `docs/authoring.md` for frontmatter shapes.
-- Plugin names: lowercase, hyphen-separated. Never use `__` (it's the adapter namespace separator).
+- Plugins live under `plugins/<name>/` with auto-discovery. Plugin names: lowercase, hyphen-separated. Never use `__`.
+- File Naming & Hygiene: All new docs, plans, analyses, and walkthroughs created by agents MUST begin with an 8-digit date prefix: `YYYYMMDD-<name>.md` (e.g., `docs/plans/20260905-plan.md`).
+- Artifact Persistence: Plans and walkthroughs must be committed to `docs/plans/` and `docs/walkthroughs/`, never left only in ephemeral memory.
+- 2-Try Circuit Breaker: If an action or test fails twice, STOP immediately. Consult documentation or web search; never guess.
+- Proportional Rigor: Tier 1 (quick fix/doc/config) executes directly (<2 min) with no reviews or smoke tests; Tier 2 (MVP) tests focused diffs; Tier 3/4 require formal plans and cross-model review.
+- Strict Anti-Slop: Zero em dashes anywhere in code, docs, or messages.
 - Never commit secrets. Never run destructive git (force-push, `reset --hard`, branch -D) without explicit ask.
 
 ## Quality gates (run these before pushing)
@@ -49,17 +53,17 @@ make generate HARNESS=antigravity  # .antigravity/plugins/<p>/
 make generate-all                  # all four
 ```
 
-The small per-harness registries are **committed** so each harness installs natively from a clone / GitHub URL (native-install commands in [`docs/harnesses.md`](docs/harnesses.md)). The transformed skill and agent trees under `.codex/`, `.opencode/`, `.copilot/` and `.antigravity/` stay gitignored and are rebuilt locally. Run `make generate-all` before committing source changes — it also prunes artifacts whose source was removed; CI fails on drift. Source-of-truth lives only under `plugins/`; never hand-edit generated files.
+The small per-harness registries are **committed** so each harness installs natively from a clone / GitHub URL (native-install commands in [`docs/harnesses.md`](docs/harnesses.md)). The transformed skill and agent trees under `.codex/`, `.opencode/`, `.copilot/` and `.antigravity/` stay gitignored and are rebuilt locally. Run `make generate-all` before committing source changes : it also prunes artifacts whose source was removed; CI fails on drift. Source-of-truth lives only under `plugins/`; never hand-edit generated files.
 
 ## Skills (cross-harness)
 
-183 skills under `plugins/*/skills/<n>/SKILL.md` — discoverable by every harness:
+183 skills under `plugins/*/skills/<n>/SKILL.md` : discoverable by every harness:
 
 - **Claude Code**: auto-discovery via Anthropic's SKILL.md spec
 - **Codex CLI**: mirrored to `.codex/skills/<plugin>__<skill>/` (8 KB body cap; detail in `references/details.md`)
 - **OpenCode**: mirrored to `.opencode/skills/<plugin>-<skill>/` using hyphenated names for global install
 - **Cursor**: reads `.claude/skills/` directly (no re-emit)
-- **Antigravity CLI**: native plugins at `.antigravity/plugins/<p>/` — bare `skills/<skill>/SKILL.md` (no `<plugin>__` namespacing; the plugin dir already scopes it)
+- **Antigravity CLI**: native plugins at `.antigravity/plugins/<p>/` : bare `skills/<skill>/SKILL.md` (no `<plugin>__` namespacing; the plugin dir already scopes it)
 - **Skills-only installers**: `gh skill install wshobson/agents` and `npx skills add wshobson/agents` read `plugins/*/skills/` from GitHub directly (see `docs/harnesses.md`); `make smoke-test` runs both plus the agentskills.io spec check
 
 ## Subagents (cross-harness)
@@ -67,8 +71,8 @@ The small per-harness registries are **committed** so each harness installs nati
 202 subagents under `plugins/*/agents/<name>.md`. Per-harness transpilation:
 
 - **Codex**: `.codex/agents/<plugin>__<agent>.toml` (drop `tools:`, map model alias to the GPT-5.x family, infer `sandbox_mode`)
-- **OpenCode**: `.opencode/agents/<plugin>__<agent>.md` with `mode: subagent` + `permission:` block (locked agents — those with source `tools: []` — get deny-everything except base `skill`/`task`)
-- **Antigravity CLI**: `.antigravity/plugins/<p>/agents/<agent>.md` (Markdown + YAML frontmatter, `model:` is a tier alias — `inherit`/`flash`/`pro`); TOML commands at `commands/<p>/<cmd>.toml` (agy reports these as "converted to skills"); global install via `make install-antigravity` symlinks each plugin into `~/.gemini/antigravity-cli/plugins/`
+- **OpenCode**: `.opencode/agents/<plugin>__<agent>.md` with `mode: subagent` + `permission:` block (locked agents : those with source `tools: []` : get deny-everything except base `skill`/`task`)
+- **Antigravity CLI**: `.antigravity/plugins/<p>/agents/<agent>.md` (Markdown + YAML frontmatter, `model:` is a tier alias : `inherit`/`flash`/`pro`); TOML commands at `commands/<p>/<cmd>.toml` (agy reports these as "converted to skills"); global install via `make install-antigravity` symlinks each plugin into `~/.gemini/antigravity-cli/plugins/`
 - **Cursor**: reads `.claude/agents/` directly
 
 ## Why this file is short
