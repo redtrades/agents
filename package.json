@@ -1,0 +1,28 @@
+{
+  "name": "@agents/core",
+  "version": "0.0.1",
+  "description": "Agent infrastructure consolidation with AISDLC governance contract",
+  "type": "module",
+  "main": "src/aisdlc.mjs",
+  "exports": {
+    ".": {
+      "types": "./src/aisdlc.ts",
+      "import": "./src/aisdlc.mjs"
+    },
+    "./contract": {
+      "types": "./src/aisdlc.ts",
+      "import": "./src/aisdlc.mjs"
+    }
+  },
+  "scripts": {
+    "test": "node --test tests/**/*.test.mjs",
+    "test:watch": "node --test --watch tests/**/*.test.mjs",
+    "validate": "node tests/validate-contract.mjs"
+  },
+  "keywords": ["agents", "aisdlc", "governance", "contract"],
+  "author": "Jules (async coding agent)",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "ajv": "^8.12.0"
+  }
+}
