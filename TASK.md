@@ -28,9 +28,15 @@ Phase 2: Estate Decluttering & Zero-Loss Worktree Pruning: COMPLETE
   - Pruned `~/.codex/worktrees/agent-knowledge-archive/archive-root` from 11 to 1.
   - Pruned `~/.local/state/agent-platform/...` worktrees down to 1.
   - Committed all 25 modified files in `agent-configs-intent-alignment` (`c932c04`).
-- **Phase 3: Circular Symlink & Estate Cleanup**: READY
-- **Phase 4: Selective Harvesting (CLI Adapters & OMLX)**: READY
-- **Phase 5: GovCon Pipeline Activation**: READY
+- **Phase 3: Deep SOTA Research & Unified Architecture Specification**: COMPLETE
+  - Inspected OpenClaw roots, iCloud archives, and whole-estate vision.
+  - Benchmarked Buzz (Nostr NIP-34/AE), Goose (ACP/MCP), Fusion (visual SDLC board), OpenHands, Aider, and Hermes Agent.
+  - Synthesized 2026 SOTA paradigms: Durable Execution (Hatchet/Temporal), Cyclic State Graphs, E2B microVMs, and Compound Engineering loops.
+  - Penned canonical 9-layer specification: `docs/plans/20260905-unified-swarm-stack-specification.md`.
+  - Penned comprehensive SOTA research reports: `docs/research/20260905-comparative-harness-and-control-plane-research.md` and `docs/research/20260905-sota-durable-execution-and-agentic-patterns.md`.
+- **Phase 4: Clean ADR Ratification & Karpathy Wiki Setup**: READY
+- **Phase 5: Config & Adapter Harvesting into agents**: READY
+- **Phase 6: GovCon Pipeline Activation**: READY
 
 ## Evidence & Verification
 - `git -C /Users/man/agent-sdlc worktree list`: Exactly 1 worktree remaining.
