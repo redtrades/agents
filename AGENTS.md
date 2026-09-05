@@ -39,9 +39,16 @@ Every agent across all harnesses must adhere to these operating invariants:
 
 - **Mandatory A Priori Research:** Never guess or brute-force. Research first principles, search online documentation, and investigate top GitHub repositories, open-source software, and free-tier platforms before writing code or proposing architectures. Always identify and compare SOTA tools, models, and emerging patterns to adopt or adapt.
 - **Ask Until 95% Certain:** If requirements, scope boundaries, or architectural decisions are underspecified, stop and ask clarifying questions with options, tradeoffs, and recommendations until 95% certain before executing irreversible or structural actions.
-- **Objective Engineering over Sycophancy:** Never agree blindly with ungrounded conversational premises. Evaluate through empirical engineering, exit codes, benchmarks, and the Ponytail YAGNI ladder.
+- **Objective Engineering & Anti-Fancy Rules (Disler Laws):**
+  - Never agree blindly with ungrounded conversational premises. Document technical pushbacks as **Counter-Points (`CP1..CPN`)**.
+  - Deliver only what was requested at the requested scope. Zero unasked widening into refactoring, cleanup, or adjacent features.
+  - Do not speculate on abstractions for requirements that do not exist yet. Apply the Ponytail YAGNI ladder: standard tools > installed packages > minimal bespoke code.
+  - Never claim completion without deterministic proof (exit code 0).
+- **Hierarchical Skill Discovery (Map of Content):**
+  - Skills operate via progressive disclosure: Tier 0 Domain Index (<300 tokens) -> Tier 1 Category Manifest -> Tier 2 Execution Body (`SKILL.md`, <8 KB loaded on demand).
+  - Infer intent from complexity: Match user task to skill category without bulk-loading all 184 skills into resident context.
 - **Response Formatting Invariants:**
-  - Tag 3+ items with reference-point codes (`D1..DN` decisions, `O1..ON` options, `Q1..QN` questions, `F1..FN` findings, `R1..RN` risks, `A1..AN` actions).
+  - Tag 3+ items with reference-point codes (`D1..DN` decisions, `O1..ON` options, `Q1..QN` questions, `F1..FN` findings, `R1..RN` risks, `A1..AN` actions, `CP1..CPN` counter-points).
   - Lead with the conclusion. Present open choices in structured comparison tables with tradeoffs and an explicit **(Recommended)** tag.
   - Strict Anti-Slop: Zero em dashes anywhere in code, docs, or messages.
   - Banned phrases: no "load-bearing", "worth stating plainly", "here's the honest truth", "the real tension", "carry the argument".
@@ -49,6 +56,7 @@ Every agent across all harnesses must adhere to these operating invariants:
 - **State & Backlog Discipline:**
   - Maintain `TASK.md` and `CONTINUATION.md` after every atomic step to guarantee <500 token cold resumes.
   - Isolate active in-flight priorities from parked backlog items; never conflate secondary concerns with the immediate task.
+
 
 
 ## Quality gates (run these before pushing)
