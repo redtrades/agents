@@ -22,7 +22,7 @@ UV_TOOLS := uv run $(EVAL_PROJECT) python
 RUFF_PATHS := ../../tools/ src/plugin_eval/
 TY_PATHS := ../../tools/adapters/ ../../tools/generate.py ../../tools/validate_generated.py ../../tools/doc_gardener.py ../../tools/install_opencode.py ../../tools/install_copilot.py ../../tools/install_antigravity.py ../../tools/check_agent_name_collisions.py ../../tools/tests/ src/plugin_eval/
 
-.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test
+.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list
 
 help:
 	@echo "claude-agents — multi-harness plugin marketplace"
@@ -267,3 +267,14 @@ install-antigravity:
 
 uninstall-antigravity:
 	$(UV_TOOLS) tools/install_antigravity.py uninstall
+
+worktree-spawn:
+	@if [ -z "$(TASK)" ]; then echo "ERROR: TASK=<id> required (e.g. make worktree-spawn TASK=issue-1)"; exit 1; fi
+	$(UV_TOOLS) tools/worktree_manager.py spawn $(TASK)
+
+worktree-clean:
+	@if [ -z "$(TASK)" ]; then echo "ERROR: TASK=<id> required (e.g. make worktree-clean TASK=issue-1)"; exit 1; fi
+	$(UV_TOOLS) tools/worktree_manager.py clean $(TASK)
+
+worktree-list:
+	$(UV_TOOLS) tools/worktree_manager.py list

@@ -31,23 +31,26 @@
 10. **Rules & Constitution Synchronized:** `AGENTS.md` and `rules/task-tracking.md` updated with ratified policies; all 4 quality gates verified.
 11. **AGENTS.md Streamlined & Intent Ratified:** Reduced to 51 lines (cap <=150); surfaced constitution, dual mission, non-negotiable invariants (communication grammar, banned phrases, SDLC worktree/queue), and how-to-work first (commit `110e99b`). Ratified `DEC-20260905-22` and `DEC-20260905-23` in `docs/decisions/DECISION_LOG.md` (commit `5533494`). All gates verified (580 tests passed).
 12. **Mandatory Research Invariant Codified & Architecture Authored:** Added Mandatory A Priori Research & Counter-Points to `AGENTS.md` (52 lines). Authored `docs/plans/20260905-sota-swarm-sdlc-and-extraction-architecture.md` covering worktrees, Jules cloud tasks, cross-model review, and archive distillation pipeline. All gates green.
+13. **Worktree Lifecycle & Zero-Loss Automation Implemented:** Built `tools/worktree_manager.py` and `Makefile` targets (`make worktree-spawn`, `make worktree-clean`, `make worktree-list`). Enforces concurrency limit (<=2) and zero-loss backup snapshots (`backup/worktrees/<task-id>`). Unit tested in `tools/tests/test_worktree_manager.py` (582 passed). Closed Issue #1 on GitHub.
 
 ---
 
 ## 3. Active Step (In Progress)
-- **Step Name:** Historic Archive Extraction (Cluster 1: agent-mesh)
-- **Target:** Selectively distill evaluation and benchmark assets from `agent-mesh` into `plugins/plugin-eval/` and `tools/tests/`, verifying with test suite.
+- **Step Name:** Claim and Execute Issue #2 (Cluster 1: agent-mesh evals extraction)
+- **Target:** Inspect `docs/research/20260905-historic-estate-triage.json` for `agent-mesh`, extract high-leverage benchmark suites into `plugins/plugin-eval/` and `tools/tests/`.
 
 ---
 
 ## 4. Modified & Staged Files
-- `AGENTS.md`
+- `Makefile`
+- `tools/worktree_manager.py`
+- `tools/tests/test_worktree_manager.py`
 - `TASK.md`
 - `CONTINUATION.md`
-- `docs/plans/20260905-sota-swarm-sdlc-and-extraction-architecture.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Extract vetted evaluation benchmarks from `agent-mesh` into `plugins/plugin-eval/`.
-2. Run quality gates to confirm clean integration.
+1. Transition Issue #2 to `sdlc:in-flight` on GitHub.
+2. Extract vetted benchmark suites from `agent-mesh`.
+3. Run quality gates to confirm clean integration.
