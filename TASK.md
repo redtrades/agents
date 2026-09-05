@@ -39,13 +39,14 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - `Quality Gates`: `make validate STRICT=1` (OK across 5 harnesses), `make garden` (0 errors), `npm test` (16 passed), `make test` (580 passed).
 - `Upstream Detachment`: Active git remote removed; read-only innovation check available via `make check-upstream`.
 
-## Parked Backlog (On The Board / Side Inquiries)
-- P0 (Parked): GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
-- P1: Review candidate tool clusters (`agent-mesh/evals`, `agent-configs/hooks`) following SDLC gates.
-- P2: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
-- P3: Set up Jules GitHub App issue automation on `redtrades/agents`.
-- P4: Wire Garry Tan GBrain MCP memory server.
-- P5: Package historic `agent-*` folders to `~/archive/` and clean up `~` and iCloud Drive.
+## Parked Backlog (On The Board / Tracked on GitHub redtrades/agents)
+- **Issue #1** (`sdlc:backlog`): Implement native worktree lifecycle recipes and session backup automation.
+- **Issue #2** (`sdlc:backlog`): Distill candidate evaluation harnesses from `agent-mesh` and hooks from `agent-configs`.
+- **Issue #3** (`sdlc:backlog`): Package unneeded legacy `agent-*` repositories to `~/archive/` and prune filesystem.
+- **Issue #4** (`sdlc:backlog`): Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall.
+- **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
+- **Parked (P2)**: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
+- **Parked (P3)**: Set up Jules GitHub App issue automation on `redtrades/agents`.
 
 ## Next Immediate Action
-Review candidate assets in `agent-mesh` using triage manifest and begin distillation into native plugins.
+Execute Issue #1: Implement native worktree lifecycle recipes and session backup automation.
