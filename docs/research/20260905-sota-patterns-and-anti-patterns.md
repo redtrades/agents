@@ -1,3 +1,14 @@
+---
+name: sota-patterns-and-anti-patterns
+version: 1.0.0
+status: ratified
+provenance: research
+created: 2026-09-05
+last_updated: 2026-09-05
+tier: strategic
+description: Catalog of SOTA patterns and anti-patterns for autonomous swarms synthesizing 13 research reports and benchmarks.
+---
+
 # Catalog of SOTA Patterns & Anti-Patterns for Autonomous Swarms (2026)
 
 **Date:** 2026-09-05  

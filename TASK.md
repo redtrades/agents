@@ -34,6 +34,7 @@ Finalize `/Users/man/agents` as the sovereign, unified multi-agent operating eng
 Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 
 ## Evidence & Verification
+- `Legacy Estate Cold Archiving (Issue #3 Closed)`: Relocated all 6 legacy repositories (`agent-mesh`, `agent-configs`, `agent-platform`, `agent-workspace`, `agent-sdlc`, `agent-tools`) into `/Users/man/archive/` without redundant backup bloat. Authored canonical archive inventory in `/Users/man/archive/README.md` with standard YAML frontmatter. Verified `/Users/man/agents` is the sole active repo in `~`. Closed Issue #3 on GitHub `redtrades/agents` and updated Project 13 to Done.
 - `Brain Consolidation & Zero Dangling Documents`: Consolidated `/Users/man/Brain` directly into `/Users/man/agents/brain/` (tracked natively under `redtrades/agents`), backed up previous git history to `~/archive/Brain-git-history-20260905.tar.gz`, created symlinks `/Users/man/Brain -> /Users/man/agents/brain` and `/Users/man/agent-knowledge-archive -> /Users/man/agents/brain`. Swept all loose files from `~`: moved 5 market/competitive reports into `brain/120-market-and-open-source-research/` with 8-digit date prefixes, moved 2 platform audits/tasks into `brain/110-failures-postmortems-and-lessons/`, and moved 4 backup archives into `~/archive/`. All 4 quality gates pass cleanly.
 - `Historical Estate Excavation & Scratchpad Salvage`: Salvaged 50 root session receipts and 91 Claude scratchpad files from `/private/tmp` into `~/agent-reports/tmp-historical-salvage-2026-09-05/` preventing reboot data loss; promoted 9 extracted platform rules into `Brain/100-governance-safety-and-evidence/`, second-brain architecture to `Brain/70-knowledge-context-and-memory/`, issue 106/117 handovers to `Brain/110-failures-postmortems-and-lessons/`, and 3 deep research docs into `agents/docs/research/`.
 - `Brain Knowledge Archive Hygiene`: Migrated 83 files across `/Users/man/Brain` to enforce 8-digit date prefixes (`YYYYMMDD-<name>.md`), versioned domain syntheses (`20260831-current-historical-synthesis.md`), updated 36 internal markdown link references, and committed cleanly to git (`2f5bc9b`).
@@ -52,11 +53,11 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 ## Parked Backlog (On The Board / Tracked on GitHub redtrades/agents)
 - **Issue #1** (`sdlc:done`): Implement native worktree lifecycle recipes and session backup automation. [CLOSED]
 - **Issue #2** (`sdlc:backlog`): Distill candidate evaluation harnesses from `agent-mesh` and hooks from `agent-configs`.
-- **Issue #3** (`sdlc:backlog`): Package unneeded legacy `agent-*` repositories to `~/archive/` and prune filesystem.
+- **Issue #3** (`sdlc:done`): Package unneeded legacy `agent-*` repositories to `~/archive/` and prune filesystem. [CLOSED]
 - **Issue #4** (`sdlc:backlog`): Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall.
 - **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
 - **Parked (P2)**: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
 - **Parked (P3)**: Set up Jules GitHub App issue automation on `redtrades/agents`.
 
 ## Next Immediate Action
-Claim Issue #2: Inspect `agent-mesh` evals via triage manifest and distill into `plugins/plugin-eval/` and `tools/tests/`.
+Claim Issue #2: Inspect `agent-mesh` evals via triage manifest and distill high-leverage benchmarks into `tools/bench/` and hooks into `agents/rules/`.

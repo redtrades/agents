@@ -1,3 +1,14 @@
+---
+name: sota-swarm-sdlc-and-extraction-architecture
+version: 1.0.0
+status: ratified
+provenance: native
+created: 2026-09-05
+last_updated: 2026-09-05
+tier: strategic
+description: Architecture specification for SOTA swarm SDLC, mandatory research protocol, and historic estate extraction.
+---
+
 # Architecture Specification: SOTA Swarm SDLC, Mandatory Research Protocol & Historic Archive Extraction
 
 **Date:** 2026-09-05  

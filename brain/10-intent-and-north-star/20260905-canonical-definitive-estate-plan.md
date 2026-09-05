@@ -1,10 +1,22 @@
+---
+name: canonical-definitive-estate-plan
+version: 1.1.0
+status: ratified
+provenance: native
+created: 2026-09-05
+last_updated: 2026-09-05
+tier: strategic
+description: Master architectural plan for the sovereign multi-agent operating system across agents, brain, and archive.
+---
+
 # Canonical Definitive Estate Plan: The Sovereign Multi-Agent Operating System
 
 **Date:** 2026-09-05  
 **Canonical Source of Truth:** `/Users/man/agents` (GitHub `redtrades/agents`)  
-**Canonical Knowledge Vault:** `/Users/man/Brain` (GitHub `redtrades/agent-knowledge-archive`)  
+**Canonical Knowledge Vault:** `/Users/man/agents/brain` (symlinked from `/Users/man/Brain` and `/Users/man/agent-knowledge-archive`)  
+**Cold Archive:** `/Users/man/archive`  
 **Status:** RATIFIED & CONSOLIDATED  
-**Governing Documents:** `AGENTS.md`, `docs/GLOSSARY.md`, `rules/`, `Brain/10-intent-and-north-star/20260905-unified-intent-and-north-star.md`
+**Governing Documents:** `AGENTS.md`, `docs/GLOSSARY.md`, `rules/`, `brain/10-intent-and-north-star/20260905-unified-intent-and-north-star.md`
 
 ---
 
