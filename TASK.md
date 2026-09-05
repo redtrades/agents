@@ -23,22 +23,24 @@ Establish a zero-bloat, unified multi-agent engineering foundation centered on `
 Phase 7: Horizon 2 Estate Consolidation & Asset Extraction
 
 ## Evidence & Verification
-- `Origin Sync`: Pushed commits up to `115d1bb` to `git@github.com:redtrades/agents.git`.
+- `Origin Sync`: Pushed commits up to `dabb303` to `git@github.com:redtrades/agents.git`.
 - `Brain Established`: Renamed `/Users/man/agent-knowledge-archive` to `/Users/man/Brain` cleanly (no symlink).
 - `Task Ledger`: Created `docs/tasks/README.md` for completed task lifecycle and GitHub commit binding.
-- `Mechanical Triage`: Built and ran `tools/triage_historic_estate.py` (scanned 8,731 files across 5 historic repos with zero LLM tokens; indexed 6 ADRs, 8 rules, 450 tools).
-- `AGENTS.md`: Boris Cherny + Karpathy + Garry Tan + OpenClaw §0 constitution (99 lines, <=150 cap).
+- `Mechanical Triage`: Built and ran `tools/triage_historic_estate.py` (scanned 8,731 files across 5 historic repos with zero LLM tokens).
+- `AGENTS.md`: Full operating constitution with L1-L4 Autonomy, Anti-Wholesale Ingestion Law, Disler SSSF principles, and Scope Containment (107 lines, <=150 cap).
 - `rules/`: 4 distilled living rule files (`communication.md`, `task-tracking.md`, `hygiene.md`, `verification.md`).
-- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` (Level B ledger DEC-01 through DEC-11).
+- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` (Level B ledger DEC-01 through DEC-15).
 - `Quality Gates`: `make garden` (0 errors), `make validate STRICT=1` (OK), `npm test` (16 passed), `make test` (568 passed).
 
-## Parked Backlog (Next In Line)
-- P1: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
-- P2: Set up Jules GitHub App issue automation on `redtrades/agents`.
-- P3: Wire Garry Tan GBrain MCP memory server.
+## Parked Backlog (On The Board / Review Queue)
+- P1: Review and selectively harvest candidate tool clusters (`agent-mesh/evals`, `agent-configs/hooks`) following SDLC gates.
+- P2: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
+- P3: Set up Jules GitHub App issue automation on `redtrades/agents`.
+- P4: Wire Garry Tan GBrain MCP memory server.
 
 ## Next Immediate Action
-Execute Stage 2 of the extraction pipeline: harvest unique decisions and reusable tools from triage manifest, then backfill skill metadata.
+Execute automated skill metadata backfill across plugins/*/skills/ to ensure spec compliance.
+
 
 
 

@@ -22,5 +22,10 @@ Lightweight chronological ledger for operational, tactical, and micro-decisions 
 | **DEC-20260905-09** | 2026-09-05 | Governance | Automatic research and pushback invariant (Never wait to be asked). | Automatically executes research and tags CPs on user proposals. | **ACTIVE** |
 | **DEC-20260905-10** | 2026-09-05 | Knowledge | Adopt Karpathy Wiki-LLM + Garry Tan GBrain MCP memory pattern. | Markdown MOC on disk + PGLite WASM MCP; preserves prompt cache. | **ACTIVE** |
 | **DEC-20260905-11** | 2026-09-05 | Verification | Blind cross-model council review for Tier 3/4 architectural changes. | Eliminates self-judgment bias across heterogeneous model families. | **ACTIVE** |
+| **DEC-20260905-12** | 2026-09-05 | Autonomy | Codify Risk-Tiered Autonomy Ladder (L1-L4) into `AGENTS.md`. | Replaces rigid thread caps with dynamic risk-based gates. | **ACTIVE** |
+| **DEC-20260905-13** | 2026-09-05 | Governance | Codify Anti-Wholesale Ingestion Law into `AGENTS.md`. | Forbids bulk copying of legacy dirs; enforces selective distillation. | **ACTIVE** |
+| **DEC-20260905-14** | 2026-09-05 | Architecture | Adopt Disler SSSF principles: Thin agents, fat Makefile recipes. | Keeps agents focused on judgment; mechanical logic stays in recipes. | **ACTIVE** |
+| **DEC-20260905-15** | 2026-09-05 | SDLC | Park triage asset harvesting to SDLC review queue before execution. | Enforces disciplined review-first lifecycle for historic code. | **ACTIVE** |
+
 
 
