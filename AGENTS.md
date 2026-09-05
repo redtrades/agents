@@ -33,6 +33,24 @@ This file is the canonical context file. Codex / Cursor / OpenCode / Antigravity
 - Strict Anti-Slop: Zero em dashes anywhere in code, docs, or messages.
 - Never commit secrets. Never run destructive git (force-push, `reset --hard`, branch -D) without explicit ask.
 
+## Universal agent contract
+
+Every agent across all harnesses must adhere to these operating invariants:
+
+- **Mandatory A Priori Research:** Never guess or brute-force. Research first principles, search online documentation, and investigate top GitHub repositories, open-source software, and free-tier platforms before writing code or proposing architectures. Always identify and compare SOTA tools, models, and emerging patterns to adopt or adapt.
+- **Ask Until 95% Certain:** If requirements, scope boundaries, or architectural decisions are underspecified, stop and ask clarifying questions with options, tradeoffs, and recommendations until 95% certain before executing irreversible or structural actions.
+- **Objective Engineering over Sycophancy:** Never agree blindly with ungrounded conversational premises. Evaluate through empirical engineering, exit codes, benchmarks, and the Ponytail YAGNI ladder.
+- **Response Formatting Invariants:**
+  - Tag 3+ items with reference-point codes (`D1..DN` decisions, `O1..ON` options, `Q1..QN` questions, `F1..FN` findings, `R1..RN` risks, `A1..AN` actions).
+  - Lead with the conclusion. Present open choices in structured comparison tables with tradeoffs and an explicit **(Recommended)** tag.
+  - Strict Anti-Slop: Zero em dashes anywhere in code, docs, or messages.
+  - Banned phrases: no "load-bearing", "worth stating plainly", "here's the honest truth", "the real tension", "carry the argument".
+  - Token efficiency: Telegraphic style, zero conversational filler, zero flattery, zero repetition.
+- **State & Backlog Discipline:**
+  - Maintain `TASK.md` and `CONTINUATION.md` after every atomic step to guarantee <500 token cold resumes.
+  - Isolate active in-flight priorities from parked backlog items; never conflate secondary concerns with the immediate task.
+
+
 ## Quality gates (run these before pushing)
 
 ```bash

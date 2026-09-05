@@ -187,6 +187,7 @@ generate-all:
 		echo "--- $$h ---"; \
 		$(UV_TOOLS) $(GENERATE) --harness $$h --all --prune || exit 1; \
 	done
+	$(UV_TOOLS) tools/generate_catalog.py
 
 validate:
 ifdef HARNESS
@@ -197,6 +198,10 @@ endif
 
 garden:
 	$(UV_TOOLS) tools/doc_gardener.py $(if $(STRICT),--strict)
+
+catalog:
+	$(UV_TOOLS) tools/generate_catalog.py
+
 
 # Code-quality gates. These MUST run from plugins/plugin-eval/, which is where the
 # [tool.ruff] and [tool.ty] config lives and where CI runs them. Running ruff from the
