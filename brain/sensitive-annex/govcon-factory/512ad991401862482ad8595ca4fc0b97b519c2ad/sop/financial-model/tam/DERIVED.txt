@@ -1,0 +1,22 @@
+FY2025 new-award actions, all-agency, ALL NAICS : 9255
+FY2025 distinct winning firms, all-agency       : 1673
+3yr distinct winning firms (all-agency union)   : 2989
+3yr distinct winning firms (VA union)           : 2092
+
+CURRENT 6 CODES : ['236220', '541330', '561210', '541519', '541512', '541611']
+  FY2025 actions=1849  firm-slots=594
+TOP 12 CODES    : ['236220', '541519', '541330', '541611', '238220', '541512', '237990', '541310', '339113', '541511', '337215', '561320']
+  FY2025 actions=2943  firm-slots=905
+
+Decline FY23->FY25 all-agency actions: -23%
+Decline FY23->FY25 VA actions       : -26%
+
+6 codes    attachable moments/yr @30-50%: 555 - 924
+12 codes   attachable moments/yr @30-50%: 883 - 1472
+all NAICS  attachable moments/yr @30-50%: 2776 - 4628
+
+NOTE: firm counts per NAICS are SLOTS; a firm winning in 2 codes counts twice.
+      Total distinct all-agency FY2025 firms is 1,673, so 6-code slots (594) and
+      12-code slots (905) must be deflated. Using the ratio of slots to the
+      all-NAICS distinct count as the deflator.
+      top-20 slot sum=1227 vs 1,673 distinct across ALL 390 codes.

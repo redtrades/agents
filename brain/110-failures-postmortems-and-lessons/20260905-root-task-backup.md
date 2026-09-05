@@ -1,0 +1,10 @@
+# TASK
+
+GOAL: Run the unified AI SDLC swarm end-to-end: reconcile the Fusion board with reality, fix stale docs/config across the estate, freeze+harvest museum repos, stand up Jules + local CLI swarm (Codex/Grok/Claude/Hermes/OpenCode via FreeLLMAPI) under risk-tiered merge authority, drain the agent-sdlc board, then produce a full arc history + RCA + SOTA-grounded AISDLC redesign.
+DONE-WHEN: (1) no uncommitted/unpushed work lost anywhere under agent-*; (2) Fusion board (SWARM-*) matches GitHub issue reality; (3) museum repos (agent-platform, agent-mesh, agent-workspace, govcon-factory) freeze-bannered + useful code harvested into agent-sdlc; (4) Jules + local swarm actively draining open agent-sdlc issues under merge-authority.md tiers; (5) RCA + redesign doc published.
+SCOPE: /Users/man/agent-sdlc, /Users/man/agent-configs, /Users/man/agent-knowledge-archive, /Users/man/agent-mesh, /Users/man/agent-platform, /Users/man/agent-workspace, /Users/man/agent-tools, Fusion board (localhost:4040), FreeLLMAPI gateway (localhost:3100).
+BOARD: https://github.com/redtrades/agent-sdlc/issues/117
+
+STATUS: Completed first-principles assessment of ~/agent-sdlc/docs/phase-1-planning/ debrief, agent-knowledge-archive, and estate assets. Reconciled the 7 contradictions and 5 implementation gaps identified in the Sonnet review. Resolved the false Symphony-vs-Fusion dichotomy and museum-repo freeze traps. Formulated the unified First-Principles Plan of Attack: harvesting tested adapters/evals into /Users/man/agents, hardening mechanical AISDLC gates (WIP=1, lockfiles, credential pre-flight, two-way Fusion sync), establishing the cost-tiered model matrix, and activating the GovCon revenue pipeline. Published implementation plan artifact awaiting Mike's approval.
+NEXT: Await Mike's review and approval of the First-Principles Plan of Attack and open decision questions; then execute Phase 1 (Estate Harvesting into /Users/man/agents) and Phase 2 (Mechanical AISDLC & Fusion Sync Hardening).
+BLOCKED: Awaiting Mike's review and sign-off on implementation_plan.md decisions.

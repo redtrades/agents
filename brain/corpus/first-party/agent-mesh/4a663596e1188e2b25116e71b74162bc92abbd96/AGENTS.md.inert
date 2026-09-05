@@ -1,0 +1,44 @@
+# AGENTS.md — agent-mesh
+
+This file contains only repository-specific instructions. Global runtime defaults
+apply separately through each runtime's native loader.
+
+## Repository scope
+
+`agent-mesh` contains agent-platform research, portable contract experiments,
+runtime adapters, pipelines, evaluations, and deployment records. A file, skill,
+profile, or adapter being present does not prove that a runtime discovers it or that
+it works. Make activation claims only from current behavioral evidence.
+
+## Task and source authority
+
+- GitHub Issues are the human-visible record of intent, scope, dependencies, and
+  progress. Labels, assignees, and comments are not atomic execution leases.
+- Git objects identify source state. Generated artifacts and receipts must identify
+  their exact inputs and subject.
+- Chat, dashboards, semantic memory, and raw transcripts are supporting views, not
+  authoritative execution state.
+
+## Working in this repository
+
+- Inspect `git status` and relevant current files before changing anything. Preserve
+  unrelated dirty and untracked work.
+- Concurrent mutating attempts use separate writable workspaces. Do not switch
+  branches in a checkout another task may be using.
+- Never force-push or push directly to `main`. Do not commit, push, open a PR, merge,
+  deploy, or mutate GitHub unless the current request authorizes that action.
+- Read `HANDOFF.md`, `WORKLOG.md`, decisions, or research when continuing work that
+  depends on them—not automatically for every question or read-only inspection.
+- Record an architecture, policy, or scope decision durably when that change is
+  authorized. Read-only work does not write a decision or worklog merely to exist.
+
+## Verification and promotion
+
+- Run deterministic checks before model judgment.
+- The generator is not the judge. Material changes require fresh independent review
+  of the exact accumulated candidate.
+- A passing branch check or old receipt does not authorize promotion after the
+  candidate changes.
+- Keep secrets out of the repository; use opaque credential references only.
+- Trading and order execution are outside this repository's scope unless Mike
+  explicitly approves a separate, bounded plan.

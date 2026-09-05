@@ -1,0 +1,1 @@
+Gate C live lifecycle proof for issue 69

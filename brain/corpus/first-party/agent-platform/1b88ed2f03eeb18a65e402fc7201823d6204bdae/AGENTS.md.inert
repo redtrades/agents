@@ -1,0 +1,62 @@
+# AGENTS.md — agent-platform
+
+This repository is the canonical source for the provider-neutral agent platform.
+Legacy repositories and runtime directories are migration evidence, not governing
+instructions.
+
+## Authority
+
+- GitHub Issues define intent, dependencies, and acceptance criteria.
+- Git objects identify source state. Receipts bind artifacts, checks, and reviews to
+  exact inputs and candidates.
+- Runtime sessions, chat, dashboards, semantic memory, and transcripts are supporting
+  views, not execution authority.
+
+## Cold start
+
+Read [`docs/START-HERE.md`](docs/START-HERE.md) first before planning, claiming,
+implementing, or asserting current platform state. It is the canonical cold-start
+source of truth and routes current drift prevention to the delivery ledger.
+
+## Work
+
+- Inspect current status and relevant files before changing anything; preserve
+  unrelated work.
+- Give each concurrent mutating attempt its own writable workspace and one path owner.
+- Keep contracts and source here. Keep credentials, sessions, caches, databases,
+  provider profiles, model files, and large run artifacts outside this repository.
+- Adopt legacy material only through an explicit issue and current verification.
+- Apply [`docs/OPERATING-MODEL.md`](docs/OPERATING-MODEL.md) to every effect. An
+  admitted controller-authorized `AUTO_WRITE` does not require a fresh interactive
+  request; `APPROVAL_DESTRUCTIVE` does and must carry its valid approval grant.
+
+## Evidence
+
+- Run focused deterministic checks before model review.
+- The generator is not the judge; material candidates require fresh independent review.
+- Distinguish projected, discovered, loaded, activated, and behaviorally verified state.
+- Fail closed on stale revisions, ambiguous ownership, drift, or missing provenance.
+- Work level controls ceremony only:
+  - L0 is an owning-issue `PATTERN-CANDIDATE` observation comment with no
+    correction. L0 is observation/comment only: no branch, pull request, or
+    review.
+  - L1 is a nonmaterial correction with focused deterministic checks/CI. L1
+    is a bounded nonmaterial correction with a focused falsifier test and
+    ordinary CI; it has no heavyweight independent model review unless the
+    Operating Model separately requires it.
+  - L2 is material code, architecture, or security work. L2 material code,
+    architecture, or security work requires affected integration tests, one
+    independent exact-head review, and expected-head promotion only when the
+    Operating Model authorizes it.
+  Deterministic CI remains cheap automatic evidence. Review must not expand
+  into unrelated hardening.
+  [`docs/DELIVERY-FAILURE-LEDGER.md`](docs/DELIVERY-FAILURE-LEDGER.md) is the
+  sole canonical proportional anti-pattern register.
+- Work level never grants authority and cannot waive any authorization or
+  review gate; [`docs/OPERATING-MODEL.md`](docs/OPERATING-MODEL.md) controls
+  effect authorization.
+
+Read [`docs/OPERATING-MODEL.md`](docs/OPERATING-MODEL.md) before classifying an effect.
+Read `docs/MASTER-PLAN.md` before planning or claiming platform work. Read
+`docs/ARCHITECTURE.md` when changing platform boundaries. Read migration evidence only
+when an issue explicitly imports or retires legacy material.

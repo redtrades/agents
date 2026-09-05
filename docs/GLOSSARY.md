@@ -6,9 +6,9 @@ Authoritative reference for terms, architectures, and taxonomies across the mult
 
 ## 1. Core Systems & Repositories
 
-- **`agents` (`/Users/man/agents`):** The primary multi-harness agentic execution engine (fork `redtrades/agents` from `wshobson/agents`). Houses universal Markdown agents, skills, and commands compiled via `tools/generate.py` across 5 harnesses.
-- **`Brain` (`/Users/man/Brain`):** The single, canonical Markdown Knowledge Vault (formerly `agent-knowledge-archive`). Houses operator intent, North Star, architecture ADRs, domain models, and post-mortems. Governed by Karpathy Wiki principles.
-- **`GBrain` (`garrytan/gbrain`):** A lightweight Model Context Protocol (MCP) server built with Bun and PGLite (embedded WASM Postgres). Used exclusively for operator preferences, credentials pointers, and cross-session entity memory.
+- **`agents` (`/Users/man/agents`):** The primary multi-harness agentic execution engine (fork `redtrades/agents` from `wshobson/agents`). Houses universal Markdown agents, skills, commands, and the consolidated `brain/` knowledge vault.
+- **`Brain` (`/Users/man/agents/brain`):** The single, canonical Markdown Knowledge Vault, symlinked from `/Users/man/Brain` and `/Users/man/agent-knowledge-archive`. Houses operator intent, North Star, architecture ADRs, domain models, and post-mortems. Governed by Karpathy Wiki principles.
+- **`GBrain` (`garrytan/gbrain`):** A lightweight Model Context Protocol (MCP) server built with Bun and PGLite (embedded WASM Postgres). Serves persistent operator memory and vector search over `/Users/man/agents/brain/`.
 - **Historic Repositories:** Legacy implementation attempts (`agent-platform`, `agent-mesh`, `agent-workspace`, `agent-sdlc`, `agent-configs`). Slated for selective distillation and cold compression into `~/archive/`.
 
 ---

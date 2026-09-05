@@ -1,0 +1,28 @@
+# Heartbeat log
+
+Append-only. One line per enforcer per run of scripts/heartbeat.sh.
+
+- 2026-08-15T18:01:56Z enforcer=rule-1 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:01:56Z enforcer=rule-2 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:01:56Z enforcer=rule-3 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:01:56Z enforcer=rule-3b status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:01:56Z enforcer=rule-4 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:01:56Z enforcer=rule-5 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:11Z enforcer=rule-1 status=FAIL detail="did not reject known-bad fixture"
+- 2026-08-15T18:02:11Z enforcer=rule-2 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:11Z enforcer=rule-3 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:11Z enforcer=rule-3b status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:11Z enforcer=rule-4 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:11Z enforcer=rule-5 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:35Z enforcer=rule-1 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:35Z enforcer=rule-2 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:35Z enforcer=rule-3 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:35Z enforcer=rule-3b status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:35Z enforcer=rule-4 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:02:35Z enforcer=rule-5 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:05:43Z enforcer=rule-1 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:05:43Z enforcer=rule-2 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:05:43Z enforcer=rule-3 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:05:43Z enforcer=rule-3b status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:05:43Z enforcer=rule-4 status=ok detail="rejected known-bad fixture as expected"
+- 2026-08-15T18:05:43Z enforcer=rule-5 status=ok detail="rejected known-bad fixture as expected"
