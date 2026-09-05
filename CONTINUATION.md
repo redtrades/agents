@@ -29,7 +29,7 @@
    - `DEC-20260905-14` (RATIFIED): Adaptive hybrid execution; combine Ponytail mechanical recipes and deterministic checks with lean agent prompts, refining variants as swarm matures.
    - `DEC-20260905-21` (RATIFIED): Selective swarm & cost-optimized compute routing; maximize free-tier cloud and Jules async; reserve frontier subscriptions for interactive leads; local M16 models for non-time-bound long runs.
 10. **Rules & Constitution Synchronized:** `AGENTS.md` and `rules/task-tracking.md` updated with ratified policies; all 4 quality gates verified.
-11. **AGENTS.md Streamlined & Fluff Pruned:** Reduced to 51 lines (cap <=150); surfaced constitution, dual mission, non-negotiable invariants (communication grammar, banned phrases, SDLC worktree/queue), and how-to-work first; pruned external upstream links, 16-item doc catalog, and transpilation mechanics. All gates verified (580 tests passed).
+11. **AGENTS.md Streamlined & Intent Ratified:** Reduced to 51 lines (cap <=150); surfaced constitution, dual mission, non-negotiable invariants (communication grammar, banned phrases, SDLC worktree/queue), and how-to-work first (commit `110e99b`). Ratified `DEC-20260905-22` and `DEC-20260905-23` in `docs/decisions/DECISION_LOG.md` (commit `5533494`). All gates verified (580 tests passed).
 
 ---
 
