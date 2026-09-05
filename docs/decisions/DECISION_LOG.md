@@ -19,4 +19,8 @@ Lightweight chronological ledger for operational, tactical, and micro-decisions 
 | **DEC-20260905-06** | 2026-09-05 | Architecture | 3-Tier Map of Content (MOC) progressive disclosure for all skills. | Keeps resident prompt <300 tokens; prevents 27k token context blowout. | **ACTIVE** |
 | **DEC-20260905-07** | 2026-09-05 | Governance | Hardcode Disler anti-fancy laws and CP counter-points in `AGENTS.md`. | Enforces strict scope containment, YAGNI, and exit code 0 proof. | **ACTIVE** |
 | **DEC-20260905-08** | 2026-09-05 | Orchestration | Complexity-adaptive hybrid skill intent inference ladder. | T1 skips skills, T2 checks domain triggers, T3/T4 activates MOC. | **ACTIVE** |
+| **DEC-20260905-09** | 2026-09-05 | Governance | Automatic research and pushback invariant (Never wait to be asked). | Automatically executes research and tags CPs on user proposals. | **ACTIVE** |
+| **DEC-20260905-10** | 2026-09-05 | Knowledge | Adopt Karpathy Wiki-LLM + Garry Tan GBrain MCP memory pattern. | Markdown MOC on disk + PGLite WASM MCP; preserves prompt cache. | **ACTIVE** |
+| **DEC-20260905-11** | 2026-09-05 | Verification | Blind cross-model council review for Tier 3/4 architectural changes. | Eliminates self-judgment bias across heterogeneous model families. | **ACTIVE** |
+
 
