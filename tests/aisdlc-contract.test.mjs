@@ -11,8 +11,8 @@ import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-// Import contract validation functions (would be compiled from aisdlc.ts)
-// For now, we'll test the JSON schema directly
+import { validateContract, authorityBoundary, ContractValidationError } from '../src/aisdlc.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const schemaPath = path.join(__dirname, '../schemas/aisdlc-contract.json');
 const schemaSource = fs.readFileSync(schemaPath, 'utf8');
@@ -137,6 +137,141 @@ test('TypeScript and JSON Schema are synchronized', () => {
 
 test('schema disallows additional properties', () => {
   assert.strictEqual(schema.additionalProperties, false, 'Schema should not allow additional properties');
+});
+
+test('validateContract rejects invalid headSha formats', () => {
+  const validPayload = {
+    issue: '123',
+    owner: 'harness/session',
+    paths: ['src/index.js'],
+    phase: 'sdlc:implement'
+  };
+
+  const testCases = [
+    { name: 'uppercase hex', sha: 'ABCDEF0123456789ABCDEF0123456789ABCDEF01' },
+    { name: 'length < 40', sha: 'abcdef0123456789abcdef0123456789abcdef0' },
+    { name: 'length > 40', sha: 'abcdef0123456789abcdef0123456789abcdef01a' },
+    { name: 'non-hex characters', sha: 'ghijklmnopqrstuvwxyz0123456789abcdef0123' },
+  ];
+
+  for (const tc of testCases) {
+    assert.throws(
+      () => validateContract({ ...validPayload, headSha: tc.sha }),
+      ContractValidationError,
+      `Should reject headSha with ${tc.name}`
+    );
+  }
+});
+
+test('validateContract rejects invalid phase transitions', () => {
+  const validPayload = {
+    issue: '123',
+    owner: 'harness/session',
+    paths: ['src/index.js'],
+    headSha: 'abcdef0123456789abcdef0123456789abcdef01'
+  };
+
+  const invalidPhases = ['sdlc:unknown', 'implement', 'sdlc: done', ''];
+
+  for (const phase of invalidPhases) {
+    // toString throws TypeError for empty strings (via isString length check)
+    // while invalid string phases throw ContractValidationError
+    const expectedError = phase === '' ? TypeError : ContractValidationError;
+    assert.throws(
+      () => validateContract({ ...validPayload, phase }),
+      expectedError,
+      `Should reject invalid phase: ${phase}`
+    );
+  }
+});
+
+test('validateContract rejects invalid owner formats', () => {
+  const validPayload = {
+    issue: '123',
+    paths: ['src/index.js'],
+    headSha: 'abcdef0123456789abcdef0123456789abcdef01',
+    phase: 'sdlc:implement'
+  };
+
+  const invalidOwners = [
+    'missing-slash',
+    'harness/ session',
+    'harness /session',
+    '/session',
+    'harness/',
+    '//',
+    '',
+  ];
+
+  for (const owner of invalidOwners) {
+    const expectedError = owner === '' ? TypeError : ContractValidationError;
+    assert.throws(
+      () => validateContract({ ...validPayload, owner }),
+      expectedError,
+      `Should reject invalid owner: '${owner}'`
+    );
+  }
+});
+
+test('validateContract rejects invalid paths edge cases', () => {
+  const validPayload = {
+    issue: '123',
+    owner: 'harness/session',
+    headSha: 'abcdef0123456789abcdef0123456789abcdef01',
+    phase: 'sdlc:implement'
+  };
+
+  assert.throws(
+    () => validateContract({ ...validPayload, paths: [] }),
+    ContractValidationError,
+    'Should reject empty paths array'
+  );
+
+  assert.throws(
+    () => validateContract({ ...validPayload, paths: ['src', 123, 'tests'] }),
+    ContractValidationError,
+    'Should reject paths array with non-string elements'
+  );
+
+  assert.throws(
+    () => validateContract({ ...validPayload, paths: ['src', ''] }),
+    ContractValidationError,
+    'Should reject paths array with empty string elements'
+  );
+
+  assert.throws(
+    () => validateContract({ ...validPayload, paths: ['../src/index.js'] }),
+    ContractValidationError,
+    'Should reject parent directory traversal'
+  );
+  
+  assert.throws(
+    () => validateContract({ ...validPayload, paths: ['src/../../index.js'] }),
+    ContractValidationError,
+    'Should reject parent directory traversal inside path'
+  );
+});
+
+test('authorityBoundary returns frozen objects', () => {
+  const validPayload = {
+    issue: '123',
+    owner: 'harness/session',
+    paths: ['src/index.js', 'docs/README.md'],
+    headSha: 'abcdef0123456789abcdef0123456789abcdef01',
+    phase: 'sdlc:implement'
+  };
+
+  const validated = validateContract(validPayload);
+  const boundary = authorityBoundary(validated);
+
+  assert.ok(Object.isFrozen(boundary), 'authorityBoundary should return a frozen object');
+  assert.ok(Object.isFrozen(boundary.paths), 'authorityBoundary.paths should be a frozen array');
+  
+  // Verify expected properties are present and match
+  assert.strictEqual(boundary.issue, validPayload.issue);
+  assert.strictEqual(boundary.owner, validPayload.owner);
+  assert.strictEqual(boundary.headSha, validPayload.headSha);
+  assert.deepStrictEqual(boundary.paths, validPayload.paths);
 });
 
 console.log('✓ All AISDLC contract validation tests passed');

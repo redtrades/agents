@@ -91,6 +91,10 @@ export function validateContract(payload) {
     throw new ContractValidationError('paths must be a non-empty array of strings');
   }
 
+  if (pathsRaw.some((entry) => entry.includes('..'))) {
+    throw new ContractValidationError('paths must not contain parent directory traversal');
+  }
+
   if (typeof headSha !== 'string' || !SHA_RE.test(headSha)) {
     throw new ContractValidationError('headSha must be a 40-character lowercase hex SHA');
   }

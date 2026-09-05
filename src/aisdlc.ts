@@ -70,6 +70,9 @@ function toNonEmptyStringArray(value: unknown, name: string): readonly string[] 
   if (!value.every(isString)) {
     throw new ContractValidationError(`${name} must be an array of non-empty strings`);
   }
+  if (value.some((entry) => entry.includes('..'))) {
+    throw new ContractValidationError(`${name} must not contain parent directory traversal`);
+  }
   return Object.freeze([...value]);
 }
 
