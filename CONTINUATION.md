@@ -30,21 +30,24 @@
    - `DEC-20260905-21` (RATIFIED): Selective swarm & cost-optimized compute routing; maximize free-tier cloud and Jules async; reserve frontier subscriptions for interactive leads; local M16 models for non-time-bound long runs.
 10. **Rules & Constitution Synchronized:** `AGENTS.md` and `rules/task-tracking.md` updated with ratified policies; all 4 quality gates verified.
 11. **AGENTS.md Streamlined & Intent Ratified:** Reduced to 51 lines (cap <=150); surfaced constitution, dual mission, non-negotiable invariants (communication grammar, banned phrases, SDLC worktree/queue), and how-to-work first (commit `110e99b`). Ratified `DEC-20260905-22` and `DEC-20260905-23` in `docs/decisions/DECISION_LOG.md` (commit `5533494`). All gates verified (580 tests passed).
+12. **Mandatory Research Invariant Codified & Architecture Authored:** Added Mandatory A Priori Research & Counter-Points to `AGENTS.md` (52 lines). Authored `docs/plans/20260905-sota-swarm-sdlc-and-extraction-architecture.md` covering worktrees, Jules cloud tasks, cross-model review, and archive distillation pipeline. All gates green.
 
 ---
 
 ## 3. Active Step (In Progress)
-- **Step Name:** Research Process Breakdown & Archive Extraction Roadmap
-- **Target:** Detail the research methodology for finding SOTA AGENTS.md examples and propose the concrete extraction pipeline for legacy agent-* archives.
+- **Step Name:** Historic Archive Extraction (Cluster 1: agent-mesh)
+- **Target:** Selectively distill evaluation and benchmark assets from `agent-mesh` into `plugins/plugin-eval/` and `tools/tests/`, verifying with test suite.
 
 ---
 
 ## 4. Modified & Staged Files
+- `AGENTS.md`
 - `TASK.md`
 - `CONTINUATION.md`
+- `docs/plans/20260905-sota-swarm-sdlc-and-extraction-architecture.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Detail the 5-step primary-source research process for AGENTS.md benchmarking.
-2. Lay out the phase roadmap for extracting agent-mesh, agent-platform, agent-configs before packing to ~/archive/.
+1. Extract vetted evaluation benchmarks from `agent-mesh` into `plugins/plugin-eval/`.
+2. Run quality gates to confirm clean integration.

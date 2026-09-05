@@ -23,18 +23,20 @@ Finalize `/Users/man/agents` as the sovereign, unified multi-agent operating eng
 11. One-at-a-time decision ratification protocol active with Mike. [COMPLETED]
 12. Consolidate native skills & research from agent-configs into agents (Phases 1-4). [COMPLETED]
 13. Finalize `AGENTS.md` with inlined communication grammar, SDLC worktree/queue invariants, and dual-mission intent while maintaining <=150 lines. [COMPLETED]
-14. Historic estate triage: selectively distill candidate tools/skills, pack unneeded `agent-*` to `~/archive/`, and verify swarm SDLC. [IN_PROGRESS]
+14. Codify Mandatory A Priori Research & Counter-Points invariant into `AGENTS.md` and author canonical SOTA Swarm SDLC and Extraction Architecture plan (`docs/plans/20260905-sota-swarm-sdlc-and-extraction-architecture.md`). [COMPLETED]
+15. Historic estate triage: selectively distill candidate tools/skills, pack unneeded `agent-*` to `~/archive/`, and verify swarm SDLC. [IN_PROGRESS]
 
 ## Active Phase
 Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 
 ## Evidence & Verification
 - `Decision Ratification`: All key governance decisions ratified with Mike (`DEC-18` sovereign split, `DEC-19` estate namespace rejected, `DEC-20` advisory balance precedence, `DEC-14` adaptive hybrid execution, `DEC-21` cost-optimized compute & swarm routing, `DEC-22` streamlined AGENTS.md constitution, `DEC-23` unified estate dual mission).
+- `Mandatory Research Invariant`: Codified directly into `AGENTS.md` (52 lines, cap <=150) as a Non-Negotiable Hard Gate requiring automatic internal research, SOTA GitHub benchmarking, and counter-points (`CP1..CPN`) before engineering work.
+- `SOTA Swarm Architecture Authored`: `docs/plans/20260905-sota-swarm-sdlc-and-extraction-architecture.md` documents research protocol, Git worktree mechanics, Jules cloud offloading, cross-model review, and archive distillation pipeline.
 - `Skills Consolidation`: Distilled 104 raw skills into 6 first-class native plugins (41 curated skills). Total skills: 225 across 100 plugins.
 - `Skills MOC Integrity`: All skills verified <=8 KB. Automated MOC generator (`tools/generate_catalog.py`) built `docs/skills-moc.md`.
 - `Zero Em Dashes`: Full codebase and markdown docs verified 100% clean of em/en dashes.
 - `Quality Gates`: `make validate STRICT=1` (OK across 5 harnesses), `make garden` (0 errors), `npm test` (16 passed), `make test` (580 passed).
-- `AGENTS.md Streamlined`: 51 lines (cap <=150), surfaces constitution, hard gates, and how-to-work first, zero fluff, zero banned phrases, zero em dashes.
 - `Upstream Detachment`: Active git remote removed; read-only innovation check available via `make check-upstream`.
 
 ## Parked Backlog (On The Board / Side Inquiries)
@@ -46,4 +48,4 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - P5: Package historic `agent-*` folders to `~/archive/` and clean up `~` and iCloud Drive.
 
 ## Next Immediate Action
-Detail the rigorous research and evaluation process for finding SOTA AGENTS.md examples and lay out the archive extraction / swarm SDLC execution plan.
+Review candidate assets in `agent-mesh` using triage manifest and begin distillation into native plugins.
