@@ -48,17 +48,18 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - `Skills Consolidation`: Distilled 104 raw skills into 6 first-class native plugins (41 curated skills). Total skills: 225 across 100 plugins.
 - `Skills MOC Integrity`: All skills verified <=8 KB. Automated MOC generator (`tools/generate_catalog.py`) built `docs/skills-moc.md`.
 - `Zero Em Dashes`: Full codebase and markdown docs verified 100% clean of em/en dashes.
-- `Quality Gates`: `make validate STRICT=1` (OK across 5 harnesses), `make garden` (0 errors), `npm test` (16 passed), `make test` (589 passed).
-- `Upstream Detachment`: Active git remote removed; read-only innovation check available via `make check-upstream`.
+- `Quality Gates`: `make validate STRICT=1` (OK across 5 harnesses), `make garden` (0 errors), `npm test` (16 passed), `make test` (594 passed).
+- `GBrain PGLite WASM MCP Memory (Issue #4 Closed)`: Wired Garry Tan GBrain PGLite memory (`~/.gbrain/brain.pglite`) into `redtrades/agents` via lean MCP proxy (`tools/gbrain_mcp.py`). Indexed 373 brain markdown files (2,162 chunks), verified 64.6ms warm query latency, capped token overhead at 286 tokens (well below 800-token limit), added 5 unit tests (`tools/tests/test_gbrain_mcp.py`), and configured multi-harness entries across `.mcp.json`, `~/.claude/settings.json`, `~/.claude.json`, and `~/.codex/config.toml`. Closed Issue #4 on GitHub and updated Project 13 to Done.
+- `Upstream Detachment`: Active git remote removed, read-only innovation check available via `make check-upstream`.
 
 ## Parked Backlog (On The Board / Tracked on GitHub redtrades/agents)
 - **Issue #1** (`sdlc:done`): Implement native worktree lifecycle recipes and session backup automation. [CLOSED]
 - **Issue #2** (`sdlc:done`): Distill candidate evaluation harnesses from `agent-mesh` and hooks from `agent-configs`. [CLOSED]
 - **Issue #3** (`sdlc:done`): Package unneeded legacy `agent-*` repositories to `~/archive/` and prune filesystem. [CLOSED]
-- **Issue #4** (`sdlc:backlog`): Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall.
+- **Issue #4** (`sdlc:done`): Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall. [CLOSED]
 - **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
 - **Parked (P2)**: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
 - **Parked (P3)**: Set up Jules GitHub App issue automation on `redtrades/agents`.
 
 ## Next Immediate Action
-Claim Issue #4: Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall.
+Review Project 13 completion with Mike and claim next high-ROI initiative: either Parked P3 (Jules GitHub App automation for async cloud agent tasks) or Parked P2 (Hermes progressive disclosure configuration).

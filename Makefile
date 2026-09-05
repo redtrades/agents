@@ -22,7 +22,7 @@ UV_TOOLS := uv run $(EVAL_PROJECT) python
 RUFF_PATHS := ../../tools/ src/plugin_eval/
 TY_PATHS := ../../tools/adapters/ ../../tools/generate.py ../../tools/validate_generated.py ../../tools/doc_gardener.py ../../tools/install_opencode.py ../../tools/install_copilot.py ../../tools/install_antigravity.py ../../tools/check_agent_name_collisions.py ../../tools/tests/ src/plugin_eval/
 
-.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks
+.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks gbrain-check gbrain-sync
 
 help:
 	@echo "claude-agents — multi-harness plugin marketplace"
@@ -290,3 +290,9 @@ worktree-clean:
 
 worktree-list:
 	$(UV_TOOLS) tools/worktree_manager.py list
+
+gbrain-check:
+	@python3 tools/gbrain_mcp.py --check-tokens
+
+gbrain-sync:
+	@/Users/man/.bun/bin/gbrain sync --source brain

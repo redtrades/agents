@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gbrain": {
+      "command": "python3",
+      "args": ["/Users/man/agents/tools/gbrain_mcp.py"]
+    }
+  }
+}

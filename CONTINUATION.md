@@ -37,26 +37,28 @@
 16. **Brain Consolidation & Zero Dangling Documents:** Consolidated `/Users/man/Brain` directly into `/Users/man/agents/brain/` (tracked natively under `redtrades/agents`), created backward-compatible symlinks (`/Users/man/Brain` and `/Users/man/agent-knowledge-archive`), swept all loose documents from `~` (moved 5 market reports to `brain/120-market-and-open-source-research/`, 2 postmortems/tasks to `brain/110-failures-postmortems-and-lessons/`, and 4 backups to `~/archive/`). All 4 quality gates verified.
 17. **Legacy Estate Cold Archiving (Issue #3 Closed):** Relocated all 6 legacy repositories (`agent-mesh`, `agent-configs`, `agent-platform`, `agent-workspace`, `agent-sdlc`, `agent-tools`) into `/Users/man/archive/` without backup bloat. Authored canonical archive inventory in `/Users/man/archive/README.md` with standard YAML frontmatter. Updated Project 13 to Done and closed Issue #3 on GitHub.
 18. **Evals & Safety Hooks Distillation (Issue #2 Closed):** Extracted write-blocking hook to `tools/hooks/block-home-root-writes.sh` and wired `make install-hooks`. Extracted M1 Max roofline benchmark to `tools/bench/m1_roofline.py` with unit tests and `make bench`. Closed Issue #2 on GitHub Project 13. All 589 tests pass.
+19. **GBrain PGLite WASM MCP Memory Wiring (Issue #4 Closed):** Wired Garry Tan GBrain PGLite memory (`~/.gbrain/brain.pglite`) into `redtrades/agents`. Built lean MCP proxy `tools/gbrain_mcp.py` with 5 unit tests (`tools/tests/test_gbrain_mcp.py`), capped token overhead at 286 tokens (limit 800), indexed 373 brain markdown files (2,162 chunks), verified 64.6ms warm query latency, and configured `.mcp.json`, `~/.claude/settings.json`, `~/.claude.json`, and `~/.codex/config.toml`. Closed Issue #4 on GitHub and updated Project 13 to Done.
 
 ---
 
-## 3. Active Step (In Progress)
-- **Step Name:** Claim and Execute Issue #4 (GBrain PGLite WASM MCP Memory Wiring)
-- **Target:** Configure Bun + PGLite WASM MCP server (`~/.gbrain/brain.pglite`) pointing to `/Users/man/agents/brain/` Tier A canonical knowledge.
+## 3. Active Step (Completed / Pending Next Claim)
+- **Step Name:** Project 13 Four Core Issues Completed (Worktrees, Extraction, Archiving, Memory)
+- **Target:** Review next priority track with Mike (Parked P3 Jules Cloud Task Automation or Parked P2 Hermes Progressive Disclosure).
 
 ---
 
 ## 4. Modified & Staged Files
-- `tools/hooks/block-home-root-writes.sh`
-- `tools/bench/m1_roofline.py`
-- `tools/tests/test_bench_roofline.py`
+- `tools/gbrain_mcp.py`
+- `tools/tests/test_gbrain_mcp.py`
+- `.mcp.json`
 - `Makefile`
+- `brain/corpus/first-party/agent-workspace/bc44e05be7c3d3f6e65c885e793c30c44b6eaa8b/tasks/TASK-0002.md`
 - `TASK.md`
 - `CONTINUATION.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Transition Issue #4 to `sdlc:in-flight` on GitHub Project 13.
-2. Wire GBrain PGLite WASM MCP server for cross-session recall.
-3. Verify sub-second retrieval across sessions.
+1. Review Project 13 milestone completion with Mike.
+2. Formally claim next high-ROI initiative (Jules async cloud agent automation vs Hermes progressive disclosure).
+3. Commit and push current verified state to `origin/main`.
