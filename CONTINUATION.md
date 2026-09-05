@@ -8,8 +8,8 @@
 ---
 
 ## 1. Active Phase & Status
-- **Current Phase:** Phase 7 - Horizon 2 Estate Consolidation & Foundation Hardening
-- **Overall Status:** IN_PROGRESS (Skills MOC Resolved, AGENTS.md Hardened, Ready for Q1 Ratification)
+- **Current Phase:** Phase 8 - Native Skills & Research Consolidation (Distillation, MECE Dedup, MOC Generator, Multi-Harness Sync)
+- **Overall Status:** IN_PROGRESS
 
 ---
 
@@ -19,25 +19,23 @@
 3. **Multi-Harness Generation:** Executed `make generate-all` across codex, copilot, cursor, opencode, and antigravity (834 files verified).
 4. **Decision Rollback to PROPOSED:** Reset DEC-14 (SSSF), DEC-18 (fork split), DEC-19 (estate namespace), and DEC-20 (conflict policy) to `PROPOSED` until Mike explicitly confirms each one.
 5. **Brain Vault Intent Tagged PROPOSED:** Marked `20260905-unified-intent-and-north-star.md` as `PROPOSED (Draft Pending One-by-One Operator Ratification)`.
+6. **Discovered Native Estate Skills & Research:** Located 107 local skills in `agent-configs/skills/` (`~/.agents/skills/`), foundational research in `agent-configs/knowledge/`, and SOTA Hermes skillify/memory mechanics.
 
 ---
 
 ## 3. Active Step (In Progress)
-- **Step Name:** One-at-a-Time Decision Ratification
-- **Target:** Present Question 1 to Mike on modular, composable, harness-agnostic architecture.
+- **Step Name:** Phase 1 - Knowledge & Research Transfer
+- **Target:** Transfer and normalize foundational research files from `agent-configs` into `docs/research/`.
 
 ---
 
 ## 4. Modified & Staged Files
-- `AGENTS.md` (Map links to rules, decisions, glossary)
-- `docs/decisions/DECISION_LOG.md` (unconfirmed decisions set to PROPOSED)
-- `plugins/*/skills/*/SKILL.md` (9 skills refactored to MOC)
-- `plugins/*/skills/*/references/details.md` (9 detail reference files added)
-- `tools/split_oversize_skills.py` (utility script)
 - `TASK.md` & `CONTINUATION.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Present Question 1 to Mike.
-2. Await Mike's direction and record ratified outcome.
+1. Copy `agent-configs/knowledge/public-agent-instructions-and-skills-research-2026-09-02.md` to `docs/research/20260902-public-agent-instructions-and-skills-research.md`.
+2. Copy `agent-configs/SKILLS-ADOPTION-ROADMAP.md` to `docs/research/20260904-skills-adoption-roadmap.md`.
+3. Copy `agent-configs/knowledge/MIKE-INTENT-DEBRIEF-2026-08-28.md` to `docs/research/20260828-mike-intent-debrief.md`.
+4. Scrub em/en dashes and verify with `make garden`.

@@ -21,9 +21,10 @@ Establish a zero-bloat, unified multi-agent engineering foundation centered on `
 9. SOTA Patterns & Anti-Patterns catalog authored (`docs/research/20260905-sota-patterns-and-anti-patterns.md`). [COMPLETED]
 10. All 9 oversize skills refactored into MOC + references/details.md (0 skill warnings in make garden). [COMPLETED]
 11. One-at-a-time decision ratification protocol active with Mike. [IN_PROGRESS]
+12. Consolidate native skills & research from agent-configs into agents (Phases 1-4). [IN_PROGRESS]
 
 ## Active Phase
-Phase 7: Horizon 2 Estate Consolidation & Foundation Hardening
+Phase 8: Native Skills & Research Consolidation (Distillation, MECE Dedup, MOC Generator, Multi-Harness Sync)
 
 ## Evidence & Verification
 - `Skills MOC Integrity`: Refactored all 9 oversize skills (>8 KB) into `references/details.md`. `make garden` reports 0 `SKILL_OVER_CODEX_CAP` warnings.
@@ -39,4 +40,4 @@ Phase 7: Horizon 2 Estate Consolidation & Foundation Hardening
 - P5: Package historic `agent-*` folders to `~/archive/` and clean up `~` and iCloud Drive.
 
 ## Next Immediate Action
-Present Question 1 to Mike (Model Tiering & Architecture Composability) for explicit ratification.
+Execute Phase 1: Transfer and normalize research docs from agent-configs to docs/research/.
