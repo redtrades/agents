@@ -8,7 +8,7 @@
 ---
 
 ## 1. Active Phase & Status
-- **Current Phase:** Phase 11 - Constitutional Finalization of `AGENTS.md` & Intent Ratification
+- **Current Phase:** Phase 12 - Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - **Overall Status:** IN_PROGRESS
 
 ---
@@ -34,17 +34,17 @@
 ---
 
 ## 3. Active Step (In Progress)
-- **Step Name:** Commit & Finalize Turn
-- **Target:** Report verification results, exact diffs, and updated operational posture to Mike.
+- **Step Name:** Research Process Breakdown & Archive Extraction Roadmap
+- **Target:** Detail the research methodology for finding SOTA AGENTS.md examples and propose the concrete extraction pipeline for legacy agent-* archives.
 
 ---
 
 ## 4. Modified & Staged Files
-- `AGENTS.md`
 - `TASK.md`
 - `CONTINUATION.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Await Mike's next assignment or proceed with parked backlog items.
+1. Detail the 5-step primary-source research process for AGENTS.md benchmarking.
+2. Lay out the phase roadmap for extracting agent-mesh, agent-platform, agent-configs before packing to ~/archive/.

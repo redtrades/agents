@@ -7,7 +7,7 @@
 - **Status:** IN_PROGRESS
 
 ## Goal
-Establish a zero-bloat, unified multi-agent engineering foundation centered on `/Users/man/agents`. Codify Mike's instructions into a living decision and promotion registry (`docs/decisions/` and `rules/`), eliminate custom Python adapter wrappers (`src/adapters/`), distill core operating rules into 4 clean files, and prevent agent amnesia and recursive meta-work loops.
+Finalize `/Users/man/agents` as the sovereign, unified multi-agent operating engine. Selectively distill and extract high-leverage assets from historic `agent-*` archives, move unneeded legacy repos into cold archive (`~/archive/`), and establish a fully working autonomous SDLC for the swarm. (GovCon Proposal Factory is parked until swarm SDLC and archive extraction are fully complete).
 
 ## Acceptance Criteria
 1. Full scan of Sep 4 and Sep 5 documentation synthesized into root causes and actionable plan. [COMPLETED]
@@ -17,15 +17,16 @@ Establish a zero-bloat, unified multi-agent engineering foundation centered on `
 5. Tiered hybrid decision tracking implemented (ADR 0001 + `docs/decisions/DECISION_LOG.md`). [COMPLETED]
 6. Declarative catalog generation tool implemented (`tools/generate_catalog.py`) and wired to Makefile. [COMPLETED]
 7. All repository quality gates pass (`make validate STRICT=1`, `make garden`, `make test`, `npm test`). [COMPLETED]
-8. `CONTINUATION.md` maintained after every atomic step. [IN_PROGRESS]
+8. `CONTINUATION.md` maintained after every atomic step. [COMPLETED]
 9. SOTA Patterns & Anti-Patterns catalog authored (`docs/research/20260905-sota-patterns-and-anti-patterns.md`). [COMPLETED]
 10. All 9 oversize skills refactored into MOC + references/details.md (0 skill warnings in make garden). [COMPLETED]
 11. One-at-a-time decision ratification protocol active with Mike. [COMPLETED]
 12. Consolidate native skills & research from agent-configs into agents (Phases 1-4). [COMPLETED]
 13. Finalize `AGENTS.md` with inlined communication grammar, SDLC worktree/queue invariants, and dual-mission intent while maintaining <=150 lines. [COMPLETED]
+14. Historic estate triage: selectively distill candidate tools/skills, pack unneeded `agent-*` to `~/archive/`, and verify swarm SDLC. [IN_PROGRESS]
 
 ## Active Phase
-Phase 11: Constitutional Finalization of `AGENTS.md` & Intent Ratification (Complete)
+Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 
 ## Evidence & Verification
 - `Decision Ratification`: All key governance decisions ratified with Mike (`DEC-18` sovereign split, `DEC-19` estate namespace rejected, `DEC-20` advisory balance precedence, `DEC-14` adaptive hybrid execution, `DEC-21` cost-optimized compute & swarm routing, `DEC-22` streamlined AGENTS.md constitution, `DEC-23` unified estate dual mission).
@@ -37,6 +38,7 @@ Phase 11: Constitutional Finalization of `AGENTS.md` & Intent Ratification (Comp
 - `Upstream Detachment`: Active git remote removed; read-only innovation check available via `make check-upstream`.
 
 ## Parked Backlog (On The Board / Side Inquiries)
+- P0 (Parked): GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
 - P1: Review candidate tool clusters (`agent-mesh/evals`, `agent-configs/hooks`) following SDLC gates.
 - P2: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
 - P3: Set up Jules GitHub App issue automation on `redtrades/agents`.
@@ -44,4 +46,4 @@ Phase 11: Constitutional Finalization of `AGENTS.md` & Intent Ratification (Comp
 - P5: Package historic `agent-*` folders to `~/archive/` and clean up `~` and iCloud Drive.
 
 ## Next Immediate Action
-Present concise verdict to Mike; commit changes atomically.
+Detail the rigorous research and evaluation process for finding SOTA AGENTS.md examples and lay out the archive extraction / swarm SDLC execution plan.
