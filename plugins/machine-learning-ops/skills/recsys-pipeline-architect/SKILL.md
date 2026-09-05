@@ -1,6 +1,6 @@
 ---
 name: recsys-pipeline-architect
-description: Design composable recommendation, ranking, and feed pipelines using the six-stage Source→Hydrator→Filter→Scorer→Selector→SideEffect framework popularized by xAI's open-sourced X For You algorithm. Use when building any system that picks "the top K items for a (user, context)" — content feeds, search ranking, RAG rerankers, task prioritizers, notification triage, ad selection.
+description: Design composable recommendation, ranking, and feed pipelines using the six-stage Source→Hydrator→Filter→Scorer→Selector→SideEffect framework popularized by xAI's open-sourced X For You algorithm. Use when building any system that picks "the top K items for a (user, context)"  -  content feeds, search ranking, RAG rerankers, task prioritizers, notification triage, ad selection.
 ---
 
 # Recsys Pipeline Architect
@@ -9,9 +9,9 @@ A spec-and-scaffold skill for building composable recommendation, ranking, and f
 
 ## Overview
 
-Most "recommendation systems" in production aren't exotic ML — they're *pipelines*: fetch candidates from one or more sources, enrich them with metadata, drop the ineligible, score the rest, sort and pick the top K, then fire async side effects. The pattern is universal. The scoring function and the items change; the pipeline shape doesn't.
+Most "recommendation systems" in production aren't exotic ML  -  they're *pipelines*: fetch candidates from one or more sources, enrich them with metadata, drop the ineligible, score the rest, sort and pick the top K, then fire async side effects. The pattern is universal. The scoring function and the items change; the pipeline shape doesn't.
 
-This skill is an independent reimplementation of the pattern (MIT) — no code copied from the original.
+This skill is an independent reimplementation of the pattern (MIT)  -  no code copied from the original.
 
 ## When to Use This Skill
 
@@ -26,18 +26,18 @@ This skill is an independent reimplementation of the pattern (MIT) — no code c
 
 | # | Stage | Job | Parallel? |
 |---|---|---|---|
-| 1 | **Source** | Fetch candidates from one or more origins | Yes — multiple sources run in parallel |
-| 2 | **Hydrator** | Enrich candidates with metadata needed for filtering and scoring | Yes — independent hydrators run in parallel |
-| 3 | **Filter** | Drop ineligible candidates (blocked, expired, duplicate, ineligible) | Sequential — each filter sees fewer items |
-| 4 | **Scorer** | Assign each surviving candidate one or more scores | Sequential — later scorers see earlier scores |
+| 1 | **Source** | Fetch candidates from one or more origins | Yes  -  multiple sources run in parallel |
+| 2 | **Hydrator** | Enrich candidates with metadata needed for filtering and scoring | Yes  -  independent hydrators run in parallel |
+| 3 | **Filter** | Drop ineligible candidates (blocked, expired, duplicate, ineligible) | Sequential  -  each filter sees fewer items |
+| 4 | **Scorer** | Assign each surviving candidate one or more scores | Sequential  -  later scorers see earlier scores |
 | 5 | **Selector** | Sort by final score, return top K | Single op |
-| 6 | **SideEffect** | Cache, log, emit events, update served-history | Async — must never block the response |
+| 6 | **SideEffect** | Cache, log, emit events, update served-history | Async  -  must never block the response |
 
 ### Why this exact order
 
 - Sources before hydration: know what candidates exist before paying to enrich
 - Hydration before filtering: many filters need metadata the source didn't provide
-- Filtering before scoring: scoring is the expensive stage — drop the ineligible first
+- Filtering before scoring: scoring is the expensive stage  -  drop the ineligible first
 - Scorer chain (not single scorer): real systems compose ML scoring + diversity reranking + business rules
 - Selector after scoring: keeps scoring deterministic and cacheable
 - SideEffects last and async: side effects must never block the user response
@@ -48,16 +48,16 @@ Walk the user through eight steps:
 
 1. **Clarify the use case** (one round, three questions only if missing): items being ranked, input context, language/runtime
 2. **Identify the candidate sources** (usually in-network + out-of-network, but single-source also valid)
-3. **List required hydrations** — for each filter and scorer, what data does it need that the source didn't provide?
-4. **List the filters** — cheap before expensive, universal before user-specific (duplicate, self, age, block/mute, previously-served, eligibility)
-5. **Design the scorer chain** — primary ML/heuristic → combiner (multi-action with weights) → diversity → business rules
-6. **Selector** — sort descending by final score, take top K (or stratified mix)
-7. **SideEffects** — cache served IDs, emit impression events, update counters, log analytics; all fire-and-forget
+3. **List required hydrations**  -  for each filter and scorer, what data does it need that the source didn't provide?
+4. **List the filters**  -  cheap before expensive, universal before user-specific (duplicate, self, age, block/mute, previously-served, eligibility)
+5. **Design the scorer chain**  -  primary ML/heuristic → combiner (multi-action with weights) → diversity → business rules
+6. **Selector**  -  sort descending by final score, take top K (or stratified mix)
+7. **SideEffects**  -  cache served IDs, emit impression events, update counters, log analytics; all fire-and-forget
 8. **Generate the scaffold** in the user's stack
 
 ## Key Trade-offs to Surface
 
-Never default silently on these — they are product decisions disguised as technical ones.
+Never default silently on these  -  they are product decisions disguised as technical ones.
 
 ### 1. Single score vs multi-action prediction
 
@@ -75,7 +75,7 @@ Default to isolation. Joint only when there's a specific reason (e.g., explicit 
 
 ### 3. Online vs offline batch
 
-- **Request-time (online):** pipeline runs on each request. Latency budget: 100–300ms.
+- **Request-time (online):** pipeline runs on each request. Latency budget: 100-300ms.
 - **Pre-computed (offline batch):** pipeline runs periodically, results cached. Lower latency, lower freshness.
 - **Hybrid:** candidate retrieval offline, ranking online.
 
@@ -84,7 +84,7 @@ Default to isolation. Joint only when there's a specific reason (e.g., explicit 
 1. **Do not invent benchmark numbers.** "How fast is this?" → "depends on workload, run it yourself."
 2. **Attribution discipline.** Attribute the pattern as "popularized by xAI's open-sourced For You algorithm" / `github.com/xai-org/x-algorithm` (Apache 2.0).
 3. **No trademark use.** Don't name the user's artifact "X-like" or use "For You" branding. Use neutral names: "candidate pipeline", "feed pipeline", "ranking pipeline".
-4. **Surface trade-offs.** Multi-action vs single, isolation vs joint, online vs offline — never default silently.
+4. **Surface trade-offs.** Multi-action vs single, isolation vs joint, online vs offline  -  never default silently.
 5. **The generated scaffold must run.** No pseudocode passing as code.
 6. **Filter order matters.** Cheap before expensive. Universal before user-specific.
 7. **Side effects never block.** Wrap in fire-and-forget patterns (goroutines / promises without await / asyncio tasks).
@@ -95,7 +95,7 @@ Default to isolation. Joint only when there's a specific reason (e.g., explicit 
 - ❌ Synchronous side effects (cache writes / impression emits blocking the response)
 - ❌ A single "relevance" score when the product needs multi-objective tuning
 - ❌ Joint scoring as default (non-deterministic, uncacheable, doesn't compose with reranking)
-- ❌ Pseudocode "for illustration" — the scaffold must actually run
+- ❌ Pseudocode "for illustration"  -  the scaffold must actually run
 
 ## Common Use Cases
 
@@ -117,7 +117,7 @@ User wants a daily digest that picks the top 10 from the last 24h queue. Offline
 
 ## Upstream
 
-This skill is a single-file adapter for the upstream repository, which ships 5 load-on-demand reference docs and 3 runnable example scaffolds (Strapi v5 / Go / Python — every one green on its test suite, 9/9 tests total).
+This skill is a single-file adapter for the upstream repository, which ships 5 load-on-demand reference docs and 3 runnable example scaffolds (Strapi v5 / Go / Python  -  every one green on its test suite, 9/9 tests total).
 
 - **Upstream:** https://github.com/mturac/recsys-pipeline-architect
 - **Release:** v0.1.0 (MIT)

@@ -1,0 +1,16 @@
+{
+  "name": "caveman",
+  "version": "1.0.0",
+  "description": "JuliusBrussee token minimalism and terse communication protocols for 65% to 75% prompt token reduction",
+  "skills": "./skills/",
+  "author": {
+    "name": "Mike Ninov",
+    "url": "https://github.com/redtrades"
+  },
+  "license": "MIT",
+  "interface": {
+    "displayName": "Caveman",
+    "shortDescription": "JuliusBrussee token minimalism and terse communication protocols for 65% to 75% prompt token reduction",
+    "category": "Coding"
+  }
+}

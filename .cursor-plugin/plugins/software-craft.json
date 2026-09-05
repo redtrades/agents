@@ -1,0 +1,11 @@
+{
+  "name": "software-craft",
+  "displayName": "Software Craft",
+  "version": "1.0.0",
+  "description": "Software craftsmanship: TDD, systematic debugging, narrow surgical patching, safe refactoring, and git worktrees",
+  "author": {
+    "name": "Mike Ninov",
+    "email": ""
+  },
+  "license": "MIT"
+}

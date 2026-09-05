@@ -1,8 +1,7 @@
 ---
 name: incident-runbook-templates
-description: Create structured incident response runbooks with step-by-step procedures, escalation paths, and recovery actions. Use this skill when building a service outage runbook for a payment processing system; creating database incident procedures covering connection pool exhaustion, replication lag, and disk space alerts; onboarding new on-call engineers who need step-by-step recovery guides written for a 3 AM brain; or standardizing escalation matrices across multiple engineering teams.
+description: Create structured incident response runbooks with step-by-step procedures, escalation paths, and recovery actions. Use this skill when building a service outage runbook for a payment processing system; creating database incident procedures covering connection pool exhaustion, replication lag, and disk space alerts; onboarding new on-call engineers who need step-by-step recovery guides written for a 3 AM brain; or standardizing escalation matrices across multiple engineering teams. Use when working with incident runbook templates.
 ---
-
 # Incident Runbook Templates
 
 Production-ready templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication.
@@ -90,7 +89,7 @@ Add a numbered checklist at the top of the runbook that mirrors the section numb
 - [ ] 6. Escalate if > 15 min unresolved
 ```
 
-### Runbook is outdated — commands reference old cluster names or endpoints
+### Runbook is outdated  -  commands reference old cluster names or endpoints
 
 Runbooks rot because they're updated manually. Include a "Last Verified" date and owner at the top, and add a CI check that validates all `curl` endpoints and `kubectl` context names are still valid:
 

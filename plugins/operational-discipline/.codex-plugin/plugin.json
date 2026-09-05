@@ -1,0 +1,16 @@
+{
+  "name": "operational-discipline",
+  "version": "1.0.0",
+  "description": "Core operational discipline, verification gates, search before asserting, and complexity tiering",
+  "skills": "./skills/",
+  "author": {
+    "name": "Mike Ninov",
+    "url": "https://github.com/redtrades"
+  },
+  "license": "MIT",
+  "interface": {
+    "displayName": "Operational Discipline",
+    "shortDescription": "Core operational discipline, verification gates, search before asserting, and complexity tiering",
+    "category": "Coding"
+  }
+}

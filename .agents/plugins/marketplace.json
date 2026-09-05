@@ -210,6 +210,19 @@
       "category": "Coding"
     },
     {
+      "name": "caveman",
+      "description": "JuliusBrussee token minimalism and terse communication protocols for 65% to 75% prompt token reduction",
+      "source": {
+        "source": "local",
+        "path": "./plugins/caveman"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
       "name": "cicd-automation",
       "description": "CI/CD pipeline configuration, GitHub Actions/GitLab CI workflow setup, and automated deployment pipeline orchestration",
       "source": {
@@ -228,6 +241,19 @@
       "source": {
         "source": "local",
         "path": "./plugins/cloud-infrastructure"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "cloudflare-platform",
+      "description": "Cloudflare Workers, Sandbox microVMs, Turnstile, Durable Objects, and Wrangler CLI tooling",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cloudflare-platform"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -410,6 +436,19 @@
       "source": {
         "source": "local",
         "path": "./plugins/debugging-toolkit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "deep-research",
+      "description": "Multi-source live intelligence gathering across social platforms, web research, and strategic roadmaps",
+      "source": {
+        "source": "local",
+        "path": "./plugins/deep-research"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -847,6 +886,19 @@
       "category": "Coding"
     },
     {
+      "name": "operational-discipline",
+      "description": "Core operational discipline, verification gates, search before asserting, and complexity tiering",
+      "source": {
+        "source": "local",
+        "path": "./plugins/operational-discipline"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
       "name": "payment-processing",
       "description": "Payment gateway integration with Stripe, PayPal, checkout flow implementation, subscription billing, and PCI compliance",
       "source": {
@@ -865,6 +917,19 @@
       "source": {
         "source": "local",
         "path": "./plugins/performance-testing-review"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "planning-spec",
+      "description": "Specification design, visual HTML specs, ticket decomposition, and adversarial grilling",
+      "source": {
+        "source": "local",
+        "path": "./plugins/planning-spec"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -1086,6 +1151,19 @@
       "source": {
         "source": "local",
         "path": "./plugins/social-publishing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "software-craft",
+      "description": "Software craftsmanship: TDD, systematic debugging, narrow surgical patching, safe refactoring, and git worktrees",
+      "source": {
+        "source": "local",
+        "path": "./plugins/software-craft"
       },
       "policy": {
         "installation": "AVAILABLE",

@@ -1,0 +1,10 @@
+{
+  "name": "cloudflare-platform",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers, Sandbox microVMs, Turnstile, Durable Objects, and Wrangler CLI tooling",
+  "author": {
+    "name": "Mike Ninov",
+    "url": "https://github.com/redtrades"
+  },
+  "license": "MIT"
+}

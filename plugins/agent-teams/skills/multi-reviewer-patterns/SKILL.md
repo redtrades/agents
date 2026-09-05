@@ -1,9 +1,8 @@
 ---
 name: multi-reviewer-patterns
-description: Coordinate parallel code reviews across multiple quality dimensions with finding deduplication, severity calibration, and consolidated reporting. Use this skill when organizing multi-reviewer code reviews, calibrating finding severity, or consolidating review results.
+description: Coordinate parallel code reviews across multiple quality dimensions with finding deduplication, severity calibration, and consolidated reporting. Use this skill when organizing multi-reviewer code reviews, calibrating finding severity, or consolidating review results. Use when working with multi reviewer patterns.
 version: 1.0.2
 ---
-
 # Multi-Reviewer Patterns
 
 Patterns for coordinating parallel code reviews across multiple quality dimensions, deduplicating findings, calibrating severity, and producing consolidated reports.
@@ -44,11 +43,11 @@ When multiple reviewers report issues at the same location:
 
 ### Merge Rules
 
-1. **Same file:line, same issue** — Merge into one finding, credit all reviewers
-2. **Same file:line, different issues** — Keep as separate findings
-3. **Same issue, different locations** — Keep separate but cross-reference
-4. **Conflicting severity** — Use the higher severity rating
-5. **Conflicting recommendations** — Include both with reviewer attribution
+1. **Same file:line, same issue**  -  Merge into one finding, credit all reviewers
+2. **Same file:line, different issues**  -  Keep as separate findings
+3. **Same issue, different locations**  -  Keep separate but cross-reference
+4. **Conflicting severity**  -  Use the higher severity rating
+5. **Conflicting recommendations**  -  Include both with reviewer attribution
 
 ### Deduplication Process
 

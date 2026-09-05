@@ -1,14 +1,14 @@
 # Agentic Plugin Marketplace
 
-> Production-ready agentic workflow building blocks: **94 plugins**, **202 agents**,
-> **184 skills**, **105 commands** — built for Claude Code and consumed natively by
+> Production-ready agentic workflow building blocks: **100 plugins**, **202 agents**,
+> **225 skills**, **105 commands** - built for Claude Code and consumed natively by
 > OpenAI Codex CLI, Cursor, OpenCode, the Antigravity CLI, and GitHub Copilot from a single Markdown source.
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-native-blueviolet)](#claude-code) [![Codex CLI](https://img.shields.io/badge/Codex%20CLI-supported-black)](docs/harnesses.md) [![Cursor](https://img.shields.io/badge/Cursor-supported-purple)](docs/harnesses.md) [![OpenCode](https://img.shields.io/badge/OpenCode-supported-green)](docs/harnesses.md) [![Antigravity CLI](https://img.shields.io/badge/Antigravity%20CLI-supported-blue)](docs/harnesses.md) [![Copilot](https://img.shields.io/badge/Copilot-supported-lightgrey)](docs/harnesses.md)
 
 > [!NOTE]
 > One source-of-truth (`plugins/`), five harnesses. Each harness gets idiomatic,
-> harness-native artifacts — not lowest-common-denominator translations.
+> harness-native artifacts - not lowest-common-denominator translations.
 > See [docs/harnesses.md](docs/harnesses.md) for the capability matrix.
 
 ## Quick start
@@ -19,7 +19,7 @@ Pick your harness:
 
 ```bash
 /plugin marketplace add wshobson/agents
-/plugin install python-development          # or any of 94 plugins
+/plugin install python-development          # or any of 100 plugins
 ```
 
 [→ Full Claude Code setup, troubleshooting, and plugin catalog](docs/usage.md)
@@ -69,7 +69,7 @@ Browse the catalog: [docs/plugins.md](docs/plugins.md) · [docs/agents.md](docs/
 
 Each plugin is isolated and composable: agents, commands, and skills are auto-discovered
 from directory structure. **Installing a plugin loads only its components into
-context** — not the whole marketplace.
+context** - not the whole marketplace.
 
 ```
 plugins/python-development/
@@ -83,9 +83,9 @@ Tiered model strategy:
 
 | Tier | Model | Use |
 |---|---|---|
-| 0 | Fable 5  | Longest-horizon autonomous work — large migrations, multi-hour runs (opt-in, premium cost) |
+| 0 | Fable 5  | Longest-horizon autonomous work - large migrations, multi-hour runs (opt-in, premium cost) |
 | 1 | Opus     | Architecture, security, code review, production-critical |
-| 2 | inherit  | User-chosen — backend, frontend, AI/ML, specialized |
+| 2 | inherit  | User-chosen - backend, frontend, AI/ML, specialized |
 | 3 | Sonnet   | Docs, testing, debugging, API references |
 | 4 | Haiku    | Fast operational tasks, SEO, deployment, content |
 
@@ -120,9 +120,9 @@ Codex and Cursor install from source via committed registries; Antigravity and O
 [`plugin-eval`](plugins/plugin-eval/) is a three-layer evaluation framework for measuring
 and certifying plugin/skill quality:
 
-- **Static** — deterministic structural analysis (<2s, free)
-- **LLM Judge** — semantic evaluation across 4 dimensions (~30s, Haiku + Sonnet)
-- **Monte Carlo** — statistical reliability via 50-100 simulated runs (~2-5 min)
+- **Static** - deterministic structural analysis (<2s, free)
+- **LLM Judge** - semantic evaluation across 4 dimensions (~30s, Haiku + Sonnet)
+- **Monte Carlo** - statistical reliability via 50-100 simulated runs (~2-5 min)
 
 ```bash
 uv run plugin-eval score path/to/skill --depth quick
@@ -135,15 +135,16 @@ uv run plugin-eval certify path/to/skill
 
 Detail lives in `docs/`. Read in this order:
 
-- **[docs/plugins.md](docs/plugins.md)** — full catalog of all 94 plugins
-- **[docs/agents.md](docs/agents.md)** — all 202 agents by category
-- **[docs/agent-skills.md](docs/agent-skills.md)** — 184 skills with progressive disclosure
-- **[docs/usage.md](docs/usage.md)** — commands, workflows, examples
-- **[docs/architecture.md](docs/architecture.md)** — design principles
-- **[docs/harnesses.md](docs/harnesses.md)** — cross-harness capability matrix
-- **[docs/authoring.md](docs/authoring.md)** — portable-content style guide
-- **[docs/plugin-eval.md](docs/plugin-eval.md)** — quality evaluation framework
-- **[docs/round-trip-results.md](docs/round-trip-results.md)** — real-CLI verification recipes
+- **[docs/plugins.md](docs/plugins.md)** - full catalog of all 100 plugins
+- **[docs/agents.md](docs/agents.md)** - all 202 agents by category
+- **[docs/skills-moc.md](docs/skills-moc.md)** - canonical Map of Content for all 225 skills
+- **[docs/agent-skills.md](docs/agent-skills.md)** - 225 skills with progressive disclosure
+- **[docs/usage.md](docs/usage.md)** - commands, workflows, examples
+- **[docs/architecture.md](docs/architecture.md)** - design principles
+- **[docs/harnesses.md](docs/harnesses.md)** - cross-harness capability matrix
+- **[docs/authoring.md](docs/authoring.md)** - portable-content style guide
+- **[docs/plugin-eval.md](docs/plugin-eval.md)** - quality evaluation framework
+- **[docs/round-trip-results.md](docs/round-trip-results.md)** - real-CLI verification recipes
 
 Harness setup, capability deltas, and gotchas live in [docs/harnesses.md](docs/harnesses.md).
 
@@ -182,7 +183,7 @@ changes are performed by the local Guard CLI, not by files in this marketplace r
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).
 
 ## Star history
 

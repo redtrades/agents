@@ -10,7 +10,7 @@ lifecycle: it decides whether fine-tuning is the
 right tool at all, and if so, which method and
 which base-model size class. Every other skill
 in this plugin assumes this routing already
-happened — start here before opening
+happened  -  start here before opening
 `lora-qlora-recipes`, `preference-optimization`,
 or `grpo-rlvr-training`.
 
@@ -32,11 +32,11 @@ or `grpo-rlvr-training`.
 |---|---|
 | Facts change often (prices, docs, news) | RAG, not fine-tuning |
 | Desired behavior still being figured out | Prompt engineering |
-| Stable domain knowledge, ≥500MB text | CPT then SFT — see Off-Ramps First |
-| Have input/output demonstrations | SFT — see `lora-qlora-recipes` |
-| Have preference pairs or thumbs-up/down | DPO/ORPO/KTO — see `preference-optimization` |
-| Have a verifiable pass/fail signal | GRPO+RLVR — see `grpo-rlvr-training` |
-| No eval harness yet | Stop — see `eval-harness-first` |
+| Stable domain knowledge, ≥500MB text | CPT then SFT  -  see Off-Ramps First |
+| Have input/output demonstrations | SFT  -  see `lora-qlora-recipes` |
+| Have preference pairs or thumbs-up/down | DPO/ORPO/KTO  -  see `preference-optimization` |
+| Have a verifiable pass/fail signal | GRPO+RLVR  -  see `grpo-rlvr-training` |
+| No eval harness yet | Stop  -  see `eval-harness-first` |
 
 ## Off-Ramps First
 
@@ -45,7 +45,7 @@ are served better and cheaper elsewhere. Check
 these off-ramps before opening a training run:
 
 - **Knowledge-bound and volatile** (the gap is
-  facts that change — prices, docs, current
+  facts that change  -  prices, docs, current
   events): route to RAG, not fine-tuning. A
   fine-tuned model bakes in a snapshot; volatile
   facts go stale immediately.
@@ -61,12 +61,12 @@ these off-ramps before opening a training run:
 | Domain text volume | Route |
 |---|---|
 | <10MB | RAG only |
-| 10MB–500MB | RAG + fine-tune |
-| 500MB–10GB | CPT, then SFT |
+| 10MB-500MB | RAG + fine-tune |
+| 500MB-10GB | CPT, then SFT |
 | >10GB | CPT required |
 
 CPT learning rate ≈ **10% of the pretraining
-LR**. CPT is guidance-only in this plugin —
+LR**. CPT is guidance-only in this plugin  - 
 sizing and LR guidance live here, but this
 plugin does not execute a CPT run.
 
@@ -91,7 +91,7 @@ Read the tree top-down: answer "new facts or new
 behavior," then follow the branch that matches
 the data shape in hand (demos, preference pairs,
 thumbs up/down, or verifiable success/failure).
-The data shape picks the method — not the other
+The data shape picks the method  -  not the other
 way around.
 
 ### Worked Routing Examples
@@ -121,7 +121,7 @@ way around.
   ~1 percentage point versus ~50 points for model
   scale, and zero of 20 DPO variants beat vanilla
   DPO. Don't spend a routing decision agonizing
-  over DPO-variant selection — spend it on
+  over DPO-variant selection  -  spend it on
   getting the data shape and scale right.
 - **DPO is for taste, GRPO+RLVR is for
   reasoning.** Preference pairs that encode a
@@ -131,7 +131,7 @@ way around.
   calls) route to GRPO+RLVR instead.
 - **RL is not the fix for a model that never
   succeeds.** GRPO and other RL methods sharpen
-  an existing capability — they don't teach one
+  an existing capability  -  they don't teach one
   from zero. If the model doesn't yet understand
   the task or output format, run SFT first; only
   bring in RL once the model succeeds at least
@@ -140,25 +140,25 @@ way around.
 ### Common Routing Mistakes
 
 - Reaching for fine-tuning to fix facts that
-  change weekly — that's a RAG problem, and
+  change weekly  -  that's a RAG problem, and
   fine-tuning will just go stale faster than the
   source data does.
 - Picking a DPO variant before checking whether
   the actual bottleneck is data quality or model
-  scale — variant choice is the ~1pp lever, not
+  scale  -  variant choice is the ~1pp lever, not
   the ~50pp one.
 - Starting an RL run on a model that fails every
-  rollout — route to SFT first so RL has
+  rollout  -  route to SFT first so RL has
   something to sharpen.
 - Treating CPT as the default for "the model
-  doesn't know our domain" — check the data
+  doesn't know our domain"  -  check the data
   volume thresholds first; under 500MB, RAG or
   RAG+fine-tune iterates faster than a CPT run.
 
 ## Model Selection
 
 Base-model choice is size-class first, family
-second, and it goes stale fast — so it lives in
+second, and it goes stale fast  -  so it lives in
 exactly one place: `references/model-catalog.md`.
 That file is the only place in this plugin (and
 in the DGX Spark ops plugin) that names a base
@@ -167,7 +167,7 @@ model family. Neither this skill nor
 describe models by size class only (for example,
 "8B-class LoRA," not a model name).
 
-The catalog is dated on purpose — model rankings
+The catalog is dated on purpose  -  model rankings
 turn over quarterly. It carries a "last verified"
 date and a refresh checklist. Before trusting a
 row, check that date; if stale, work the refresh
@@ -177,7 +177,7 @@ model from it.
 **Precedence when the catalog and a method skill
 disagree:** the catalog's per-row Notes column
 states hardware/size-class *feasibility*, not a
-method recommendation — `lora-qlora-recipes`'s
+method recommendation  -  `lora-qlora-recipes`'s
 LoRA vs QLoRA vs Full FT table (routed by task
 shape) governs the actual method choice.
 
@@ -187,7 +187,7 @@ Before committing to a method, size it: total
 memory ≈ **params × dtype bytes + optimizer
 state + gradients + activations**. Work each
 term for the chosen dtype and method (full
-fine-tune, LoRA, or QLoRA) — worked worksheets
+fine-tune, LoRA, or QLoRA)  -  worked worksheets
 and size-class examples live in
 `references/memory-math.md`.
 
@@ -205,10 +205,10 @@ re-deriving them here.
 Once this skill has picked a method, hand off to
 the skill that executes it:
 
-- `lora-qlora-recipes` — SFT via LoRA/QLoRA
-- `preference-optimization` — DPO, ORPO, KTO
-- `grpo-rlvr-training` — GRPO with verifiable
+- `lora-qlora-recipes`  -  SFT via LoRA/QLoRA
+- `preference-optimization`  -  DPO, ORPO, KTO
+- `grpo-rlvr-training`  -  GRPO with verifiable
   rewards
 
 No method is selected before the eval harness
-exists — see `eval-harness-first`.
+exists  -  see `eval-harness-first`.

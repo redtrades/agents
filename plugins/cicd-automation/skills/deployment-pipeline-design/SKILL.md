@@ -1,8 +1,7 @@
 ---
 name: deployment-pipeline-design
-description: Design multi-stage CI/CD pipelines with approval gates, security checks, and deployment orchestration. Use this skill when designing zero-downtime deployment pipelines, implementing canary rollout strategies, setting up multi-environment promotion workflows, or debugging failed deployment gates in CI/CD.
+description: Design multi-stage CI/CD pipelines with approval gates, security checks, and deployment orchestration. Use this skill when designing zero-downtime deployment pipelines, implementing canary rollout strategies, setting up multi-environment promotion workflows, or debugging failed deployment gates in CI/CD. Use when working with deployment pipeline design.
 ---
-
 # Deployment Pipeline Design
 
 Architecture patterns for multi-stage CI/CD pipelines with approval gates, deployment strategies, and environment promotion workflows.
@@ -68,7 +67,7 @@ spec:
 
 ### Staging deploy succeeds but production job never starts
 
-Check that production environment protection rules are configured — a missing reviewer assignment means the approval gate waits indefinitely with no notification. In GitHub Actions, ensure `Required reviewers` is set to an existing user or team in **Settings → Environments → production**.
+Check that production environment protection rules are configured  -  a missing reviewer assignment means the approval gate waits indefinitely with no notification. In GitHub Actions, ensure `Required reviewers` is set to an existing user or team in **Settings → Environments → production**.
 
 ### Docker layer cache busted on every run causing slow builds
 
@@ -97,7 +96,7 @@ Never run destructive migrations (DROP COLUMN, ALTER NOT NULL) until the old cod
 
 For platform-specific pipeline configurations, multi-region promotion workflows, and advanced Argo Rollouts patterns, see:
 
-- [`references/advanced-strategies.md`](references/advanced-strategies.md) — Extended YAML examples, platform-specific configs (GitHub Actions, GitLab CI, Azure Pipelines), multi-region canary patterns, and database migration rollback strategies
+- [`references/advanced-strategies.md`](references/advanced-strategies.md)  -  Extended YAML examples, platform-specific configs (GitHub Actions, GitLab CI, Azure Pipelines), multi-region canary patterns, and database migration rollback strategies
 
 ## Related Skills
 

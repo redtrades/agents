@@ -1,6 +1,6 @@
 # Agent Skills
 
-Agent Skills are modular packages that extend Claude's capabilities with specialized domain knowledge, following Anthropic's [Agent Skills Specification](https://github.com/anthropics/skills/blob/main/agent_skills_spec.md). This plugin ecosystem includes **183 local specialized skills** across 51 plugins, enabling progressive disclosure and efficient token usage.
+Agent Skills are modular packages that extend Claude's capabilities with specialized domain knowledge, following Anthropic's [Agent Skills Specification](https://github.com/anthropics/skills/blob/main/agent_skills_spec.md). This plugin ecosystem includes **225 local specialized skills** across 58 plugins, enabling progressive disclosure and efficient token usage. For the full difficulty-tiered catalog, see the **[Skills Map of Content (MOC)](skills-moc.md)**.
 
 Install any skill on its own, into any agent, with the Agent Skills installers:
 
@@ -315,7 +315,7 @@ Skills provide Claude with deep expertise in specific domains without loading ev
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | **competitive-landscape**          | Competitive analysis, differentiation, and positioning using Porter's Five Forces and related models |
 | **market-sizing-analysis**         | TAM/SAM/SOM calculations using top-down, bottom-up, and value-theory methodologies                   |
-| **startup-financial-modeling**     | 3–5 year financial models with revenue, costs, cash flow, and scenario planning                      |
+| **startup-financial-modeling**     | 3-5 year financial models with revenue, costs, cash flow, and scenario planning                      |
 | **startup-metrics-framework**      | Track and optimize key SaaS, marketplace, consumer, and B2B startup metrics from seed to Series A    |
 | **team-composition-analysis**      | Hiring plans, org structures, compensation, and equity allocation for early-stage startups           |
 
@@ -337,7 +337,7 @@ Skills provide Claude with deep expertise in specific domains without loading ev
 
 | Skill    | Description                                                                                   |
 | -------- | --------------------------------------------------------------------------------------------- |
-| **hads** | HADS (Human-AI Document Standard) — semantic Markdown tagging for token-efficient AI reading |
+| **hads** | HADS (Human-AI Document Standard) - semantic Markdown tagging for token-efficient AI reading |
 | **grounded-vault** | raw/wiki/archive knowledge store with per-claim source links and git fingerprints for zero-token drift checks |
 
 ### .NET Contribution (1 skill)
@@ -350,7 +350,7 @@ Skills provide Claude with deep expertise in specific domains without loading ev
 
 | Skill                       | Description                                                                                |
 | --------------------------- | ------------------------------------------------------------------------------------------ |
-| **evaluation-methodology**  | PluginEval quality methodology — dimensions, rubrics, statistical methods, scoring formulas |
+| **evaluation-methodology**  | PluginEval quality methodology - dimensions, rubrics, statistical methods, scoring formulas |
 
 ### Block No-Verify (1 skill)
 

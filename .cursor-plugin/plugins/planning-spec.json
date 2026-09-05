@@ -1,0 +1,11 @@
+{
+  "name": "planning-spec",
+  "displayName": "Planning Spec",
+  "version": "1.0.0",
+  "description": "Specification design, visual HTML specs, ticket decomposition, and adversarial grilling",
+  "author": {
+    "name": "Mike Ninov",
+    "email": ""
+  },
+  "license": "MIT"
+}

@@ -1,9 +1,8 @@
 ---
 name: task-coordination-strategies
-description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent work with proper task descriptions and workload balancing. Use this skill when breaking down work for agent teams, managing task dependencies, or monitoring team progress.
+description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent work with proper task descriptions and workload balancing. Use this skill when breaking down work for agent teams, managing task dependencies, or monitoring team progress. Use when working with task coordination strategies.
 version: 1.0.2
 ---
-
 # Task Coordination Strategies
 
 Strategies for decomposing complex tasks into parallelizable units, designing dependency graphs, writing effective task descriptions, and monitoring workload across agent teams.
@@ -53,9 +52,9 @@ Split work by cross-cutting concern:
 
 Split work by file/directory boundaries:
 
-- `src/components/` — Implementer 1
-- `src/api/` — Implementer 2
-- `src/utils/` — Implementer 3
+- `src/components/`  -  Implementer 1
+- `src/api/`  -  Implementer 2
+- `src/utils/`  -  Implementer 3
 
 **Best for**: Parallel implementation, conflict avoidance
 
@@ -63,10 +62,10 @@ Split work by file/directory boundaries:
 
 ### Principles
 
-1. **Minimize chain depth** — Prefer wide, shallow graphs over deep chains
-2. **Identify the critical path** — The longest chain determines minimum completion time
-3. **Use blockedBy sparingly** — Only add dependencies that are truly required
-4. **Avoid circular dependencies** — Task A blocks B blocks A is a deadlock
+1. **Minimize chain depth**  -  Prefer wide, shallow graphs over deep chains
+2. **Identify the critical path**  -  The longest chain determines minimum completion time
+3. **Use blockedBy sparingly**  -  Only add dependencies that are truly required
+4. **Avoid circular dependencies**  -  Task A blocks B blocks A is a deadlock
 
 ### Patterns
 
@@ -105,12 +104,12 @@ TaskUpdate: { taskId: "3", addBlockedBy: ["1", "2"] }  → #3 waits for #1 and #
 
 Every task should include:
 
-1. **Objective** — What needs to be accomplished (1-2 sentences)
-2. **Owned Files** — Explicit list of files/directories this teammate may modify
-3. **Requirements** — Specific deliverables or behaviors expected
-4. **Interface Contracts** — How this work connects to other teammates' work
-5. **Acceptance Criteria** — How to verify the task is done correctly
-6. **Scope Boundaries** — What is explicitly out of scope
+1. **Objective**  -  What needs to be accomplished (1-2 sentences)
+2. **Owned Files**  -  Explicit list of files/directories this teammate may modify
+3. **Requirements**  -  Specific deliverables or behaviors expected
+4. **Interface Contracts**  -  How this work connects to other teammates' work
+5. **Acceptance Criteria**  -  How to verify the task is done correctly
+6. **Scope Boundaries**  -  What is explicitly out of scope
 
 ### Template
 
@@ -121,12 +120,12 @@ Build the user authentication API endpoints.
 ## Owned Files
 - src/api/auth.ts
 - src/api/middleware/auth-middleware.ts
-- src/types/auth.ts (shared — read only, do not modify)
+- src/types/auth.ts (shared  -  read only, do not modify)
 
 ## Requirements
-- POST /api/login — accepts email/password, returns JWT
-- POST /api/register — creates new user, returns JWT
-- GET /api/me — returns current user profile (requires auth)
+- POST /api/login  -  accepts email/password, returns JWT
+- POST /api/register  -  creates new user, returns JWT
+- GET /api/me  -  returns current user profile (requires auth)
 
 ## Interface Contract
 - Import User type from src/types/auth.ts (owned by implementer-1)

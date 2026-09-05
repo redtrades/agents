@@ -1,8 +1,7 @@
 ---
 name: python-anti-patterns
-description: Use this skill when reviewing Python code for common anti-patterns to avoid. Use as a checklist when reviewing code, before finalizing implementations, or when debugging issues that might stem from known bad practices.
+description: Use this skill when reviewing Python code for common anti-patterns to avoid. Use as a checklist when reviewing code, before finalizing implementations, or when debugging issues that might stem from known bad practices. Use when working with python anti patterns.
 ---
-
 # Python Anti-Patterns Checklist
 
 A reference checklist of common mistakes and anti-patterns in Python code. Review this before finalizing implementations to catch issues early.

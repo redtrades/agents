@@ -13,7 +13,7 @@
     {
       "name": "documentation-standards",
       "source": "./plugins/documentation-standards",
-      "description": "HADS (Human-AI Document Standard) — semantic tagging convention for docs that work for both humans and AI models — plus the grounded-vault pattern for provenance-linked, drift-checked knowledge stores.",
+      "description": "HADS (Human-AI Document Standard) \u2014 semantic tagging convention for docs that work for both humans and AI models \u2014 plus the grounded-vault pattern for provenance-linked, drift-checked knowledge stores.",
       "version": "1.1.0",
       "author": {
         "name": "Niksa Barlovic",
@@ -1292,6 +1292,78 @@
         "deck-generation",
         "slide-design"
       ]
+    },
+    {
+      "name": "operational-discipline",
+      "source": "./plugins/operational-discipline",
+      "description": "Core operational discipline, verification gates, search before asserting, and complexity tiering",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mike Ninov",
+        "url": "https://github.com/redtrades"
+      },
+      "license": "MIT",
+      "category": "development"
+    },
+    {
+      "name": "caveman",
+      "source": "./plugins/caveman",
+      "description": "JuliusBrussee token minimalism and terse communication protocols for 65% to 75% prompt token reduction",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mike Ninov",
+        "url": "https://github.com/redtrades"
+      },
+      "license": "MIT",
+      "category": "development"
+    },
+    {
+      "name": "deep-research",
+      "source": "./plugins/deep-research",
+      "description": "Multi-source live intelligence gathering across social platforms, web research, and strategic roadmaps",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mike Ninov",
+        "url": "https://github.com/redtrades"
+      },
+      "license": "MIT",
+      "category": "research"
+    },
+    {
+      "name": "software-craft",
+      "source": "./plugins/software-craft",
+      "description": "Software craftsmanship: TDD, systematic debugging, narrow surgical patching, safe refactoring, and git worktrees",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mike Ninov",
+        "url": "https://github.com/redtrades"
+      },
+      "license": "MIT",
+      "category": "development"
+    },
+    {
+      "name": "planning-spec",
+      "source": "./plugins/planning-spec",
+      "description": "Specification design, visual HTML specs, ticket decomposition, and adversarial grilling",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mike Ninov",
+        "url": "https://github.com/redtrades"
+      },
+      "license": "MIT",
+      "category": "planning"
+    },
+    {
+      "name": "cloudflare-platform",
+      "source": "./plugins/cloudflare-platform",
+      "description": "Cloudflare Workers, Sandbox microVMs, Turnstile, Durable Objects, and Wrangler CLI tooling",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mike Ninov",
+        "url": "https://github.com/redtrades"
+      },
+      "license": "MIT",
+      "category": "cloud"
     }
   ]
 }

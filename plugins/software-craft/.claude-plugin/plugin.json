@@ -1,0 +1,10 @@
+{
+  "name": "software-craft",
+  "version": "1.0.0",
+  "description": "Software craftsmanship: TDD, systematic debugging, narrow surgical patching, safe refactoring, and git worktrees",
+  "author": {
+    "name": "Mike Ninov",
+    "url": "https://github.com/redtrades"
+  },
+  "license": "MIT"
+}

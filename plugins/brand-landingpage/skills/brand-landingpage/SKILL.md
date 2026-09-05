@@ -1,13 +1,13 @@
 ---
 name: brand-landingpage
 description: >
-  Brand-first landing page designer — runs a brand-identity interview (colors,
+  Brand-first landing page designer  -  runs a brand-identity interview (colors,
   typography, shape language), then generates and iterates on a polished landing
   page via Stitch with deployment-ready HTML. Use when the user asks to create,
   design, or build a landing page, homepage, or marketing page and has no
   established visual direction. Skip when they have a design mockup, need a
   dashboard or app UI, are working at component level, building a multi-page
-  app, or restyling with known design tokens — use frontend-design instead.
+  app, or restyling with known design tokens  -  use frontend-design instead.
 ---
 
 # Brand Landing Page Designer
@@ -22,7 +22,7 @@ Tone: technically direct -- the user understands APIs, environment variables, an
 
 ## Phase 0: Prerequisites & Stitch Connection
 
-Stitch enables the visual generation and iteration loop — generating designs, previewing them in the browser, and refining based on feedback. The interactive design workflow is what makes this skill effective.
+Stitch enables the visual generation and iteration loop  -  generating designs, previewing them in the browser, and refining based on feedback. The interactive design workflow is what makes this skill effective.
 
 ### Getting Stitch Ready
 
@@ -33,11 +33,11 @@ Finish Phase 0 before starting Phase 1. The interview has little use without a w
 3. Verify the API key env var (as named in the docs) is set. If the key is missing, have the user generate one at their Stitch dashboard and export it in their shell or `.env`.
 4. Make one minimal SDK call to confirm auth. Diagnose and retry once on failure before involving the user.
 
-Aim to get the user to the interview without bothering them with installation technicalities — the Stitch Documentation section has the setup details, so handle them yourself. Never display, transcribe, or echo the key.
+Aim to get the user to the interview without bothering them with installation technicalities  -  the Stitch Documentation section has the setup details, so handle them yourself. Never display, transcribe, or echo the key.
 
 ### SDK Usage Notes
 
-- **Discover MCP tool names through the agent runtime.** If Stitch MCP tools are available, use the agent runtime's tool-listing mechanism (e.g., `list_tools`) to capture exact tool names. Names may be prefixed (e.g., `stitch_create_project`, `mcp__stitch__create_project`). Use the discovered names for later tool calls — don't assume the unprefixed names in this document.
+- **Discover MCP tool names through the agent runtime.** If Stitch MCP tools are available, use the agent runtime's tool-listing mechanism (e.g., `list_tools`) to capture exact tool names. Names may be prefixed (e.g., `stitch_create_project`, `mcp__stitch__create_project`). Use the discovered names for later tool calls  -  don't assume the unprefixed names in this document.
 - **Prefer the SDK's own response data over memory.** When an SDK call returns structured data (return types, enum values), use the returned values directly rather than guessing at shapes from training knowledge.
 - **Fail fast, recover quietly.** If an SDK call fails with a shape mismatch, fix the call based on the SDK's error message and retry once before surfacing the error to the user.
 
@@ -109,9 +109,9 @@ IF the user spontaneously attaches an image (logo, app screenshot, design inspir
 1. Ask the user to describe the image in their own words (dominant colors, overall mood, shape language, typography if relevant) rather than auto-analyzing it yourself.
 2. Save the original file to `.stitch/user-assets/` with a descriptive filename for later handoff.
 3. Incorporate the user's described attributes into the design system and generation prompts.
-4. Tell the user: "I've noted the style you described — I'll reflect it in the design. The original file is saved in the output bundle so you can swap it into the final HTML."
+4. Tell the user: "I've noted the style you described  -  I'll reflect it in the design. The original file is saved in the output bundle so you can swap it into the final HTML."
 
-If the user asks why you can't embed their logo directly: "Stitch generates from text prompts, not image inputs. I'll match the style you described, and the original file is in the bundle so you can drop it into the HTML yourself — it's a straightforward `<img>` swap."
+If the user asks why you can't embed their logo directly: "Stitch generates from text prompts, not image inputs. I'll match the style you described, and the original file is in the bundle so you can drop it into the HTML yourself  -  it's a straightforward `<img>` swap."
 
 ---
 
@@ -164,7 +164,7 @@ This is the core workflow. The loop runs until the user approves the design.
 2. Craft the generation prompt using the template from `references/stitch-architecture.md`.
 3. Call `generate_screen_from_text` with `deviceType: DESKTOP`.
 4. Generation takes 1-3 minutes. Do NOT retry if it seems slow.
-5. Save the HTML output returned by your Stitch SDK call into `.stitch/designs/` using a versioned filename: `desktop-v1.html` for the first generation, `desktop-v2.html` for the next iteration, and so on. Use the same convention for mobile (`mobile-v1.html`, `mobile-v2.html`). Use the SDK's response-handling pattern to retrieve the output — don't perform arbitrary HTTP fetches.
+5. Save the HTML output returned by your Stitch SDK call into `.stitch/designs/` using a versioned filename: `desktop-v1.html` for the first generation, `desktop-v2.html` for the next iteration, and so on. Use the same convention for mobile (`mobile-v1.html`, `mobile-v2.html`). Use the SDK's response-handling pattern to retrieve the output  -  don't perform arbitrary HTTP fetches.
 6. **Open the saved HTML file in the user's browser** so they can see the design at full fidelity. Use `open` (macOS), `xdg-open` (Linux), or `start` (Windows, via `cmd /c start`). If none work in the current environment, tell the user the file path.
 7. Save the screen ID to `.stitch/metadata.json` under `screens.desktop.current` and append to `screens.desktop.history`.
 

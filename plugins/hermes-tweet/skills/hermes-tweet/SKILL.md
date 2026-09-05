@@ -1,20 +1,12 @@
 ---
 name: hermes-tweet
-description: >
-  Install and operate Hermes Tweet, a Hermes Agent plugin for X/Twitter research,
-  timeline reading, tweet analysis, and approval-gated private or state-changing
-  operations. Use this skill when installing Hermes Tweet, researching X/Twitter
-  accounts, monitoring
-  launch signals, investigating mentions, auditing giveaways, or preparing gated
-  X operations. Use proactively when a Hermes Agent workflow needs current
-  X/Twitter context. Requires XQUIK_API_KEY for read and action tools.
+description: >   Install and operate Hermes Tweet, a Hermes Agent plugin for X/Twitter research,   timeline reading, tweet analysis, and approval-gated private or state-changing   operations. Use this skill when installing Hermes Tweet, researching X/Twitter   accounts, monitoring   launch signals, investigating mentions, auditing giveaways, or preparing gated   X operations. Use proactively when a Hermes Agent workflow needs current   X/Twitter context. Requires XQUIK_API_KEY for read and action tools. Use when working with hermes tweet.
 license: MIT
 metadata:
   version: "0.1.13"
   source: https://github.com/Xquik-dev/hermes-tweet
   homepage: https://github.com/Xquik-dev/hermes-tweet#readme
 ---
-
 # Hermes Tweet
 
 Hermes Tweet adds an X/Twitter toolset to Hermes Agent. It is useful for social

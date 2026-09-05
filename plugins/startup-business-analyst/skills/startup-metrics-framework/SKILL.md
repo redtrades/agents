@@ -1,9 +1,8 @@
 ---
 name: startup-metrics-framework
-description: Track, calculate, and optimize key performance metrics for SaaS, marketplace, consumer, and B2B startups from seed through Series A, including unit economics, growth efficiency, and cash management. Use this skill when defining a metrics framework, calculating CAC/LTV/burn multiple, benchmarking business health, or preparing metrics dashboards for investors or board reporting.
+description: Track, calculate, and optimize key performance metrics for SaaS, marketplace, consumer, and B2B startups from seed through Series A, including unit economics, growth efficiency, and cash management. Use this skill when defining a metrics framework, calculating CAC/LTV/burn multiple, benchmarking business health, or preparing metrics dashboards for investors or board reporting. Use when working with startup metrics framework.
 version: 1.0.0
 ---
-
 # Startup Metrics Framework
 
 Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different startup business models from seed through Series A.

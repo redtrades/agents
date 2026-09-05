@@ -1,0 +1,10 @@
+{
+  "name": "deep-research",
+  "version": "1.0.0",
+  "description": "Multi-source live intelligence gathering across social platforms, web research, and strategic roadmaps",
+  "author": {
+    "name": "Mike Ninov",
+    "url": "https://github.com/redtrades"
+  },
+  "license": "MIT"
+}

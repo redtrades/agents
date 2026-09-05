@@ -1,6 +1,6 @@
 # claude-agents : multi-harness agentic operating constitution
 
-Production-ready agentic operating foundation: **94 plugins** (92 local + 2 external), **202 agents**, **184 skills**, **105 commands**. Canonical source-of-truth across Claude Code (`CLAUDE.md`), OpenAI Codex CLI, Cursor, OpenCode, and Google Antigravity CLI (`agy`).
+Production-ready agentic operating foundation: **100 plugins** (98 local + 2 external), **202 agents**, **225 skills**, **105 commands**. Canonical source-of-truth across Claude Code (`CLAUDE.md`), OpenAI Codex CLI, Cursor, OpenCode, and Google Antigravity CLI (`agy`).
 
 > **Operational Constitution:** Governed by Boris Cherny ("Govern, don't inform"), Andrej Karpathy (Wiki-LLM, failure-mode guards), Garry Tan (MCP memory externalization), and OpenClaw §0 unbreakable laws. Keep <=150 lines. Detail lives in `docs/` and skills.
 
@@ -9,9 +9,10 @@ Production-ready agentic operating foundation: **94 plugins** (92 local + 2 exte
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** : top-level architectural overview (adapter framework, source-of-truth invariant, capability matrix summary)
 - **[rules/README.md](rules/README.md)** : living operational rules (communication, hygiene, task-tracking, verification)
 - **[docs/decisions/README.md](docs/decisions/README.md)** : architecture decision records (ADR) and operational decision log
+- **[docs/skills-moc.md](docs/skills-moc.md)** : canonical skills Map of Content (225 skills by domain and difficulty tier)
 - **[docs/GLOSSARY.md](docs/GLOSSARY.md)** : canonical estate glossary and taxonomy
 - **[docs/architecture.md](docs/architecture.md)** : detailed design principles
-- **[docs/plugins.md](docs/plugins.md)** : full plugin catalog (94 plugins by category)
+- **[docs/plugins.md](docs/plugins.md)** : full plugin catalog (100 plugins by category)
 - **[docs/agents.md](docs/agents.md)** : agent reference (202 agents, model tiers)
 - **[docs/agent-skills.md](docs/agent-skills.md)** : skill reference (progressive disclosure model)
 - **[docs/usage.md](docs/usage.md)** : commands, workflows, examples
@@ -49,18 +50,17 @@ Production-ready agentic operating foundation: **94 plugins** (92 local + 2 exte
 
 ### Distilled operational guidance (Best Practice Principles)
 
+- **Skill-First Discipline & JIT Discovery:** Inspect user request keywords and difficulty tier against `docs/skills-moc.md`. Load matching skill via `view_file` (<8 KB) before acting. Announce `Using [skill] for [purpose]`.
+- **Search Before Asserting:** Live search fast-moving tech, runtimes, and models. Check live runtime state over disk files (`verify-before-asserting`).
 - **Thin Agents, Fat Recipes (SSSF):** Standard Makefile recipes and native CLI commands hold execution mechanics; agents hold adaptive judgment. Avoid bespoke subprocess daemons.
 - **A Priori Research & Pushback:** Research first principles and top repositories before proposing architectures. Surface counter-points (`CP1..CPN`) with clear trade-offs and explicit recommendations.
 - **Ask Until 95% Certain:** Surface genuine ambiguities early with structured options; never pick an unverified assumption on structural choices.
 - **Ponytail YAGNI Ladder:** Standard tools > installed packages > minimal bespoke code. Surgical edits only; avoid orthogonal damage to adjacent working code.
 - **Scope Containment & Parked Backlog:** Deliver requested scope without unasked feature creep. Route side ideas to the parked backlog in `TASK.md` without derailing in-flight work.
 - **Deterministic Proof of Work:** Verify completion via deterministic test assertions and exit code 0; avoid doubt theater.
+- **Caveman Brevity & Compounding Loop:** High-density telegraphic style (65-75% token reduction); write-back post-task lessons and fixes into skills/rules to prevent regression (`EveryInc` loop).
 - **Progressive Disclosure (Map of Content):** Conserve context tokens (<300 resident prompt); load detailed skill bodies and documentation on demand.
 - **State Continuity:** Maintain `TASK.md` and `CONTINUATION.md` after atomic changes to ensure sub-500 token cold resumes across sessions.
-
-
-
-
 
 ## Quality gates (run these before pushing)
 
@@ -87,7 +87,7 @@ The small per-harness registries are **committed** so each harness installs nati
 
 ## Skills (cross-harness)
 
-184 skills under `plugins/*/skills/<n>/SKILL.md` : discoverable by every harness:
+225 skills under `plugins/*/skills/<n>/SKILL.md` : discoverable by every harness:
 
 - **Claude Code**: auto-discovery via Anthropic's SKILL.md spec
 - **Codex CLI**: mirrored to `.codex/skills/<plugin>__<skill>/` (8 KB body cap; detail in `references/details.md`)

@@ -8,34 +8,38 @@
 ---
 
 ## 1. Active Phase & Status
-- **Current Phase:** Phase 8 - Native Skills & Research Consolidation (Distillation, MECE Dedup, MOC Generator, Multi-Harness Sync)
+- **Current Phase:** Phase 9 - Foundation Ratification & Swarm Architecture Alignment (Mike Q&A on Decisions & North Star)
 - **Overall Status:** IN_PROGRESS
 
 ---
 
 ## 2. Completed Steps (Machine-Verified)
-1. **Universal Agent Contract in AGENTS.md:** Distilled into Non-Negotiable Invariants and Pragmatic Guidance Principles (111 lines, commands first, MOC links to rules/decisions/glossary, zero em dashes).
-2. **Skills Discovery & Progressive Disclosure:** Refactored all 9 oversize skills (>8 KB) into `references/details.md`. Verified `make garden` (0 skill warnings) and `make test` (568 passed).
-3. **Multi-Harness Generation:** Executed `make generate-all` across codex, copilot, cursor, opencode, and antigravity (834 files verified).
-4. **Decision Rollback to PROPOSED:** Reset DEC-14 (SSSF), DEC-18 (fork split), DEC-19 (estate namespace), and DEC-20 (conflict policy) to `PROPOSED` until Mike explicitly confirms each one.
-5. **Brain Vault Intent Tagged PROPOSED:** Marked `20260905-unified-intent-and-north-star.md` as `PROPOSED (Draft Pending One-by-One Operator Ratification)`.
-6. **Discovered Native Estate Skills & Research:** Located 107 local skills in `agent-configs/skills/` (`~/.agents/skills/`), foundational research in `agent-configs/knowledge/`, and SOTA Hermes skillify/memory mechanics.
+1. **Universal Agent Contract in AGENTS.md:** Distilled into Non-Negotiable Invariants and Pragmatic Guidance Principles (100 plugins, 225 skills, commands first, MOC links to rules/decisions/glossary, zero em dashes).
+2. **Skills Discovery & Progressive Disclosure:** Refactored all oversize skills (>8 KB) into `references/details.md`. Verified `make garden` (0 skill warnings) and `make test` (580 passed).
+3. **Multi-Harness Generation:** Executed `make generate-all` across codex, copilot, cursor, opencode, and antigravity (941 antigravity files, 844 opencode files, 103 cursor files verified).
+4. **Phase 1 Knowledge & Research Transfer:** Transferred and normalized 4 research files from `agent-configs` into `docs/research/` (commit `09b8515`).
+5. **Phase 2 Native Skill Distillation:** Distilled 104 raw skills into 6 first-class native plugins (41 curated skills) under `plugins/`: `operational-discipline`, `caveman`, `deep-research`, `software-craft`, `planning-spec`, `cloudflare-platform`.
+6. **Phase 3 Declarative MOC Generator:** Built `docs/skills-moc.md` indexed by domain, difficulty tier, and trigger criteria via `tools/generate_catalog.py`.
+7. **Phase 4 Multi-Harness Sync & Gate Verification:** All 4 gates passing cleanly (`make validate STRICT=1`, `make garden`, `npm test`, `make test`).
+8. **Subagent Research Synthesized:** SOTA Swarm Orchestration and OSS / Free-Tier architecture surveys completed and delivered.
 
 ---
 
 ## 3. Active Step (In Progress)
-- **Step Name:** Phase 1 - Knowledge & Research Transfer
-- **Target:** Transfer and normalize foundational research files from `agent-configs` into `docs/research/`.
+- **Step Name:** Phase 9 - Foundation Ratification & Swarm Alignment
+- **Target:** Present the consolidated skills and MOC foundation, and conduct one-at-a-time decision ratification with Mike.
 
 ---
 
 ## 4. Modified & Staged Files
+- All 6 native plugins (`plugins/{operational-discipline,caveman,deep-research,software-craft,planning-spec,cloudflare-platform}`)
+- `docs/skills-moc.md`, `AGENTS.md`, `README.md`, `docs/agent-skills.md`, `tools/generate_catalog.py`
+- Manifest files: `.claude-plugin/marketplace.json`, `.agents/plugins/marketplace.json`, `.cursor-plugin/`
 - `TASK.md` & `CONTINUATION.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Copy `agent-configs/knowledge/public-agent-instructions-and-skills-research-2026-09-02.md` to `docs/research/20260902-public-agent-instructions-and-skills-research.md`.
-2. Copy `agent-configs/SKILLS-ADOPTION-ROADMAP.md` to `docs/research/20260904-skills-adoption-roadmap.md`.
-3. Copy `agent-configs/knowledge/MIKE-INTENT-DEBRIEF-2026-08-28.md` to `docs/research/20260828-mike-intent-debrief.md`.
-4. Scrub em/en dashes and verify with `make garden`.
+1. Commit all consolidated skills and MOC additions cleanly to git.
+2. Push commit to remote main.
+3. Present summary to Mike with structured Q&A on foundation and decision ratification.

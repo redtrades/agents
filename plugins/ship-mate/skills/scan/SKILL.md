@@ -28,10 +28,10 @@ context-mode         →  /plugin list | grep context-mode
 
 These plugins are **optional**. They improve scan quality but are not required:
 
-- **understand-anything** (Lum1104/Understand-Anything) — provides deeper semantic code analysis
-- **context-mode** (mksglu/context-mode) — routes large outputs through a sandbox to protect the context window
+- **understand-anything** (Lum1104/Understand-Anything)  -  provides deeper semantic code analysis
+- **context-mode** (mksglu/context-mode)  -  routes large outputs through a sandbox to protect the context window
 
-If both are present, use them in Steps 3–4 as described below. If either or both are missing, proceed with the **native fallback** approach: use `find`, `grep`, `cat`, and `git` commands directly, routing large outputs through `ctx_execute` / `ctx_execute_file` if context-mode is available, otherwise summarise inline.
+If both are present, use them in Steps 3-4 as described below. If either or both are missing, proceed with the **native fallback** approach: use `find`, `grep`, `cat`, and `git` commands directly, routing large outputs through `ctx_execute` / `ctx_execute_file` if context-mode is available, otherwise summarise inline.
 
 > **Note:** To install the optional plugins manually:
 > ```
@@ -48,7 +48,7 @@ Check if `.claude/pipeline/project-doc.md` exists.
 
 ## Step 3A: Full Scan
 
-Use `understand-anything` to analyse the entire codebase. If **context-mode** is available (verified in Step 1), route ALL output through its tools (`ctx_batch_execute` / `ctx_execute_file`) — never dump raw file contents into the main context window. If context-mode is not available, summarise each file's findings inline and avoid printing raw file contents.
+Use `understand-anything` to analyse the entire codebase. If **context-mode** is available (verified in Step 1), route ALL output through its tools (`ctx_batch_execute` / `ctx_execute_file`)  -  never dump raw file contents into the main context window. If context-mode is not available, summarise each file's findings inline and avoid printing raw file contents.
 
 Produce `.claude/pipeline/project-doc.md` using the following structure (based on the architecture-blueprint-generator pattern):
 
@@ -76,7 +76,7 @@ Produce `.claude/pipeline/project-doc.md` using the following structure (based o
 
 ## Code Style Conventions
 [Naming patterns, file naming, import ordering, export patterns]
-[Inferred from actual code — not guessed]
+[Inferred from actual code  -  not guessed]
 
 ## Modularity Practices
 [How concerns are separated, shared module locations, service patterns]
@@ -88,7 +88,7 @@ Produce `.claude/pipeline/project-doc.md` using the following structure (based o
 [Auth/authz approach, error handling patterns, logging, validation]
 
 ## Service Communication
-[REST / GraphQL / event-driven — document what actually exists]
+[REST / GraphQL / event-driven  -  document what actually exists]
 
 ## Test Coverage
 - Overall coverage: [X%]
@@ -100,7 +100,7 @@ Produce `.claude/pipeline/project-doc.md` using the following structure (based o
 [Main files, key config files, environment setup]
 
 ## Changed Files
-[Only present in delta scans — list of files re-scanned]
+[Only present in delta scans  -  list of files re-scanned]
 
 ## Last Scanned
 [ISO timestamp]
@@ -111,7 +111,7 @@ After writing `project-doc.md`, proceed to **Step 4** to generate `AGENTS.md`.
 ## Step 3B: Delta Scan
 
 1. Run `git diff HEAD~1 --name-only` to get changed files
-2. If no changed files, report "No changes detected — project-doc.md is current" and exit
+2. If no changed files, report "No changes detected  -  project-doc.md is current" and exit
 3. Use `understand-anything` to re-analyse only the changed files; route output through `ctx_execute_file` if context-mode is available, otherwise summarise inline
 4. Patch only the affected sections of `.claude/pipeline/project-doc.md`
 5. Update the `Last Scanned` and `Changed Files` fields

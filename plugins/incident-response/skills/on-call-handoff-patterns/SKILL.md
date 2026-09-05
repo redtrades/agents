@@ -1,8 +1,7 @@
 ---
 name: on-call-handoff-patterns
-description: Master on-call shift handoffs with context transfer, escalation procedures, and documentation. Use this skill when transitioning on-call responsibilities between engineers and ensuring the incoming responder has full situational awareness, when writing a shift summary that captures active incidents, ongoing investigations, and recent changes, when handing off mid-incident so a fresh engineer can take over the incident commander role without losing context, when onboarding a new engineer to the on-call rotation for the first time, or when auditing and improving the quality of existing handoff processes across teams.
+description: Master on-call shift handoffs with context transfer, escalation procedures, and documentation. Use this skill when transitioning on-call responsibilities between engineers and ensuring the incoming responder has full situational awareness, when writing a shift summary that captures active incidents, ongoing investigations, and recent changes, when handing off mid-incident so a fresh engineer can take over the incident commander role without losing context, when onboarding a new engineer to the on-call rotation for the first time, or when auditing and improving the quality of existing handoff processes across teams. Use when working with on call handoff patterns.
 ---
-
 # On-Call Handoff Patterns
 
 Effective patterns for on-call shift transitions, ensuring continuity, context transfer, and reliable incident response across shifts.
@@ -66,5 +65,5 @@ Add a standard step: outgoing engineer fires a test alert and confirms incoming 
 
 ## Related Skills
 
-- [incident-classification](../../skills/incident-classification/SKILL.md) — Classify and prioritize incidents that need to be included in the handoff document
-- [postmortem-facilitation](../../skills/postmortem-facilitation/SKILL.md) — Turn resolved incidents from the shift into structured postmortems
+- [incident-classification](../../skills/incident-classification/SKILL.md)  -  Classify and prioritize incidents that need to be included in the handoff document
+- [postmortem-facilitation](../../skills/postmortem-facilitation/SKILL.md)  -  Turn resolved incidents from the shift into structured postmortems

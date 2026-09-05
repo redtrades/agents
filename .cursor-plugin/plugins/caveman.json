@@ -1,0 +1,11 @@
+{
+  "name": "caveman",
+  "displayName": "Caveman",
+  "version": "1.0.0",
+  "description": "JuliusBrussee token minimalism and terse communication protocols for 65% to 75% prompt token reduction",
+  "author": {
+    "name": "Mike Ninov",
+    "email": ""
+  },
+  "license": "MIT"
+}

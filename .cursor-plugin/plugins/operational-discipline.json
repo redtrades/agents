@@ -1,0 +1,11 @@
+{
+  "name": "operational-discipline",
+  "displayName": "Operational Discipline",
+  "version": "1.0.0",
+  "description": "Core operational discipline, verification gates, search before asserting, and complexity tiering",
+  "author": {
+    "name": "Mike Ninov",
+    "email": ""
+  },
+  "license": "MIT"
+}

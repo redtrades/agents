@@ -1,9 +1,8 @@
 ---
 name: competitive-landscape
-description: Analyze competition, identify differentiation opportunities, and develop winning market positioning strategies using Porter's Five Forces, Blue Ocean Strategy, and positioning maps. Use this skill when evaluating competitors, assessing market positioning, identifying sustainable competitive advantages, or preparing competitive strategy analysis for a startup or investor pitch.
+description: Analyze competition, identify differentiation opportunities, and develop winning market positioning strategies using Porter's Five Forces, Blue Ocean Strategy, and positioning maps. Use this skill when evaluating competitors, assessing market positioning, identifying sustainable competitive advantages, or preparing competitive strategy analysis for a startup or investor pitch. Use when working with competitive landscape.
 version: 1.0.0
 ---
-
 # Competitive Landscape Analysis
 
 Comprehensive frameworks for analyzing competition, identifying differentiation opportunities, and developing winning market positioning strategies.

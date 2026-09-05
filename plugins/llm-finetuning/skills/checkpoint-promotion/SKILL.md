@@ -1,8 +1,7 @@
 ---
 name: checkpoint-promotion
-description: Gate fine-tuned checkpoints with drift budgets, paired comparison, and forgetting checks before promotion. Use after a training run produces a checkpoint, when deciding whether a tuned model ships, or when a promoted model needs re-gating against updated goldens.
+description: Gate fine-tuned checkpoints with drift budgets, paired comparison, and forgetting checks before promotion. Use after a training run produces a checkpoint, when deciding whether a tuned model ships, or when a promoted model needs re-gating against updated goldens. Use when working with checkpoint promotion.
 ---
-
 # Checkpoint Promotion
 
 The Phase 5 gate for the whole
@@ -11,7 +10,7 @@ cleanly and beats its task metric
 still doesn't ship without
 clearing all four stages below.
 `eval-harness-first` built the
-suite re-run here — this skill is
+suite re-run here  -  this skill is
 where that suite's baseline
 decides something.
 
@@ -20,7 +19,7 @@ decides something.
 `eval-harness-first`, and the
 frozen `eval/drift-suite.yaml`.
 **Output format:**
-`promotion-report.md` — the
+`promotion-report.md`  -  the
 four-stage evidence plus a
 terminal `PROMOTE` or `REJECT`
 verdict that `/finetune` Phase 5
@@ -29,7 +28,7 @@ directly.
 
 ## The Four-Stage Gate
 
-Each stage gates the next — a
+Each stage gates the next  -  a
 failure at stage 2 means stage 3
 doesn't run. Stages 2 and 3 share
 one expensive inference pass, so
@@ -39,7 +38,7 @@ time is licensed on a
 **deterministic** arena (nothing
 saved by serializing); a
 judge-based arena should still
-wait for stage 2 first — that's
+wait for stage 2 first  -  that's
 where the real savings are.
 
 1. **Data-quality gate.** Before
@@ -56,9 +55,9 @@ where the real savings are.
 2. **Held-out + frozen
    capability-drift suite.**
    Re-run `eval-harness-first`'s
-   `eval/drift-suite.yaml` —
-   MMLU/GSM8K/IFEval plus 200–500
-   domain-adjacent items — against
+   `eval/drift-suite.yaml`  - 
+   MMLU/GSM8K/IFEval plus 200-500
+   domain-adjacent items  -  against
    the checkpoint and diff against
    `baseline-<model>.json` per
    benchmark against the Drift
@@ -66,7 +65,7 @@ where the real savings are.
 3. **Paired arena vs. base.**
    Position-randomized judge,
    checkpoint vs. base model, same
-   prompts — or the deterministic
+   prompts  -  or the deterministic
    paired-comparison variant in
    `references/gate-templates.md`
    when every grader in the
@@ -75,17 +74,17 @@ where the real savings are.
    randomization N/A there).
    **A holdout win that
    loses the live arena does not
-   ship** — stage-2 numbers and
+   ship**  -  stage-2 numbers and
    stage-3 judgments must agree; a
    win on frozen goldens and a
    loss in paired comparison is a
    real signal, not a discrepancy
    to explain away.
-4. **Canary.** 5–10% stratified
+4. **Canary.** 5-10% stratified
    rollout with auto-rollback for
    any checkpoint reaching
    production traffic. **Local-only
-   users stop at stage 3** —
+   users stop at stage 3**  - 
    skipping stage 4 for a local
    deployment is the correct
    stopping point, not a shortcut.
@@ -94,15 +93,15 @@ where the real savings are.
 
 | Drift (pts) | Verdict |
 |---|---|
-| ≤1 | Noise — proceed |
-| 2–5 | Rerun with seed variation before deciding |
-| >5 | **HARD FAIL** — no exception for task gains |
+| ≤1 | Noise  -  proceed |
+| 2-5 | Rerun with seed variation before deciding |
+| >5 | **HARD FAIL**  -  no exception for task gains |
 
 The >5pt row governs regardless
 of the others: a checkpoint that
 gained 8 points on the target
 task and lost 6 points of general
-capability still fails here —
+capability still fails here  - 
 task improvement never buys back
 a drift-budget breach.
 
@@ -113,7 +112,7 @@ half the 5pt hard-fail threshold
 is ~1,300 at typical accuracy
 (p≈0.7); n=200 is a pragmatic
 floor (±6pt half-width at that
-same p, n=50 ±13pt) — report the
+same p, n=50 ±13pt)  -  report the
 half-width with every verdict,
 and treat a margin smaller than
 it as `REJECT (uncertain)`, not
@@ -122,13 +121,13 @@ PASS/HARD FAIL. Full math and a
 `references/gate-templates.md`.
 
 **RERUN is not a verdict.** A
-2–5pt drift only ever produces a
+2-5pt drift only ever produces a
 `PROMOTE` or `REJECT` after the
-seed-variation rerun completes —
+seed-variation rerun completes  - 
 `PROMOTE` requires landing back
 at ≤1pt (noise); any rerun still
->1pt — 2–5pt band or >5pt breach
-alike — resolves stage 2 to a
+>1pt  -  2-5pt band or >5pt breach
+alike  -  resolves stage 2 to a
 hard `REJECT`. No report may
 reach the Verdict section with
 stage 2 still showing `RERUN`.
@@ -140,38 +139,38 @@ real general capability, and
 stage 2 is what catches it:
 
 - **~43% knowledge loss
-  unmanaged** — no replay, no
+  unmanaged**  -  no replay, no
   regularization.
 - **~10% with basic management**
-  — some replay or a conservative
+   -  some replay or a conservative
   LR.
-- **~3% with replay + EWC** — the
+- **~3% with replay + EWC**  -  the
   disciplined case.
-- **10–30% general-data replay
+- **10-30% general-data replay
   mix is the standard
-  mitigation** — blend general-
+  mitigation**  -  blend general-
   domain data into training
   rather than target-task data
   alone.
 
 If a checkpoint hits the >5pt
 hard fail in stage 2, work this
-escalation ladder in order — the
+escalation ladder in order  -  the
 one canonical order this skill
 and `references/gate-templates.md`
 both point to:
 
 1. **Adjust the replay-mix
-   fraction — swap rows, don't
+   fraction  -  swap rows, don't
    add them** (adding confounds
    fraction with total optimizer
    steps). Dose is not monotonic
    at small-run scale (<~100
-   steps) — re-check drift after
+   steps)  -  re-check drift after
    any swap.
 2. **Lower the learning rate.**
 3. **Fewer epochs.**
-4. **A smaller LoRA rank** — the
+4. **A smaller LoRA rank**  -  the
    same rank/LR levers
    `lora-qlora-recipes` and
    `preference-optimization` tune
@@ -181,7 +180,7 @@ both point to:
 This order is a default, not a
 law: **remediation guidance from
 a single before/after run pair
-is a hypothesis** — label it
+is a hypothesis**  -  label it
 low-confidence once any lever
 produces a reversal, and prefer
 a seed-variation repeat over
@@ -202,7 +201,7 @@ copying the drift harness's exact
 instruction phrasing (not just
 disjoint source items) makes that
 benchmark's post-replay score an
-upper bound — flag it
+upper bound  -  flag it
 instruction-familiar, or re-probe
 with a paraphrase, before
 treating a near-budget pass as
@@ -266,23 +265,23 @@ constant.
 
 ## Related Skills
 
-- `eval-harness-first` — owns the
+- `eval-harness-first`  -  owns the
   drift suite and baseline this
   skill re-runs and diffs
   against; no `baseline-<model>.json`
   means nothing to gate against.
-- `quantized-export` — the only
+- `quantized-export`  -  the only
   valid next step after a
   `PROMOTE` verdict.
 - `preference-optimization` and
-  `lora-qlora-recipes` — own the
+  `lora-qlora-recipes`  -  own the
   LR and rank levers in the
   Catastrophic Forgetting
   escalation path; this skill
   diagnoses the breach, those
   skills own the config that
   caused it.
-- `dataset-curation` — owns the
+- `dataset-curation`  -  owns the
   replay-mix construction recipe
   the escalation ladder's first
   rung applies.

@@ -6,7 +6,7 @@ description: 'Use when a project keeps its state in Superself (a `<!-- superself
 # Superself
 
 Superself is an Apache-2.0 CLI (`npm install -g superself@0.6.1`, Node 22.12+) that
-version-controls a project's state — goals, decisions, work units, reports —
+version-controls a project's state  -  goals, decisions, work units, reports  - 
 as an append-only event log in a git repository separate from the code. The
 state is derived on demand, so nothing in it is hand-maintained. This skill
 tells an agent how to read and write that state through the `self` CLI. It is
@@ -35,8 +35,8 @@ maintained by the Superself authors: https://github.com/fxylabs/superself
 ## While working
 
 - Substantive work attaches to a work unit. Create one with
-  `self work add "<required outcome>"` — the outcome is what must become true,
-  not the task — then `self work start <id>`. `start` reads the brief and
+  `self work add "<required outcome>"`  -  the outcome is what must become true,
+  not the task  -  then `self work start <id>`. `start` reads the brief and
   records that this session picked the unit up; if another session holds it,
   the CLI says who and since when and does not refuse. Judge and proceed.
 - After committing, report progress: `self report <id> "<what happened>"`. The
@@ -66,7 +66,7 @@ maintained by the Superself authors: https://github.com/fxylabs/superself
 
 ## Rules that keep the state trustworthy
 
-- Records — events, decisions, reports, conventions — are written in English
+- Records  -  events, decisions, reports, conventions  -  are written in English
   so whoever opens them next can read them; answer the person in their own
   language.
 - A branch reaches main through a pull request: PR review and CI own merge
@@ -83,10 +83,10 @@ maintained by the Superself authors: https://github.com/fxylabs/superself
 `self --help` lists every verb; `self <command> --help` prints one command's
 flags without touching state. Topic guides ship with the CLI:
 
-- `self help agents` — how a session drives this CLI, start to finish
-- `self help context` — what `self context` renders, and why something is missing from it
-- `self help records` — one entity behind every record kind, and how a record is corrected
-- `self help placement` — scope, priority and exposure — how a record earns its place in context
-- `self help work` — the work graph: outcomes, evidence, criteria, and proposals
-- `self help goals` — long-term goals, objectives, milestones, and what reaching one takes
-- `self help workspace` — the store, the projects in it, and moving it between machines
+- `self help agents`  -  how a session drives this CLI, start to finish
+- `self help context`  -  what `self context` renders, and why something is missing from it
+- `self help records`  -  one entity behind every record kind, and how a record is corrected
+- `self help placement`  -  scope, priority and exposure  -  how a record earns its place in context
+- `self help work`  -  the work graph: outcomes, evidence, criteria, and proposals
+- `self help goals`  -  long-term goals, objectives, milestones, and what reaching one takes
+- `self help workspace`  -  the store, the projects in it, and moving it between machines

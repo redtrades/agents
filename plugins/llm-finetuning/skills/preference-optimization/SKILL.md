@@ -20,45 +20,45 @@ to build the pairs in the first place.
 optimization) plus preference pairs or unpaired
 feedback, usually from an SFT checkpoint.
 **Output format:** a validated method choice plus
-a config — the kwarg values in
+a config  -  the kwarg values in
 `references/method-configs.md`, not free-form
-advice — that `llm-finetuning-training-engineer`
+advice  -  that `llm-finetuning-training-engineer`
 consumes directly.
 
 ## Method Selection
 
 | Data shape | Method | Key parameters |
 |---|---|---|
-| Preference pairs, default case | **DPO** | β=0.1, LR 5e-7–1e-6, 1–2 epochs |
+| Preference pairs, default case | **DPO** | β=0.1, LR 5e-7-1e-6, 1-2 epochs |
 | Memory-bound or no SFT checkpoint | **ORPO** | reference-free, fused SFT+preference in one loss |
 | Unpaired thumbs-up/down | **KTO** | binary label per example, no pairing needed |
 | Length bias observed, sweep budget available | **SimPO** | reference-free; see sweep grid below |
 
 - **DPO is the safe default.** Use β=0.1 and a
-  learning rate of 5e-7 to 1e-6 for 1–2 epochs.
+  learning rate of 5e-7 to 1e-6 for 1-2 epochs.
   This LR is *lower* than the SFT LR that produced
-  the checkpoint being aligned — porting an SFT-
+  the checkpoint being aligned  -  porting an SFT-
   scale LR into a DPO run is the most common
   misconfiguration here, not an edge case.
 - **ORPO** routes in when memory is the
   constraint, or when there's no separate SFT
-  checkpoint to start from — it's reference-free
+  checkpoint to start from  -  it's reference-free
   and fuses the SFT and preference objectives into
   one loss, skipping the separate SFT pass and the
   reference-model memory cost DPO carries.
 - **KTO** routes in when feedback is unpaired
   binary signal (thumbs-up/down) rather than
-  matched preference pairs — don't force unpaired
+  matched preference pairs  -  don't force unpaired
   feedback into synthetic pairs to use DPO instead.
 - **SimPO** fixes DPO's length bias but only pays
-  off with disciplined sweeping — its published
+  off with disciplined sweeping  -  its published
   gains are a ceiling reported under a tuned sweep,
   not a baseline any single config will reproduce.
   Route here only when there's sweep budget; use
   DPO instead if there isn't.
 - **Classic RLHF (reward model + PPO) is retired**
   outside frontier labs. Don't reach for it in a
-  production pipeline — every method above is
+  production pipeline  -  every method above is
   cheaper and better-supported for the same data
   shapes.
 
@@ -69,7 +69,7 @@ consumes directly.
   → default case → **DPO** at β=0.1.
 - *"Reviewers click thumbs-up/down per response;
   nothing is paired."* → unpaired signal →
-  **KTO**, not DPO — don't synthesize pairs to
+  **KTO**, not DPO  -  don't synthesize pairs to
   force DPO onto unpaired data.
 - *"GPU budget doesn't cover a separate SFT pass
   plus a DPO reference model."* → memory-bound,
@@ -87,7 +87,7 @@ the load-bearing evidence behind the table above:
 percentage point of leverage, model scale is
 worth roughly 50.** Zero of 20 DPO variants tested
 beat vanilla DPO. Rankings also **invert with
-scale** — a variant that wins in a small pilot can
+scale**  -  a variant that wins in a small pilot can
 lose at deployment size.
 
 Two practical consequences:
@@ -99,7 +99,7 @@ Two practical consequences:
 - **Validate at deployment scale before trusting a
   ranking.** A method comparison run on a small
   pilot model doesn't transfer to the production
-  size class — re-check the winner once scale
+  size class  -  re-check the winner once scale
   changes.
 
 This is also why the Method Selection table above
@@ -107,8 +107,8 @@ is deliberately short: it encodes the ~1pp lever,
 not a ranking of DPO variants that the same study
 shows doesn't hold up across scale. Treat any
 variant-selection advice that isn't in that table
-— including advice that claims a specific variant
-"wins" — as unproven until it's been validated at
+ -  including advice that claims a specific variant
+"wins"  -  as unproven until it's been validated at
 the target deployment size.
 
 ## Production Pattern: Iterative On-Policy DPO
@@ -132,13 +132,13 @@ iteratively and on-policy instead:
    round.
 
 Repeat. Each round's reference model is the prior
-round's output, not a fixed initial checkpoint —
+round's output, not a fixed initial checkpoint  - 
 that's what keeps the preference signal on-policy
 instead of scoring against an increasingly stale
 distribution.
 
 A single-pass DPO run is still a reasonable first
-iteration — it just isn't the whole pipeline. Plan
+iteration  -  it just isn't the whole pipeline. Plan
 for at least one more round once the first
 checkpoint exists, rather than treating pass one
 as the finished artifact.
@@ -146,7 +146,7 @@ as the finished artifact.
 ## Pair Construction
 
 Build DPO/ORPO pairs from **same-task
-passing-vs-failing trajectories** — two attempts
+passing-vs-failing trajectories**  -  two attempts
 at the same underlying task, not unrelated
 best-and-worst examples pulled from different
 tasks. Within that trajectory set, select the
@@ -162,21 +162,21 @@ sorted_by_reward = sort(trajectories, key=reward)
 chosen   = sorted_by_reward[-1]                # highest reward
 mu, sigma = mean(rewards), stdev(rewards)
 rejected = closest(sorted_by_reward, mu - 2 * sigma)
-# NOT sorted_by_reward[0] — the absolute minimum
+# NOT sorted_by_reward[0]  -  the absolute minimum
 # is the naive best-vs-worst construction that
 # degrades as scale increases.
 ```
 
 For the mechanics of turning graded traces into
-these pairs — including rejection sampling and
-judge-scored delta selection — see
+these pairs  -  including rejection sampling and
+judge-scored delta selection  -  see
 `trace-to-training-data`.
 
 ## References
 
-Complete TRL config blocks per method —
+Complete TRL config blocks per method  - 
 `DPOConfig`, `ORPOConfig`, `KTOConfig`, and the
-SimPO sweep grid — plus Unsloth wrappers and a
+SimPO sweep grid  -  plus Unsloth wrappers and a
 catastrophic-forgetting note live in
 `references/method-configs.md`. Those configs use
 the same current-TRL API conventions established

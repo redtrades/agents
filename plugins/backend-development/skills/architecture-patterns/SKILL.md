@@ -1,8 +1,7 @@
 ---
 name: architecture-patterns
-description: Implement proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, and Domain-Driven Design. Use this skill when designing clean architecture for a new microservice, when refactoring a monolith to use bounded contexts, when implementing hexagonal or onion architecture patterns, or when debugging dependency cycles between application layers.
+description: Implement proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, and Domain-Driven Design. Use this skill when designing clean architecture for a new microservice, when refactoring a monolith to use bounded contexts, when implementing hexagonal or onion architecture patterns, or when debugging dependency cycles between application layers. Use when working with architecture patterns.
 ---
-
 # Architecture Patterns
 
 Master proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, and Domain-Driven Design to build maintainable, testable, and scalable systems.
@@ -27,8 +26,8 @@ Master proven backend architecture patterns including Clean Architecture, Hexago
 
 - **Entities**: Core business models, no framework imports
 - **Use Cases**: Application business rules, orchestrate entities
-- **Interface Adapters**: Controllers, presenters, gateways — translate between use cases and external formats
-- **Frameworks & Drivers**: UI, database, external services — all at the outermost ring
+- **Interface Adapters**: Controllers, presenters, gateways  -  translate between use cases and external formats
+- **Frameworks & Drivers**: UI, database, external services  -  all at the outermost ring
 
 **Key Principles:**
 
@@ -48,7 +47,7 @@ Master proven backend architecture patterns including Clean Architecture, Hexago
 **Benefits:**
 
 - Swap implementations without touching the core (e.g., replace PostgreSQL with DynamoDB)
-- Use in-memory adapters in tests — no Docker required
+- Use in-memory adapters in tests  -  no Docker required
 - Technology decisions deferred to the edges
 
 ### 3. Domain-Driven Design (DDD)
@@ -71,7 +70,7 @@ Master proven backend architecture patterns including Clean Architecture, Hexago
 
 Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
 
-## Testing — In-Memory Adapters
+## Testing  -  In-Memory Adapters
 
 The hallmark of correctly applied Clean Architecture is that every use case can be exercised in a plain unit test with no real database, no Docker, and no network:
 
@@ -158,7 +157,7 @@ For detailed DDD bounded context mapping, full multi-service project trees, Anti
 
 ## Related Skills
 
-- `microservices-patterns` — Apply these architecture patterns when decomposing a monolith into services
-- `cqrs-implementation` — Use Clean Architecture as the structural foundation for CQRS command/query separation
-- `saga-orchestration` — Sagas require well-defined aggregate boundaries, which DDD tactical patterns provide
-- `event-store-design` — Domain events produced by aggregates feed directly into an event store
+- `microservices-patterns`  -  Apply these architecture patterns when decomposing a monolith into services
+- `cqrs-implementation`  -  Use Clean Architecture as the structural foundation for CQRS command/query separation
+- `saga-orchestration`  -  Sagas require well-defined aggregate boundaries, which DDD tactical patterns provide
+- `event-store-design`  -  Domain events produced by aggregates feed directly into an event store

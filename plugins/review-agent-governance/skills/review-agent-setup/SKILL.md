@@ -3,7 +3,7 @@ name: review-agent-setup
 description: Configure human-in-the-loop gating for AI agent review actions in Claude Code. Use when setting up a project where an agent may post PR reviews, comments, merges, or edit CI configuration, and you want a cryptographically auditable approval trail with Cedar-enforced gates.
 ---
 
-# review-agent-governance — Setup
+# review-agent-governance  -  Setup
 
 Gate AI agent review actions (PR reviews, comments, merges, CI edits) behind
 explicit human approval. Every attempt, approved or denied, produces an
@@ -182,7 +182,7 @@ policy blocks it.
 
 ## Standards
 
-- **Ed25519** — RFC 8032 (digital signatures)
-- **JCS** — RFC 8785 (deterministic JSON canonicalization)
-- **Cedar** — AWS's open authorization policy language
-- **IETF draft** — [draft-farley-acta-signed-receipts](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/)
+- **Ed25519**  -  RFC 8032 (digital signatures)
+- **JCS**  -  RFC 8785 (deterministic JSON canonicalization)
+- **Cedar**  -  AWS's open authorization policy language
+- **IETF draft**  -  [draft-farley-acta-signed-receipts](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/)

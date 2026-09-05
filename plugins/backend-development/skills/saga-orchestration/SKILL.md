@@ -1,8 +1,7 @@
 ---
 name: saga-orchestration
-description: Implement saga patterns for distributed transactions and cross-aggregate workflows. Use this skill when implementing distributed transactions across microservices where 2PC is unavailable, designing compensating actions for failed order workflows that span inventory, payment, and shipping services, building event-driven saga coordinators for travel booking systems that must roll back hotel, flight, and car rental reservations atomically, or debugging stuck saga states in production where compensation steps never complete.
+description: Implement saga patterns for distributed transactions and cross-aggregate workflows. Use this skill when implementing distributed transactions across microservices where 2PC is unavailable, designing compensating actions for failed order workflows that span inventory, payment, and shipping services, building event-driven saga coordinators for travel booking systems that must roll back hotel, flight, and car rental reservations atomically, or debugging stuck saga states in production where compensation steps never complete. Use when working with saga orchestration.
 ---
-
 # Saga Orchestration
 
 Patterns for managing distributed transactions and long-running business processes without two-phase commit.
@@ -48,20 +47,20 @@ Moved to `references/details.md`.
 
 ### Do's
 
-- **Make every step idempotent** — Commands may be replayed on broker reconnect
-- **Design compensations carefully** — They are the most critical code path
-- **Use correlation IDs** — The `saga_id` must flow through every event and log
-- **Implement per-step timeouts** — Never wait indefinitely for a participant reply
-- **Log state transitions** — `saga_id`, `step_name`, `old_state → new_state` on every change
-- **Test compensation paths explicitly** — Inject failures at each step index in integration tests
+- **Make every step idempotent**  -  Commands may be replayed on broker reconnect
+- **Design compensations carefully**  -  They are the most critical code path
+- **Use correlation IDs**  -  The `saga_id` must flow through every event and log
+- **Implement per-step timeouts**  -  Never wait indefinitely for a participant reply
+- **Log state transitions**  -  `saga_id`, `step_name`, `old_state → new_state` on every change
+- **Test compensation paths explicitly**  -  Inject failures at each step index in integration tests
 
 ### Don'ts
 
-- **Don't assume instant completion** — Sagas are async and may take minutes
-- **Don't skip compensation testing** — The rollback path is the hardest to get right
-- **Don't couple services directly** — Use async messaging, never synchronous calls inside a saga step
-- **Don't ignore partial failures** — A step that partially executed still needs compensation
-- **Don't use a global timeout** — Each step has different latency characteristics
+- **Don't assume instant completion**  -  Sagas are async and may take minutes
+- **Don't skip compensation testing**  -  The rollback path is the hardest to get right
+- **Don't couple services directly**  -  Use async messaging, never synchronous calls inside a saga step
+- **Don't ignore partial failures**  -  A step that partially executed still needs compensation
+- **Don't use a global timeout**  -  Each step has different latency characteristics
 
 ---
 
@@ -76,7 +75,7 @@ async def handle_release_reservation(self, command: Dict):
     try:
         await self.release_reservation(command["original_result"]["reservation_id"])
     except ReservationNotFoundError:
-        pass  # Already released — treat as success
+        pass  # Already released  -  treat as success
     # Always publish completion, regardless of outcome
     await self.event_publisher.publish("SagaCompensationCompleted", {
         "saga_id": command["saga_id"],
@@ -86,7 +85,7 @@ async def handle_release_reservation(self, command: Dict):
 
 ### Duplicate saga executions on restart
 
-If your orchestrator service restarts mid-saga, it may replay events and re-execute already-completed steps. Guard every step action with an idempotency key — see **Template 3** above.
+If your orchestrator service restarts mid-saga, it may replay events and re-execute already-completed steps. Guard every step action with an idempotency key  -  see **Template 3** above.
 
 ### Choreography saga losing events
 
@@ -94,7 +93,7 @@ In a choreography-based saga, a downstream service may miss an event if it was o
 
 ### Timeout firing before a slow-but-valid step completes
 
-A step like `create_shipment` might take up to 15 minutes during peak load but your global timeout is 5 minutes, causing spurious compensation. Make step timeouts configurable per step type — see `references/advanced-patterns.md` for the `TimeoutSagaOrchestrator` implementation and the `STEP_TIMEOUTS` dict pattern.
+A step like `create_shipment` might take up to 15 minutes during peak load but your global timeout is 5 minutes, causing spurious compensation. Make step timeouts configurable per step type  -  see `references/advanced-patterns.md` for the `TimeoutSagaOrchestrator` implementation and the `STEP_TIMEOUTS` dict pattern.
 
 ### Compensation order not matching execution order
 
@@ -106,12 +105,12 @@ When two steps both complete before a failure is detected, compensation must run
 
 The `references/` directory contains production-grade implementations not needed for most sagas:
 
-- **`references/advanced-patterns.md`** — Full `SagaOrchestrator` abstract base class, `TimeoutSagaOrchestrator` with per-step deadlines, detailed bank transfer compensating transaction chain, Prometheus instrumentation, stuck saga PromQL alerts, and DLQ recovery worker.
+- **`references/advanced-patterns.md`**  -  Full `SagaOrchestrator` abstract base class, `TimeoutSagaOrchestrator` with per-step deadlines, detailed bank transfer compensating transaction chain, Prometheus instrumentation, stuck saga PromQL alerts, and DLQ recovery worker.
 
 ---
 
 ## Related Skills
 
-- `cqrs-implementation` — Pair sagas with CQRS for read-model updates after each step completes
-- `event-store-design` — Store saga events in an event store for full audit trail and replay capability
-- `workflow-orchestration-patterns` — Higher-level workflow engines (Temporal, Conductor) that build on saga concepts
+- `cqrs-implementation`  -  Pair sagas with CQRS for read-model updates after each step completes
+- `event-store-design`  -  Store saga events in an event store for full audit trail and replay capability
+- `workflow-orchestration-patterns`  -  Higher-level workflow engines (Temporal, Conductor) that build on saga concepts

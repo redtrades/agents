@@ -1,8 +1,7 @@
 ---
 name: postgresql-table-design
-description: Use this skill when designing or reviewing a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, performance patterns, and advanced features
+description: Use this skill when designing or reviewing a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, performance patterns, and advanced features. Use when working with postgresql table design.
 ---
-
 # PostgreSQL Table Design
 
 ## When to Use
@@ -32,7 +31,7 @@ and worked DDL examples are in `references/details.md`; open it when a section b
 - **No silent coercions**: length/precision overflows error out (no truncation). Inserting 999 into `NUMERIC(2,0)` fails, unlike databases that silently truncate or round.
 - **Sequences/identity have gaps** (normal; don't "fix"). Rollbacks, crashes, and concurrent transactions leave gaps (1, 2, 5, 6...).
 - **Heap storage**: no clustered PK by default; `CLUSTER` is a one-off reorganization, not maintained on later inserts.
-- **MVCC**: updates/deletes leave dead tuples; vacuum handles them—design to avoid hot wide-row churn.
+- **MVCC**: updates/deletes leave dead tuples; vacuum handles them - design to avoid hot wide-row churn.
 
 ## Data Types
 
@@ -80,7 +79,7 @@ and worked DDL examples are in `references/details.md`; open it when a section b
 - **RANGE** for time-series (`PARTITION BY RANGE (created_at)`; **TimescaleDB** automates it with retention and compression), **LIST** for discrete values, **HASH** for even distribution without a natural key.
 - **Constraint exclusion**: the planner prunes partitions through their `CHECK` constraints; declarative partitioning (PG10+) creates them for you.
 - Prefer declarative partitioning or hypertables. Do NOT use table inheritance.
-- **Limitations**: no global UNIQUE constraints—include the partition key in PK/UNIQUE. FKs from partitioned tables need PG11+, FKs referencing a partitioned table need PG12+; on older versions, use triggers.
+- **Limitations**: no global UNIQUE constraints - include the partition key in PK/UNIQUE. FKs from partitioned tables need PG11+, FKs referencing a partitioned table need PG12+; on older versions, use triggers.
 
 ## Examples
 

@@ -65,7 +65,7 @@ Specify platforms, message content, schedule, and any media attachments.
 Claude generates platform-optimized copy for each channel (character limits, hashtag norms, tone).
 
 ### Step 3: Upload Media (Optional)
-Upload images or videos once — SocialClaw stores them for reuse across platforms.
+Upload images or videos once  -  SocialClaw stores them for reuse across platforms.
 
 ### Step 4: Validate Schedule
 Claude checks platform-specific timing rules and rate limits before submitting.
@@ -74,21 +74,21 @@ Claude checks platform-specific timing rules and rate limits before submitting.
 Posts queue via the SocialClaw API. Receive post IDs and scheduled times for confirmation.
 
 ### Step 6: Analytics
-Pull engagement metrics (impressions, clicks, reactions) 24–48 hours after publishing.
+Pull engagement metrics (impressions, clicks, reactions) 24-48 hours after publishing.
 
 ## Usage Examples
 
 ### Single Platform Post
 ```
 Post to our company LinkedIn page:
-"Excited to announce our Q2 product roadmap — here's what's coming next.
+"Excited to announce our Q2 product roadmap  -  here's what's coming next.
 [roadmap image]"
 ```
 
 ### Multi-Platform Campaign
 ```
 Announce our beta launch on X, LinkedIn, Instagram, and Discord.
-Message: "Our beta is live! 100 spots available — sign up at example.com #launch"
+Message: "Our beta is live! 100 spots available  -  sign up at example.com #launch"
 Schedule for tomorrow 9am PST
 ```
 
@@ -101,10 +101,10 @@ I'll provide copy for each day.
 
 ## Guidelines
 
-1. **One key, all platforms** — SOCIALCLAW_API_KEY authenticates across all connected accounts
-2. **Platform-native copy** — Adapt tone and format for each platform rather than copy-pasting
-3. **Validate timing** — Always confirm schedule before submission to avoid rate limit errors
-4. **Media reuse** — Upload assets once and reference by ID across multiple posts
+1. **One key, all platforms**  -  SOCIALCLAW_API_KEY authenticates across all connected accounts
+2. **Platform-native copy**  -  Adapt tone and format for each platform rather than copy-pasting
+3. **Validate timing**  -  Always confirm schedule before submission to avoid rate limit errors
+4. **Media reuse**  -  Upload assets once and reference by ID across multiple posts
 
 ## Limitations
 

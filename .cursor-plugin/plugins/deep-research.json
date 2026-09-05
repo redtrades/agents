@@ -1,0 +1,11 @@
+{
+  "name": "deep-research",
+  "displayName": "Deep Research",
+  "version": "1.0.0",
+  "description": "Multi-source live intelligence gathering across social platforms, web research, and strategic roadmaps",
+  "author": {
+    "name": "Mike Ninov",
+    "email": ""
+  },
+  "license": "MIT"
+}

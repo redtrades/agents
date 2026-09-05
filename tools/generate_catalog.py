@@ -120,11 +120,115 @@ def generate_decisions_index() -> Path:
     return out_file
 
 
+def infer_tier(plugin: str, skill: str, desc: str) -> str:
+    """Infer difficulty tier from skill characteristics."""
+    text = f"{plugin} {skill} {desc}".lower()
+    # Tier 1: Quick / Docs / Syntax
+    if any(k in text for k in ["syntax", "format", "typo", "lint", "classifier", "caveman-syntax", "verify-and-stop"]):
+        return "Tier 1 (Quick)"
+    # Tier 4: Complex / Audit / Security / Reverse Engineering
+    if any(k in text for k in ["audit", "reversing", "forensic", "finetuning", "quantiz", "grpo", "sast", "threat-mitigation", "incident", "parallel-debugging"]):
+        return "Tier 4 (Audit)"
+    # Tier 3: Architecture / Distributed / Strategic
+    if any(k in text for k in ["architecture", "saga", "event-store", "projection", "microservices", "terraform", "multi-cloud", "durable-objects", "wayfinder", "workflow-orchestration"]):
+        return "Tier 3 (Architecture)"
+    # Tier 2: MVP / Standard
+    return "Tier 2 (MVP)"
+
+
+def infer_domain(plugin: str) -> str:
+    """Group plugins into canonical functional domains."""
+    mapping = {
+        "operational-discipline": "Operational Discipline & Governance",
+        "caveman": "Caveman Token Minimalism",
+        "deep-research": "Deep Research & Intelligence",
+        "software-craft": "Software Craftsmanship & Testing",
+        "planning-spec": "Planning & Specification Design",
+        "cloudflare-platform": "Cloudflare & Edge Infrastructure",
+        "backend-development": "Backend Architecture & Distributed Systems",
+        "llm-application-dev": "LLM Application Engineering",
+        "llm-finetuning": "Model Fine-Tuning & Quantization",
+        "developer-essentials": "Developer Essentials & Git Workflows",
+        "security-scanning": "Security & Vulnerability Analysis",
+        "accessibility-compliance": "Accessibility & Compliance",
+        "ui-design": "UI Design & Component Systems",
+        "data-engineering": "Data Engineering & Pipelines",
+        "business-analytics": "Business Analytics & Metrics",
+        "startup-business-analyst": "Startup Strategy & Financials",
+    }
+    return mapping.get(plugin, plugin.replace("-", " ").title())
+
+
+def generate_skills_moc() -> Path:
+    """Generate docs/skills-moc.md with domain and tier classifications."""
+    skills = sorted(REPO_ROOT.glob("plugins/*/skills/*/SKILL.md"))
+    domains: dict[str, list[dict[str, str]]] = {}
+    
+    for sp in skills:
+        plugin = sp.parent.parent.parent.name
+        skill_name = sp.parent.name
+        meta = parse_frontmatter(sp)
+        desc = meta.get("description", "")
+        if isinstance(desc, dict):
+            desc = str(desc)
+        desc_clean = desc.replace("\n", " ").strip()
+        
+        # Extract triggers
+        trigger_idx = desc_clean.lower().find("use when")
+        trigger = desc_clean[trigger_idx:].strip().rstrip(".") if trigger_idx != -1 else desc_clean
+        
+        tier = infer_tier(plugin, skill_name, desc_clean)
+        domain = infer_domain(plugin)
+        
+        rel_path = sp.relative_to(REPO_ROOT)
+        
+        entry = {
+            "name": skill_name,
+            "plugin": plugin,
+            "tier": tier,
+            "trigger": trigger,
+            "path": str(rel_path)
+        }
+        domains.setdefault(domain, []).append(entry)
+        
+    lines = [
+        "# Canonical Skills Map of Content (MOC)",
+        "",
+        "Master index of all specialized skills across the estate. Used by agents to infer and load matching skills Just-In-Time based on user request keywords and task complexity tiers.",
+        "",
+        f"**Total Registered Skills:** {len(skills)} across {len(set(sp.parent.parent.parent.name for sp in skills))} plugins.",
+        "",
+        "## Complexity Tiers",
+        "- **Tier 1 (Quick):** Focused single-file fixes, formatting, syntax, and direct configs (<2 min).",
+        "- **Tier 2 (MVP):** Standard feature slices, unit tests, and surgical bug fixes (2 to 15 min).",
+        "- **Tier 3 (Architecture):** Multi-service refactors, event schemas, distributed sagas, and worktrees.",
+        "- **Tier 4 (Audit / Swarm):** Deep security scans, model fine-tuning, reverse engineering, and multi-agent coordination.",
+        "",
+        "---",
+        ""
+    ]
+    
+    for domain_name in sorted(domains.keys()):
+        lines.append(f"### {domain_name}")
+        lines.append("")
+        lines.append("| Skill | Plugin | Tier | Trigger Keywords / Activation |")
+        lines.append("| :--- | :--- | :--- | :--- |")
+        for s in domains[domain_name]:
+            lines.append(f"| [{s['name']}](../{s['path']}) | `{s['plugin']}` | **{s['tier']}** | {s['trigger']} |")
+        lines.append("")
+        
+    out_file = REPO_ROOT / "docs" / "skills-moc.md"
+    out_file.write_text("\n".join(lines), encoding="utf-8")
+    return out_file
+
+
 def main() -> int:
     rules_idx = generate_rules_index()
     decisions_idx = generate_decisions_index()
+    skills_moc = generate_skills_moc()
     print(f"Generated: {rules_idx.relative_to(REPO_ROOT)}")
     print(f"Generated: {decisions_idx.relative_to(REPO_ROOT)}")
+    print(f"Generated: {skills_moc.relative_to(REPO_ROOT)}")
     return 0
 
 

@@ -24,7 +24,7 @@ Read `[NOTE]` blocks if you need context on intent or edge cases.
 - Four block types: `**[SPEC]**`, `**[NOTE]**`, `**[BUG]**`, `**[?]**`
 - Every HADS document requires: H1 title, version declaration, AI manifest
 - AI manifest appears before first content section, tells AI what to read/skip
-- File extension: `.md` — standard Markdown, no tooling required
+- File extension: `.md`  -  standard Markdown, no tooling required
 
 ---
 
@@ -60,7 +60,7 @@ Block tag rules:
 
 Read `[SPEC]` and `[BUG]` blocks for authoritative facts.
 Read `[NOTE]` only if additional context is needed.
-`[?]` blocks are unverified — treat with lower confidence.
+`[?]` blocks are unverified  -  treat with lower confidence.
 
 ---
 
@@ -83,10 +83,10 @@ Required elements in order:
 **[SPEC]**
 When encountering a HADS document:
 1. Find and read the AI manifest first
-2. Read all `[SPEC]` blocks — these are ground truth
-3. Read all `[BUG]` blocks — always, before generating any code or config
+2. Read all `[SPEC]` blocks  -  these are ground truth
+3. Read all `[BUG]` blocks  -  always, before generating any code or config
 4. Read `[NOTE]` blocks only if `[SPEC]` is insufficient to answer the query
-5. Treat `[?]` content as hypothesis — note uncertainty in response
+5. Treat `[?]` content as hypothesis  -  note uncertainty in response
 
 Token optimization: for large documents, scan section headings first, then read only `[SPEC]` and `[BUG]` blocks in relevant sections.
 
@@ -98,9 +98,9 @@ Token optimization: for large documents, scan section headings first, then read 
 When asked to write documentation in HADS format:
 
 1. Start with header block (title, version, metadata)
-2. Add AI manifest — always include, never skip
+2. Add AI manifest  -  always include, never skip
 3. Organize content into numbered H2 sections
-4. For each fact: write as `[SPEC]` — terse, bullet or table or code
+4. For each fact: write as `[SPEC]`  -  terse, bullet or table or code
 5. For each "why" or context: write as `[NOTE]`
 6. For each known failure mode with confirmed fix: write as `[BUG]`
 7. For each unverified claim: write as `[?]`
@@ -110,7 +110,7 @@ Content rules for `[SPEC]`:
 - Prefer bullet lists over prose
 - Prefer tables for multi-field facts
 - Prefer code blocks for syntax, formats, examples
-- Maximum 2 sentences of prose — if more needed, move to `[NOTE]`
+- Maximum 2 sentences of prose  -  if more needed, move to `[NOTE]`
 
 Content rules for `[BUG]`:
 - Always include: symptom, cause, fix
@@ -132,7 +132,7 @@ A valid HADS document must have:
 - All block tags bold: `**[SPEC]**` not `[SPEC]` not *[SPEC]*
 - `[BUG]` blocks contain at minimum symptom + fix
 
-Validator: *(planned — not yet included in this release)*
+Validator: *(planned  -  not yet included in this release)*
 
 ---
 
@@ -162,9 +162,9 @@ User: *"What does this API do?"* (HADS doc provided)
 **[NOTE]**
 HADS exists because AI models increasingly read documentation before humans do. The format optimizes for this reality without sacrificing human readability.
 
-Key insight: the AI manifest is the core innovation. It lets even small (7B) models know what to read and what to skip — without requiring them to reason about document structure. Explicit is better than implicit for model consumption.
+Key insight: the AI manifest is the core innovation. It lets even small (7B) models know what to read and what to skip  -  without requiring them to reason about document structure. Explicit is better than implicit for model consumption.
 
-When generating HADS, think of `[SPEC]` as the API surface and `[NOTE]` as the comments. `[BUG]` blocks are the most valuable content — they represent hard-won knowledge that saves others from hitting the same wall.
+When generating HADS, think of `[SPEC]` as the API surface and `[NOTE]` as the comments. `[BUG]` blocks are the most valuable content  -  they represent hard-won knowledge that saves others from hitting the same wall.
 
 ---
 

@@ -3,7 +3,7 @@ name: protect-mcp-setup
 description: Configure Cedar policy enforcement and Ed25519 signed receipts for Claude Code tool calls. Use when setting up projects that need cryptographic audit trails, policy-gated tool execution, or compliance-ready evidence of agent actions.
 ---
 
-# protect-mcp — Policy Enforcement + Signed Receipts
+# protect-mcp  -  Policy Enforcement + Signed Receipts
 
 Cryptographic governance for every Claude Code tool call. Each invocation is
 evaluated against a Cedar policy and produces an Ed25519-signed receipt that
@@ -27,9 +27,9 @@ decided after the fact. `protect-mcp` closes all three gaps:
 AI agents make decisions that affect money, safety, and rights. The Claude Code
 session log records what happened, but the log is:
 
-- Mutable — anyone with access can edit it
-- Unsigned — there is no way to prove integrity
-- Operator-bound — verification requires trusting whoever holds the log
+- Mutable  -  anyone with access can edit it
+- Unsigned  -  there is no way to prove integrity
+- Operator-bound  -  verification requires trusting whoever holds the log
 
 For compliance contexts (finance, healthcare, regulated research), this is not
 sufficient. You need tamper-evident evidence that can be verified by third
@@ -83,11 +83,11 @@ Add the following to your project's `.claude/settings.json`:
 
 ### What each hook does
 
-**PreToolUse** — Runs BEFORE the tool executes. Evaluates the tool call against
+**PreToolUse**  -  Runs BEFORE the tool executes. Evaluates the tool call against
 your Cedar policy file. If Cedar returns `deny`, the hook exits with code 2 and
 Claude Code blocks the tool call entirely.
 
-**PostToolUse** — Runs AFTER the tool completes. Signs a receipt containing the
+**PostToolUse**  -  Runs AFTER the tool completes. Signs a receipt containing the
 tool name, input hash, output hash, decision, policy digest, and timestamp.
 Writes the receipt to `./receipts/<timestamp>.json`.
 
@@ -180,7 +180,7 @@ Each receipt is a JSON file with this structure:
 - **Ed25519** signatures (RFC 8032)
 - **JCS canonicalization** (RFC 8785) before signing
 - **Hash-chained** to the previous receipt via `parent_receipt_id`
-- **Offline verifiable** — no network call, no vendor lookup
+- **Offline verifiable**  -  no network call, no vendor lookup
 
 ## Why This Matters
 
@@ -193,10 +193,10 @@ Each receipt is a JSON file with this structure:
 
 ## Standards
 
-- **Ed25519** — RFC 8032 (digital signatures)
-- **JCS** — RFC 8785 (deterministic JSON canonicalization)
-- **Cedar** — AWS's open authorization policy language
-- **IETF draft** — [draft-farley-acta-signed-receipts](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/)
+- **Ed25519**  -  RFC 8032 (digital signatures)
+- **JCS**  -  RFC 8785 (deterministic JSON canonicalization)
+- **Cedar**  -  AWS's open authorization policy language
+- **IETF draft**  -  [draft-farley-acta-signed-receipts](https://datatracker.ietf.org/doc/draft-farley-acta-signed-receipts/)
 
 ## Related
 

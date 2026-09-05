@@ -1,8 +1,7 @@
 ---
 name: kpi-dashboard-design
-description: Design effective KPI dashboards with metrics selection, visualization best practices, and real-time monitoring patterns. Use this skill when building an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing an operations center with live service health and request throughput; creating a cohort retention analysis view for a product team; or debugging a dashboard where metrics contradict each other due to inconsistent calculation methodology.
+description: Design effective KPI dashboards with metrics selection, visualization best practices, and real-time monitoring patterns. Use this skill when building an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing an operations center with live service health and request throughput; creating a cohort retention analysis view for a product team; or debugging a dashboard where metrics contradict each other due to inconsistent calculation methodology. Use when working with kpi dashboard design.
 ---
-
 # KPI Dashboard Design
 
 Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions.
@@ -103,7 +102,7 @@ The dashboard likely tracks system uptime (a lagging indicator) but not user-fac
 | Error rate 0.1% | Task completion rate |
 | Queue depth normal | Support ticket volume |
 
-### Retention cohort looks flat — no variation between cohorts
+### Retention cohort looks flat  -  no variation between cohorts
 
 Check whether the cohort query is partitioning by signup month correctly. A common bug is using `created_at::date` instead of `DATE_TRUNC('month', created_at)`, which groups by day and produces cohorts too small to show trends:
 

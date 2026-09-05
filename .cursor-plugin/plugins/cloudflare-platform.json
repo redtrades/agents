@@ -1,0 +1,11 @@
+{
+  "name": "cloudflare-platform",
+  "displayName": "Cloudflare Platform",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers, Sandbox microVMs, Turnstile, Durable Objects, and Wrangler CLI tooling",
+  "author": {
+    "name": "Mike Ninov",
+    "email": ""
+  },
+  "license": "MIT"
+}

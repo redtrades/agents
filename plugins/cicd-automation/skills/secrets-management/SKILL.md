@@ -177,7 +177,7 @@ resource "aws_db_instance" "main" {
     API_KEY: ${{ secrets.API_KEY }}
     DATABASE_URL: ${{ secrets.DATABASE_URL }}
   run: |
-    # Secrets are injected as env vars — never print them to logs
+    # Secrets are injected as env vars  -  never print them to logs
     ./deploy.sh
 ```
 
@@ -192,7 +192,7 @@ deploy:
       env:
         PROD_API_KEY: ${{ secrets.PROD_API_KEY }}
       run: |
-        # Secret injected as env var — never print to logs
+        # Secret injected as env var  -  never print to logs
         ./deploy.sh
 ```
 
