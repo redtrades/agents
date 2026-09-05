@@ -94,3 +94,24 @@ When architectural, operational, or policy ideas emerge:
 ## 5. Next Immediate Actions
 1. `<Exact shell command or edit to run>`
 ```
+
+## 7. Advisory Balance Precedence (DEC-20260905-20)
+
+When historical documents (`agent-knowledge-archive/`, past `TASK.md`, brain notes) and current chat instructions present nuances or discrepancies:
+- Treat historical files, brain notes, and current chat instructions as co-equal advisory inputs.
+- Dynamically reconcile discrepancies without blindly ignoring past context or repeating stale assumptions.
+- Explicitly surface genuine structural ambiguities to the operator.
+
+## 8. Sovereign Repository & Upstream Isolation (DEC-20260905-18)
+
+- `/Users/man/agents` (`redtrades/agents`) is a sovereign estate repository detached from active git remote tracking.
+- Do not maintain active upstream git remotes or merge branches.
+- Inspect upstream innovations quarterly via read-only check: `make check-upstream`.
+
+## 9. Selective Swarm & Cost-Optimized Compute Routing (DEC-20260905-21)
+
+- **Tier 0 (Local $0 / Long-Running):** Apple Silicon M16 reserved for non-time-bound long runs, local indexing, or offline tasks.
+- **Tier 1 (Cloud Free / Fast):** Gemini 2.5 Flash and Groq prioritized for bulk analysis, large-document summarization, and rapid lint/test sweeps.
+- **Tier 2 (Cloud Async):** GitHub Jules cloud agent (100 tasks/day) prioritized for delegated, issue-level execution without holding local sessions open.
+- **Tier 3 (Frontier Subscriptions):** Claude Code and Codex CLI reserved for interactive synthesis, architectural pair-programming, and final governance gates.
+

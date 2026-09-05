@@ -8,8 +8,8 @@
 ---
 
 ## 1. Active Phase & Status
-- **Current Phase:** Phase 9 - Foundation Ratification & Swarm Architecture Alignment (Mike Q&A on Decisions & North Star)
-- **Overall Status:** IN_PROGRESS
+- **Current Phase:** Phase 10 - Estate Handoff & Session Seal (Cold-Start Ready for New Session)
+- **Overall Status:** COMPLETE
 
 ---
 
@@ -22,24 +22,27 @@
 6. **Phase 3 Declarative MOC Generator:** Built `docs/skills-moc.md` indexed by domain, difficulty tier, and trigger criteria via `tools/generate_catalog.py`.
 7. **Phase 4 Multi-Harness Sync & Gate Verification:** All 4 gates passing cleanly (`make validate STRICT=1`, `make garden`, `npm test`, `make test`).
 8. **Subagent Research Synthesized:** SOTA Swarm Orchestration and OSS / Free-Tier architecture surveys completed and delivered.
+9. **Decision Ratification Completed (5/5):**
+   - `DEC-20260905-18` (RATIFIED): Sovereign split repo (`redtrades/agents`), detached upstream git tracking, quarterly read-only check via `make check-upstream`.
+   - `DEC-20260905-19` (REJECTED): No `estate-*` namespaces; native plugins live directly under `plugins/`.
+   - `DEC-20260905-20` (RATIFIED): Advisory balance precedence; historical docs, brain notes, and current turn instructions are co-equal advisory inputs.
+   - `DEC-20260905-14` (RATIFIED): Adaptive hybrid execution; combine Ponytail mechanical recipes and deterministic checks with lean agent prompts, refining variants as swarm matures.
+   - `DEC-20260905-21` (RATIFIED): Selective swarm & cost-optimized compute routing; maximize free-tier cloud and Jules async; reserve frontier subscriptions for interactive leads; local M16 models for non-time-bound long runs.
+10. **Rules & Constitution Synchronized:** `AGENTS.md` and `rules/task-tracking.md` updated with ratified policies; all 4 quality gates verified.
 
 ---
 
 ## 3. Active Step (In Progress)
-- **Step Name:** Phase 9 - Foundation Ratification & Swarm Alignment
-- **Target:** Present the consolidated skills and MOC foundation, and conduct one-at-a-time decision ratification with Mike.
+- **Step Name:** Session Seal & Handoff
+- **Target:** Deliver clean, concise handoff report to Mike. Any incoming agent can resume in <500 tokens.
 
 ---
 
 ## 4. Modified & Staged Files
-- All 6 native plugins (`plugins/{operational-discipline,caveman,deep-research,software-craft,planning-spec,cloudflare-platform}`)
-- `docs/skills-moc.md`, `AGENTS.md`, `README.md`, `docs/agent-skills.md`, `tools/generate_catalog.py`
-- Manifest files: `.claude-plugin/marketplace.json`, `.agents/plugins/marketplace.json`, `.cursor-plugin/`
-- `TASK.md` & `CONTINUATION.md`
+- All committed and pushed to `origin/main` cleanly.
 
 ---
 
 ## 5. Next Immediate Actions
-1. Commit all consolidated skills and MOC additions cleanly to git.
-2. Push commit to remote main.
-3. Present summary to Mike with structured Q&A on foundation and decision ratification.
+1. Inform Mike that the foundation is fully consolidated, ratified, verified, and sealed.
+2. Operator can start a fresh session with complete confidence and sub-500 token cold resume.

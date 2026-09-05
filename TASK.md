@@ -20,19 +20,20 @@ Establish a zero-bloat, unified multi-agent engineering foundation centered on `
 8. `CONTINUATION.md` maintained after every atomic step. [COMPLETED]
 9. SOTA Patterns & Anti-Patterns catalog authored (`docs/research/20260905-sota-patterns-and-anti-patterns.md`). [COMPLETED]
 10. All 9 oversize skills refactored into MOC + references/details.md (0 skill warnings in make garden). [COMPLETED]
-11. One-at-a-time decision ratification protocol active with Mike. [IN_PROGRESS]
+11. One-at-a-time decision ratification protocol active with Mike. [COMPLETED]
 12. Consolidate native skills & research from agent-configs into agents (Phases 1-4). [COMPLETED]
 
 ## Active Phase
-Phase 9: Foundation Ratification & Swarm Architecture Alignment (Mike Q&A on Decisions & North Star)
+Phase 10: Estate Handoff & Session Seal (Cold-Start Ready for New Session)
 
 ## Evidence & Verification
+- `Decision Ratification`: All key governance decisions ratified with Mike (`DEC-18` sovereign split, `DEC-19` estate namespace rejected, `DEC-20` advisory balance precedence, `DEC-14` adaptive hybrid execution, `DEC-21` cost-optimized compute & swarm routing).
 - `Skills Consolidation`: Distilled 104 raw skills into 6 first-class native plugins (41 curated skills). Total skills: 225 across 100 plugins.
 - `Skills MOC Integrity`: All skills verified <=8 KB. Automated MOC generator (`tools/generate_catalog.py`) built `docs/skills-moc.md`.
 - `Zero Em Dashes`: Full codebase and markdown docs verified 100% clean of em/en dashes.
 - `Quality Gates`: `make validate STRICT=1` (OK across 5 harnesses), `make garden` (0 errors), `npm test` (16 passed), `make test` (580 passed).
-- `Decision Rollback`: Re-classified DEC-14 (SSSF), DEC-18 (fork split), DEC-19 (estate namespace), and DEC-20 (conflict policy) as `PROPOSED` pending explicit one-at-a-time ratification.
-- `AGENTS.md`: Distilled SOTA operating constitution (100 plugins, 225 skills, commands first, MOC pointers, zero em dashes).
+- `AGENTS.md & rules/`: Hardened with ratified policies (112 lines, commands first, MOC pointers, zero em dashes).
+- `Upstream Detachment`: Active git remote removed; read-only innovation check available via `make check-upstream`.
 
 ## Parked Backlog (On The Board / Side Inquiries)
 - P1: Review candidate tool clusters (`agent-mesh/evals`, `agent-configs/hooks`) following SDLC gates.
@@ -42,4 +43,4 @@ Phase 9: Foundation Ratification & Swarm Architecture Alignment (Mike Q&A on Dec
 - P5: Package historic `agent-*` folders to `~/archive/` and clean up `~` and iCloud Drive.
 
 ## Next Immediate Action
-Present consolidated skills and MOC foundation to Mike, then proceed with one-at-a-time decision ratification and architectural questions.
+Clean handoff to Mike; all foundations solidified, verified, and cold-start resume ready for new session.

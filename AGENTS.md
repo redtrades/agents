@@ -52,7 +52,9 @@ Production-ready agentic operating foundation: **100 plugins** (98 local + 2 ext
 
 - **Skill-First Discipline & JIT Discovery:** Inspect user request keywords and difficulty tier against `docs/skills-moc.md`. Load matching skill via `view_file` (<8 KB) before acting. Announce `Using [skill] for [purpose]`.
 - **Search Before Asserting:** Live search fast-moving tech, runtimes, and models. Check live runtime state over disk files (`verify-before-asserting`).
-- **Thin Agents, Fat Recipes (SSSF):** Standard Makefile recipes and native CLI commands hold execution mechanics; agents hold adaptive judgment. Avoid bespoke subprocess daemons.
+- **Advisory Balance Precedence:** Treat historical documents, brain notes, and current turn instructions as co-equal advisory inputs, reconciling discrepancies dynamically (`DEC-20260905-20`).
+- **Selective Swarm & Cost Routing:** Maximize free-tier cloud models (Gemini Flash, Groq) and Jules async cloud execution; reserve frontier subscriptions (Claude Max, Codex CLI) for interactive synthesis; run local M16 models for non-time-bound long runs (`DEC-20260905-21`).
+- **Thin Agents, Fat Recipes (SSSF):** Standard Makefile recipes and native CLI commands hold execution mechanics; agents hold adaptive judgment. Avoid bespoke subprocess daemons (`DEC-20260905-14`).
 - **A Priori Research & Pushback:** Research first principles and top repositories before proposing architectures. Surface counter-points (`CP1..CPN`) with clear trade-offs and explicit recommendations.
 - **Ask Until 95% Certain:** Surface genuine ambiguities early with structured options; never pick an unverified assumption on structural choices.
 - **Ponytail YAGNI Ladder:** Standard tools > installed packages > minimal bespoke code. Surgical edits only; avoid orthogonal damage to adjacent working code.
