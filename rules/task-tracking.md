@@ -31,16 +31,16 @@ Per the Ponytail YAGNI ladder, do not invent custom logging databases or redunda
 - **`git log -n 5 --oneline`** provides the tamper-evident, machine-readable history of execution.
 - **`TASK.md`** maintains the human-readable checklist with commit SHA bindings.
 
-## 4. Complexity-Adaptive Turn Ceilings & Anti-Planning Loops
+## 4. Complexity-Adaptive Turn Guidance & Anti-Planning Loops
 
 To prevent infinite re-planning loops while providing adequate headroom for multi-gate autonomous workflows:
 
-| Tier | Complexity Scope | Max Turn Ceiling | Cost Ceiling | Checkpoint Cadence |
+| Tier | Complexity Scope | Guidance Turn Ceiling | Cost Ceiling | Checkpoint Cadence |
 | :--- | :--- | :--- | :--- | :--- |
-| **Tier 1 (Quick)** | Single-file doc, typo, config, or lint fix | 5 turns | $0.10 | Upon completion (<2 min) |
-| **Tier 2 (MVP)** | Standard feature, surgical bug fix, unit test | 25 turns | $2.00 | At turn 20 or completion |
-| **Tier 3 (Standard)** | Multi-component integration, refactor, contract | 50 turns | $5.00 | Every 20 turns |
-| **Tier 4 (Audit / Goal)** | Long-running workflow, `/goal`, full-estate sweep | 100 turns | $10.00 | Every 25 turns |
+| **Tier 1 (Quick)** | Single-file doc, typo, config, or lint fix | ~5 turns | $0.10 | Upon completion (<2 min) |
+| **Tier 2 (MVP)** | Standard feature, surgical bug fix, unit test | ~25 turns | $2.00 | At turn 20 or completion |
+| **Tier 3 (Standard)** | Multi-component integration, refactor, contract | ~50 turns | $5.00 | Every 20 turns |
+| **Tier 4 (Audit / Goal)** | Long-running workflow, `/goal`, full-estate sweep | ~100 turns | $10.00 | Every 25 turns |
 
 ### Execution-Tethered Planning Invariants:
 1. **No Prose-Only Plans**: Every plan in `docs/plans/` must compile into an explicit checklist in `TASK.md`.
@@ -48,12 +48,14 @@ To prevent infinite re-planning loops while providing adequate headroom for mult
 3. **Frozen Completed Items**: Once marked `- [x] <SHA>`, an item is locked. Successor agents are prohibited from re-planning completed items.
 4. **Cadenced Checkpointing**: In Tier 3 and 4 long-running workflows, agents must checkpoint to `CONTINUATION.md` and commit incremental progress every 20-25 turns, preventing context rot and securing work against mid-run interruptions.
 
-## 5. Decision & Instruction Promotion Protocol
+## 5. 5-State Decision & Instruction Promotion Protocol
 
-When user instructions introduce a new design pattern, architectural boundary, or superseding policy:
-1. **Capture**: Record the instruction in `TASK.md` and `CONTINUATION.md`.
-2. **ADR Registration**: Author a formal Architecture Decision Record in `docs/decisions/YYYYMMDD-NNNN-<slug>.md` using MADR format (`status: accepted | superseded`).
-3. **Rule Distillation**: If the decision permanently governs agent behavior, update the relevant file in `rules/` or reference it in `AGENTS.md`. Never leave governing policy trapped in chat.
+When architectural, operational, or policy ideas emerge:
+1. **Capture as PROPOSED**: Log the item in `TASK.md` and `docs/decisions/DECISION_LOG.md` with status `PROPOSED`. Ideas and nuances never govern agent behavior while unratified.
+2. **Explicit Operator Ratification**: Only when Mike confirms or ratifies the decision is its status updated to `RATIFIED`.
+3. **ADR Registration (Level A)**: For major architectural changes, author a formal Architecture Decision Record in `docs/decisions/YYYYMMDD-NNNN-<slug>.md` using MADR format.
+4. **Rule Distillation (Level B/C)**: If a ratified decision permanently governs agent behavior, promote it into `rules/` or `AGENTS.md`. Never leave governing policy trapped in chat.
+5. **Superseding, Stale, & Rejection**: When an approach is replaced, mark it `SUPERSEDED` with a direct link to the successor decision ID; mark unused ideas `STALE` or `REJECTED`. Never silently overwrite past history.
 
 ## 6. Required CONTINUATION.md Schema
 

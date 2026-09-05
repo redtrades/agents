@@ -31,9 +31,9 @@ Production-ready agentic operating foundation: **94 plugins** (92 local + 2 exte
 - Strict Anti-Slop: Zero em dashes anywhere in code, docs, or messages.
 - Never commit secrets. Never run destructive git (force-push, `reset --hard`, branch -D) without explicit ask.
 
-## Universal agent contract (OpenClaw §0 + Karpathy + Boris + Disler Laws)
+## Universal agent contract (OpenClaw §0 + Karpathy + Boris + Disler Principles)
 
-Every agent across all harnesses must adhere to these operating invariants:
+### Non-negotiable operating invariants (Hard Gates)
 
 - **Risk-Tiered Autonomy Ladder:**
   - *L1 (Read / Discovery):* Grep, file viewing, web research, benchmarks. Zero gates (fully autonomous).
@@ -41,19 +41,19 @@ Every agent across all harnesses must adhere to these operating invariants:
   - *L3 (Structural / Swarm):* New dependencies, architectural pivots, multi-agent spawns. Soft gate: implementation plan with CPs and trade-offs required.
   - *L4 (Irreversible / Destructive):* Deletions, force-pushes, branch destruction, credentials, billing. Hard gate: explicit human go-ahead required.
 - **Anti-Wholesale Ingestion Law:** Zero bulk copying or recursive migration of legacy folders (`agent-*`). Every promoted asset must pass selective distillation: proof of necessity, elimination of redundant/obsolete/trivial (ROT) cruft, and alignment with modern schemas.
-- **Disler SSSF Principles (Thin Agents, Fat Recipes):** Standard Makefile recipes hold execution mechanics; agents hold judgment. Never hand-roll custom subprocess daemons or orchestration scripts. Work in ephemeral isolated worktrees; harvest verified commits cleanly.
-- **Automatic A Priori Research & Pushback Invariant:** Whenever an approach is proposed or confirmation requested, automatically execute a priori research (first principles, web docs, top GitHub repos), compare against SOTA, and deliver counter-points (`CP1..CPN`) with explicit recommendations before acting.
-- **Ask Until 95% Certain / Never Assume Silently:** Surface ranked interpretations immediately. Never pick an unverified assumption.
-- **Karpathy Failure Mode Guards:** 
-  - *No Silent Assumptions:* Surface ambiguities immediately.
-  - *No Over-Complication:* Solve exactly what was asked; apply Ponytail YAGNI ladder (standard tools > installed packages > minimal bespoke code).
-  - *No Orthogonal Damage:* Surgical edits only; never touch or refactor adjacent working code.
-  - *No Doubt Theater (DR139):* Verification rituals without actionable findings or behavioral changes are performance, not proof.
-- **Disler Scope Containment:** Deliver only what was requested at the requested scope. Zero unasked widening into refactoring, cleanup, or adjacent features.
-- **Deterministic Proof of Work:** Never claim state unread; paste literal CLI output. Never claim completion without deterministic proof (exit code 0).
-- **Hierarchical Skill Discovery (Map of Content):** Skills operate via progressive disclosure: Tier 0 Domain Index (<300 tokens) -> Tier 1 Category Manifest -> Tier 2 Execution Body (`SKILL.md`, <8 KB loaded on demand).
-- **Response Formatting Invariants:** Tag 3+ items with reference-point codes (`D1..DN` decisions, `O1..ON` options, `Q1..QN` questions, `F1..FN` findings, `R1..RN` risks, `A1..AN` actions, `CP1..CPN` counter-points). Lead with conclusions. Present open choices in structured comparison tables with tradeoffs and an explicit **(Recommended)** tag. Strict Anti-Slop: Zero em dashes anywhere.
-- **State & Backlog Discipline:** Maintain `TASK.md` and `CONTINUATION.md` after every atomic step to guarantee <500 token cold resumes. Isolate active in-flight priorities from parked backlog items; enforce WIP <= 2.
+- **Strict Anti-Slop:** Zero em dashes anywhere in code, docs, commit messages, or responses. Use single hyphens, colons, or parentheses.
+- **Safety & Secret Preservation:** Never commit secrets. Never run destructive git commands (force-push, `reset --hard`, branch -D) without explicit authorization.
+
+### Distilled operational guidance (Best Practice Principles)
+
+- **Thin Agents, Fat Recipes (SSSF):** Standard Makefile recipes and native CLI commands hold execution mechanics; agents hold adaptive judgment. Avoid bespoke subprocess daemons.
+- **A Priori Research & Pushback:** Research first principles and top repositories before proposing architectures. Surface counter-points (`CP1..CPN`) with clear trade-offs and explicit recommendations.
+- **Ask Until 95% Certain:** Surface genuine ambiguities early with structured options; never pick an unverified assumption on structural choices.
+- **Ponytail YAGNI Ladder:** Standard tools > installed packages > minimal bespoke code. Surgical edits only; avoid orthogonal damage to adjacent working code.
+- **Scope Containment & Parked Backlog:** Deliver requested scope without unasked feature creep. Route side ideas to the parked backlog in `TASK.md` without derailing in-flight work.
+- **Deterministic Proof of Work:** Verify completion via deterministic test assertions and exit code 0; avoid doubt theater.
+- **Progressive Disclosure (Map of Content):** Conserve context tokens (<300 resident prompt); load detailed skill bodies and documentation on demand.
+- **State Continuity:** Maintain `TASK.md` and `CONTINUATION.md` after atomic changes to ensure sub-500 token cold resumes across sessions.
 
 
 
