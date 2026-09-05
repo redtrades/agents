@@ -29,17 +29,21 @@ Phase 7: Horizon 2 Estate Consolidation & Asset Extraction
 - `Mechanical Triage`: Built and ran `tools/triage_historic_estate.py` (scanned 8,731 files across 5 historic repos with zero LLM tokens).
 - `AGENTS.md`: Full operating constitution with L1-L4 Autonomy, Anti-Wholesale Ingestion Law, Disler SSSF principles, and Scope Containment (107 lines, <=150 cap).
 - `rules/`: 4 distilled living rule files (`communication.md`, `task-tracking.md`, `hygiene.md`, `verification.md`).
-- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` (Level B ledger DEC-01 through DEC-15).
+- `docs/GLOSSARY.md`: Authoritative estate glossary and taxonomy.
+- `docs/decisions/`: ADR 0001 (MADR) + `DECISION_LOG.md` (Level B ledger DEC-01 through DEC-17 with Promotion Levels L1-L4).
 - `Quality Gates`: `make garden` (0 errors), `make validate STRICT=1` (OK), `npm test` (16 passed), `make test` (568 passed).
 
-## Parked Backlog (On The Board / Review Queue)
+## Parked Backlog (On The Board / Side Inquiries)
 - P1: Review and selectively harvest candidate tool clusters (`agent-mesh/evals`, `agent-configs/hooks`) following SDLC gates.
 - P2: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
 - P3: Set up Jules GitHub App issue automation on `redtrades/agents`.
 - P4: Wire Garry Tan GBrain MCP memory server.
+- P5: Reconcile upstream fork (`wshobson/agents`) vs proprietary local estate skills (isolate into `plugins/estate-*` or detach).
+- P6: Package historic `agent-*` folders to `~/archive/` and clean up `~` and iCloud Drive.
 
 ## Next Immediate Action
 Execute automated skill metadata backfill across plugins/*/skills/ to ensure spec compliance.
+
 
 
 
