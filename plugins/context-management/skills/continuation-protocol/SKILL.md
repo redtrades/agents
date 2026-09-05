@@ -1,6 +1,6 @@
 ---
 name: continuation-protocol
-description: Enforces the CONTINUATION.md protocol for zero-loss agent task handoffs, incremental git checkpointing, and sub-500 token resumption upon token exhaustion or rate limits.
+description: Enforces the CONTINUATION.md protocol for zero-loss agent task handoffs. Use whenever executing multi-step tasks, before handoffs, or when approaching token exhaustion and rate limits.
 ---
 
 # Continuation Protocol Skill
