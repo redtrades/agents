@@ -100,8 +100,8 @@ gates = {
 2. Code immediately runs gates:
    ```python
    gate_results = {
-       "files_exist": gates["artifacts_exist"](envelope.changed_files),
-       "tests_pass": gates["tests_pass"](["pytest", "tests/"])
+       "files_exist": gates["artifacts_exist"] (envelope.changed_files),
+       "tests_pass": gates["tests_pass"] (["pytest", "tests/"])
    }
    ```
 3. **If gates pass**: proceed to next phase
@@ -517,7 +517,7 @@ HARD_CONSTRAINTS = {
 }
 
 # Use for gate failures
-if not HARD_CONSTRAINTS["json_valid"](agent_output):
+if not HARD_CONSTRAINTS["json_valid"] (agent_output):
     # This is a hard failure—correction needed
     raise GateFailure("Output is not valid JSON")
 ```
