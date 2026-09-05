@@ -33,6 +33,7 @@
 12. **Mandatory Research Invariant Codified & Architecture Authored:** Added Mandatory A Priori Research & Counter-Points to `AGENTS.md` (52 lines). Authored `docs/plans/20260905-sota-swarm-sdlc-and-extraction-architecture.md` covering worktrees, Jules cloud tasks, cross-model review, and archive distillation pipeline. All gates green.
 13. **Worktree Lifecycle & Zero-Loss Automation Implemented:** Built `tools/worktree_manager.py` and `Makefile` targets (`make worktree-spawn`, `make worktree-clean`, `make worktree-list`). Enforces concurrency limit (<=2) and zero-loss backup snapshots (`backup/worktrees/<task-id>`). Unit tested in `tools/tests/test_worktree_manager.py` (582 passed). Closed Issue #1 on GitHub.
 14. **Brain Knowledge Archive Hygiene & Canonical Plan:** Enforced 8-digit date prefix (`YYYYMMDD-<name>.md`) across 83 files in `/Users/man/Brain`, versioned domain syntheses, updated 36 internal link references, and committed cleanly (`2f5bc9b`). Authored `docs/plans/20260905-canonical-definitive-estate-plan.md` in `agents` and mirrored to Brain.
+15. **Historical Estate Excavation & Scratchpad Salvage:** Salvaged 50 root receipts and 91 Claude scratchpad files from `/private/tmp` into `~/agent-reports/tmp-historical-salvage-2026-09-05/` preventing reboot loss; promoted 9 platform rules to `Brain/100-governance-safety-and-evidence/`, second-brain architecture to `Brain/70-knowledge-context-and-memory/`, issue 106/117 handovers to `Brain/110-failures-postmortems-and-lessons/`, and 3 deep research docs to `agents/docs/research/`.
 
 ---
 

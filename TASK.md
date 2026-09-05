@@ -27,11 +27,13 @@ Finalize `/Users/man/agents` as the sovereign, unified multi-agent operating eng
 15. Implement native worktree lifecycle recipes and zero-loss backup automation (`tools/worktree_manager.py`, `Makefile`, `tools/tests/test_worktree_manager.py`). Closed Issue #1. [COMPLETED]
 16. Historic estate triage: selectively distill candidate tools/skills, pack unneeded `agent-*` to `~/archive/`, and verify swarm SDLC. [IN_PROGRESS]
 17. Brain knowledge archive hygiene & 8-digit date-prefix versioning: moved/renamed 83 files across numbered folders and reports in `/Users/man/Brain`; authored Canonical Definitive Estate Plan (`docs/plans/20260905-canonical-definitive-estate-plan.md`). [COMPLETED]
+18. Historical estate excavation from May OpenClaw to now: salvaged 50 root receipts and 91 Claude scratchpad files from `/private/tmp/` into `~/agent-reports/tmp-historical-salvage-2026-09-05/`; promoted 9 platform rules to `Brain/100-governance-safety-and-evidence/` and 3 deep research docs to `agents/docs/research/`. [COMPLETED]
 
 ## Active Phase
 Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 
 ## Evidence & Verification
+- `Historical Estate Excavation & Scratchpad Salvage`: Salvaged 50 root session receipts and 91 Claude scratchpad files from `/private/tmp` into `~/agent-reports/tmp-historical-salvage-2026-09-05/` preventing reboot data loss; promoted 9 extracted platform rules into `Brain/100-governance-safety-and-evidence/`, second-brain architecture to `Brain/70-knowledge-context-and-memory/`, issue 106/117 handovers to `Brain/110-failures-postmortems-and-lessons/`, and 3 deep research docs into `agents/docs/research/`.
 - `Brain Knowledge Archive Hygiene`: Migrated 83 files across `/Users/man/Brain` to enforce 8-digit date prefixes (`YYYYMMDD-<name>.md`), versioned domain syntheses (`20260831-current-historical-synthesis.md`), updated 36 internal markdown link references, and committed cleanly to git (`2f5bc9b`).
 - `Canonical Definitive Estate Plan Authored`: Authored `docs/plans/20260905-canonical-definitive-estate-plan.md` in `agents` and mirrored in `Brain/10-intent-and-north-star/`, consolidating Decisions 1-58, estate decisions DEC-01 to DEC-23, and Phase 1 contradiction resolutions D1-D6.
 - `Decision Ratification`: All key governance decisions ratified with Mike (`DEC-18` sovereign split, `DEC-19` estate namespace rejected, `DEC-20` advisory balance precedence, `DEC-14` adaptive hybrid execution, `DEC-21` cost-optimized compute & swarm routing, `DEC-22` streamlined AGENTS.md constitution, `DEC-23` unified estate dual mission).
