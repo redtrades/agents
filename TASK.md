@@ -61,8 +61,8 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - **Issue #3** (`sdlc:done`): Package unneeded legacy `agent-*` repositories to `~/archive/` and prune filesystem. [CLOSED]
 - **Issue #4** (`sdlc:done`): Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall. [CLOSED]
 - **Issue #5** (`sdlc:done`): Wire GitHub Jules App and cloud task dispatch workflow. [CLOSED]
+- **Hermes Integration** (`sdlc:done`): Configure Hermes progressive disclosure and GBrain MCP in `~/.hermes/config.yaml`. [COMPLETED]
 - **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
-- **Parked (P2)**: Configure Hermes progressive disclosure in `~/.hermes/config.yaml`.
 
 ## Next Immediate Action
-Merge `work/task-5` branch into `main` and sync with Mike on next high-ROI initiative (Parked P2 Hermes progressive disclosure or Horizon 5 multi-agent review loop).
+Execute Initiative 2 from ratified plan: implement autonomous cross-model peer review engine in `tools/cross_model_review.py`.
