@@ -42,25 +42,25 @@
 21. **Jules Cloud Dispatch & Validation Automation (Issue #5 Closed):** Wired GitHub Jules cloud task automation (`.github/workflows/jules-dispatch.yml`, `tools/jules_dispatch.py`, `tools/tests/test_jules_dispatch.py`). Added 12 unit tests, added `make jules-validate ISSUE=<id>` recipe, verified all 625 tests pass, clean `make lint`, and `make gbrain-check` passed (286 tokens). Closed Issue #5 on GitHub and updated Project 13 to Done.
 22. **Hermes Progressive Disclosure & Memory Integration:** Configured `~/.hermes/config.yaml` to wire Garry Tan GBrain PGLite memory (`mcp_servers.gbrain`) and native skills progressive disclosure (`skills.external_dirs: [/Users/man/agents/plugins]`). Verified MCP connection (`hermes mcp test gbrain` -> 3 tools discovered) and indexed 229 native external skills with low token overhead.
 23. **Autonomous Cross-Model Peer Review Engine (Initiative 2 Completed):** Implemented `tools/cross_model_review.py` enforcing non-negotiable cross-model peer review (pairing validation, anti-slop audit, test execution, PASS/FAIL verdicts). Added 10 unit tests in `tools/tests/test_cross_model_review.py` (all passing). Added `make review-check` recipe. All 635 repository tests passing.
+24. **Multi-Harness Canary Verification & Estate Smoke Suite (Initiative 3 Completed):** Built `tools/canary_runner.py` verifying all 5 installed harness CLIs on PATH (`claude`, `codex`, `agy`, `opencode`, `hermes`) in <600ms total. Added `TestHermesSmoke` in `tools/tests/test_cli_smoke.py`, 5 unit tests in `tools/tests/test_canary_runner.py`, and `make canary` recipe. Closed Issue #7 on GitHub, updated Project 13 to Done, and recorded fact #101 in GBrain memory.
 
 ---
 
 ## 3. Active Step (Completed / In Progress)
-- **Step Name:** Initiative 2 Complete (Cross-Model Review) - Next: Initiative 3 (Multi-Harness Canary)
-- **Target:** Execute Initiative 3 (File Issue #6 on `redtrades/agents` and run multi-harness canary suite).
+- **Step Name:** Initiative 3 Complete (Canary Verification) - Next: Initiative 4 (GovCon RFP Shredder)
+- **Target:** Execute Initiative 4: GovCon RFP Document Shredder & Compliance Matrix Generator.
 
 ---
 
 ## 4. Modified & Staged Files
-- `tools/cross_model_review.py`
-- `tools/tests/test_cross_model_review.py`
-- `Makefile`
 - `TASK.md`
 - `CONTINUATION.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Merge `work/task-review` into `main` and prune worktree.
-2. File Issue #6 on `redtrades/agents` for Initiative 3: Multi-Harness Canary Verification.
-3. Commit and push current verified state to `origin/main`.
+1. Unpark `govcon-factory` production pipeline on Project 13 and file Issue #8.
+2. Scaffold `plugins/govcon-factory/` with native agent and skill definitions (`rfp-shredder`, `compliance-matrix`).
+3. Implement `tools/govcon/shredder.py` parsing Section C, L, and M requirements into structured RTM matrices.
+4. Add deterministic unit tests in `tools/tests/test_govcon_shredder.py`.
+5. Execute in isolated worktree `work/task-govcon-shredder`.
