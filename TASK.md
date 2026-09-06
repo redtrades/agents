@@ -31,7 +31,6 @@ Finalize `/Users/man/agents` as the sovereign, unified multi-agent operating eng
 19. Brain consolidation & zero dangling documents: consolidated `/Users/man/Brain` directly into `/Users/man/agents/brain/`, created backward-compatible symlinks (`/Users/man/Brain` and `/Users/man/agent-knowledge-archive`), organized 5 loose market reports and 2 loose audits/tasks into dated brain folders, archived all remaining backups into `~/archive/`. [COMPLETED]
 20. Implement GitHub Jules App cloud task dispatch and validation workflow (`tools/jules_dispatch.py`, `.github/workflows/jules-dispatch.yml`, `tools/tests/test_jules_dispatch.py`). Closed Issue #5. [COMPLETED]
 21. Multi-Harness Canary Verification runner and smoke suite implemented (`tools/canary_runner.py`, `tools/tests/test_canary_runner.py`, `tools/tests/test_cli_smoke.py`, `make canary`). Verified across all 5 installed CLIs. Closed Issue #7. [COMPLETED]
-22. Scaffolded `plugins/govcon-factory/` with native agents and skills, built `tools/govcon/shredder.py` generating bidirectional RTMs, added `test_govcon_shredder.py` (672 tests passing), and added `make shred-rfp` recipe. Closed Issue #8. [COMPLETED]
 
 ## Active Phase
 Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
@@ -56,7 +55,6 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - `GBrain PGLite WASM MCP Memory (Issue #4 Closed)`: Wired Garry Tan GBrain PGLite memory (`~/.gbrain/brain.pglite`) into `redtrades/agents` via lean MCP proxy (`tools/gbrain_mcp.py`). Indexed 373 brain markdown files (2,162 chunks), verified 64.6ms warm query latency, capped token overhead at 286 tokens (well below 800-token limit), added 5 unit tests (`tools/tests/test_gbrain_mcp.py`), and configured multi-harness entries across `.mcp.json`, `~/.claude/settings.json`, `~/.claude.json`, and `~/.codex/config.toml`. Closed Issue #4 on GitHub and updated Project 13 to Done.
 - `GBrain Rules & Skills Codified`: Added Mandatory GBrain Knowledge Grounding invariant to `AGENTS.md` (Section 1). Created `rules/memory.md` (`v1.0.0`) specifying when and how to query/persist memory. Created native `gbrain-memory` skill in `plugins/context-management/skills/gbrain-memory/SKILL.md`. Integrated GBrain checks into `research` and `investigate-first` skills. Synchronized all 5 harnesses via `make generate-all` and regenerated `docs/skills-moc.md` (226 skills). All quality gates verified.
 - `Multi-Harness Canary Suite (Issue #7 Closed)`: Built `tools/canary_runner.py` probing all 5 installed harness CLIs on PATH (`claude`, `codex`, `agy`, `opencode`, `hermes`). Added `TestHermesSmoke` in `tools/tests/test_cli_smoke.py` and unit tests in `tools/tests/test_canary_runner.py`. Added `make canary` recipe. All 5 CLIs pass in <600ms total. 640 unit tests passing cleanly. Closed Issue #7 on GitHub and marked Done in Project 13.
-- `GovCon RFP Shredder & Compliance Matrix (Issue #8 Closed)`: Scaffolded `plugins/govcon-factory/` with agents (`rfp-shredder`, `compliance-matrix-architect`) and skills (`rfp-shredder`, `compliance-matrix`). Implemented `tools/govcon/shredder.py` with bidirectional Section C/L/M requirements traceability (JSON and CSV) and compliance audit. Added 7 unit tests (672 tests passing total). Added `make shred-rfp` recipe. Closed Issue #8 on GitHub and marked Done in Project 13.
 - `Upstream Detachment`: Active git remote removed, read-only innovation check available via `make check-upstream`.
 
 ## Parked Backlog (On The Board / Tracked on GitHub redtrades/agents)
@@ -66,12 +64,10 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - **Issue #4** (`sdlc:done`): Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall. [CLOSED]
 - **Issue #5** (`sdlc:done`): Wire GitHub Jules App and cloud task dispatch workflow. [CLOSED]
 - **Issue #7** (`sdlc:done`): Multi-harness canary verification runner and smoke suite. [CLOSED]
-- **Issue #8** (`sdlc:done`): GovCon RFP document shredder and compliance matrix generator. [CLOSED]
 - **Hermes Integration** (`sdlc:done`): Configure Hermes progressive disclosure and GBrain MCP in `~/.hermes/config.yaml`. [COMPLETED]
 - **Cross-Model Review Engine** (`sdlc:done`): Build autonomous peer review engine in `tools/cross_model_review.py` enforcing author/reviewer separation and diff slop audits. [COMPLETED]
-- **GovCon Proposal Factory (P0 - ACTIVE)**: Proposal starter pipeline and async multi-agent volume drafting.
+- **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
 
 ## Next Immediate Action
-Execute Initiative 5 from ratified plan: GovCon Multi-Agent Proposal Starter Pipeline & Volume Assembler.
-
+Execute Initiative 4 from ratified plan: GovCon RFP Document Shredder & Compliance Matrix Generator.
 

@@ -40,16 +40,15 @@
 19. **GBrain PGLite WASM MCP Memory Wiring (Issue #4 Closed):** Wired Garry Tan GBrain PGLite memory (`~/.gbrain/brain.pglite`) into `redtrades/agents`. Built lean MCP proxy `tools/gbrain_mcp.py` with 5 unit tests (`tools/tests/test_gbrain_mcp.py`), capped token overhead at 286 tokens (limit 800), indexed 373 brain markdown files (2,162 chunks), verified 64.6ms warm query latency, and configured `.mcp.json`, `~/.claude/settings.json`, `~/.claude.json`, and `~/.codex/config.toml`. Closed Issue #4 on GitHub and updated Project 13 to Done.
 20. **GBrain Rules & Skills Codification:** Added Mandatory GBrain Knowledge Grounding invariant to `AGENTS.md`. Created `rules/memory.md` (`v1.0.0`) and updated `rules/README.md`. Created native `gbrain-memory` skill (`plugins/context-management/skills/gbrain-memory/SKILL.md`) and integrated GBrain into `research` and `investigate-first` skills. Synchronized all 5 harnesses (`make generate-all`), updated `docs/skills-moc.md` (226 skills), and verified all quality gates pass.
 21. **Jules Cloud Dispatch & Validation Automation (Issue #5 Closed):** Wired GitHub Jules cloud task automation (`.github/workflows/jules-dispatch.yml`, `tools/jules_dispatch.py`, `tools/tests/test_jules_dispatch.py`). Added 12 unit tests, added `make jules-validate ISSUE=<id>` recipe, verified all 625 tests pass, clean `make lint`, and `make gbrain-check` passed (286 tokens). Closed Issue #5 on GitHub and updated Project 13 to Done.
-22. **Hermes Progressive Disclosure & Memory Integration:** Configured `~/.hermes/config.yaml` to wire Garry Tan GBrain PGLite memory (`mcp_servers.gbrain`) and native skills progressive disclosure (`skills.external_dirs: [/Users/man/agents/plugins]`). Verified MCP connection (`hermes mcp test gbrain` -> 3 tools discovered) indexed 229 native external skills with low token overhead.
+22. **Hermes Progressive Disclosure & Memory Integration:** Configured `~/.hermes/config.yaml` to wire Garry Tan GBrain PGLite memory (`mcp_servers.gbrain`) and native skills progressive disclosure (`skills.external_dirs: [/Users/man/agents/plugins]`). Verified MCP connection (`hermes mcp test gbrain` -> 3 tools discovered) and indexed 229 native external skills with low token overhead.
 23. **Autonomous Cross-Model Peer Review Engine (Initiative 2 Completed):** Implemented `tools/cross_model_review.py` enforcing non-negotiable cross-model peer review (pairing validation, anti-slop audit, test execution, PASS/FAIL verdicts). Added 10 unit tests in `tools/tests/test_cross_model_review.py` (all passing). Added `make review-check` recipe. All 635 repository tests passing.
 24. **Multi-Harness Canary Verification & Estate Smoke Suite (Initiative 3 Completed):** Built `tools/canary_runner.py` verifying all 5 installed harness CLIs on PATH (`claude`, `codex`, `agy`, `opencode`, `hermes`) in <600ms total. Added `TestHermesSmoke` in `tools/tests/test_cli_smoke.py`, 5 unit tests in `tools/tests/test_canary_runner.py`, and `make canary` recipe. Closed Issue #7 on GitHub, updated Project 13 to Done, and recorded fact #101 in GBrain memory.
-25. **GovCon RFP Document Shredder & Compliance Matrix Generator (Initiative 4 Completed):** Scaffolded `plugins/govcon-factory/` with native agents (`rfp-shredder`, `compliance-matrix-architect`) and skills (`rfp-shredder`, `compliance-matrix`). Built `tools/govcon/shredder.py` generating bidirectional RTMs in JSON and CSV formats with compliance audit. Added 7 unit tests (672 tests passing total) and `make shred-rfp` recipe. Closed Issue #8 on GitHub, updated Project 13 to Done, and recorded fact #102 in GBrain memory.
 
 ---
 
 ## 3. Active Step (Completed / In Progress)
-- **Step Name:** Initiative 4 Complete (RFP Shredder) - Next: Initiative 5 (Proposal Starter Pipeline)
-- **Target:** Execute Initiative 5: GovCon Multi-Agent Proposal Starter Pipeline & Volume Assembler.
+- **Step Name:** Initiative 3 Complete (Canary Verification) - Next: Initiative 4 (GovCon RFP Shredder)
+- **Target:** Execute Initiative 4: GovCon RFP Document Shredder & Compliance Matrix Generator.
 
 ---
 
@@ -60,7 +59,8 @@
 ---
 
 ## 5. Next Immediate Actions
-1. File Issue #9 on `redtrades/agents` in Project 13 for Initiative 5.
-2. Implement `tools/govcon/pipeline.py` assembling compliant proposal starter volumes from RTM matrices.
-3. Author unit tests in `tools/tests/test_govcon_pipeline.py`.
-4. Execute in isolated worktree `work/task-govcon-pipeline`.
+1. Unpark `govcon-factory` production pipeline on Project 13 and file Issue #8.
+2. Scaffold `plugins/govcon-factory/` with native agent and skill definitions (`rfp-shredder`, `compliance-matrix`).
+3. Implement `tools/govcon/shredder.py` parsing Section C, L, and M requirements into structured RTM matrices.
+4. Add deterministic unit tests in `tools/tests/test_govcon_shredder.py`.
+5. Execute in isolated worktree `work/task-govcon-shredder`.
