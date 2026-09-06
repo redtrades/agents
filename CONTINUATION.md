@@ -47,8 +47,8 @@
 ---
 
 ## 3. Active Step (Completed / In Progress)
-- **Step Name:** Initiative 3 Complete (Canary Verification) - Next: Initiative 4 (GovCon RFP Shredder)
-- **Target:** Execute Initiative 4: GovCon RFP Document Shredder & Compliance Matrix Generator.
+- **Step Name:** Scope Ratified (GovCon Reverted Forward to Clean Baseline) - Next: GBrain Grounding & Context Compilation
+- **Target:** Execute 5-part plan: Codify GBrain grounding in skills, build deterministic context compiler, link cross-model review to memory, add governance test suite, and ratify ADR.
 
 ---
 
@@ -59,8 +59,8 @@
 ---
 
 ## 5. Next Immediate Actions
-1. Unpark `govcon-factory` production pipeline on Project 13 and file Issue #8.
-2. Scaffold `plugins/govcon-factory/` with native agent and skill definitions (`rfp-shredder`, `compliance-matrix`).
-3. Implement `tools/govcon/shredder.py` parsing Section C, L, and M requirements into structured RTM matrices.
-4. Add deterministic unit tests in `tools/tests/test_govcon_shredder.py`.
-5. Execute in isolated worktree `work/task-govcon-shredder`.
+1. Codify GBrain mandatory grounding directives into key planning, research, and debugging skills.
+2. Build deterministic context compilation pipeline (`make context-compile`, `make context-check`).
+3. Connect autonomous cross-model review engine to GBrain memory logging.
+4. Add deterministic governance test suite (`tools/tests/test_gbrain_governance.py`).
+5. Ratify ADR in `docs/decisions/DECISION_LOG.md` and regenerate multi-harness catalog.

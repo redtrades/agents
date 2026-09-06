@@ -69,5 +69,10 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
 
 ## Next Immediate Action
-Execute Initiative 4 from ratified plan: GovCon RFP Document Shredder & Compliance Matrix Generator.
+Execute 5-part GBrain grounding and context compilation plan:
+1. Codify GBrain grounding directives into key planning, research, and debugging skills.
+2. Build deterministic context compilation pipeline (make context-compile, make context-check).
+3. Connect autonomous cross-model review engine to GBrain memory logging.
+4. Add deterministic governance test suite (test_gbrain_governance.py).
+5. Ratify ADR in DECISION_LOG.md and regenerate multi-harness catalog.
 
