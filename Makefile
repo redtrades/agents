@@ -22,7 +22,7 @@ UV_TOOLS := uv run $(EVAL_PROJECT) python
 RUFF_PATHS := ../../tools/ src/plugin_eval/
 TY_PATHS := ../../tools/adapters/ ../../tools/generate.py ../../tools/validate_generated.py ../../tools/doc_gardener.py ../../tools/install_opencode.py ../../tools/install_copilot.py ../../tools/install_antigravity.py ../../tools/check_agent_name_collisions.py ../../tools/tests/ src/plugin_eval/
 
-.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks gbrain-check gbrain-sync jules-validate
+.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks gbrain-check gbrain-sync jules-validate review-check
 
 help:
 	@echo "claude-agents — multi-harness plugin marketplace"
@@ -300,4 +300,11 @@ gbrain-sync:
 jules-validate:
 	@if [ -z "$(ISSUE)" ]; then echo "ERROR: ISSUE=<number> required (e.g. make jules-validate ISSUE=5)"; exit 1; fi
 	@gh issue view $(ISSUE) --repo redtrades/agents --json number,title,body,labels,url | $(UV_TOOLS) tools/jules_dispatch.py validate --format-packet
+
+review-check:
+	@if [ -z "$(AUTHOR)" ] || [ -z "$(REVIEWER)" ]; then \
+		echo "ERROR: AUTHOR=<harness> and REVIEWER=<harness> required (e.g. make review-check AUTHOR=jules REVIEWER=claude)"; exit 1; \
+	fi
+	$(UV_TOOLS) tools/cross_model_review.py audit --author $(AUTHOR) --reviewer $(REVIEWER) $(if $(BASE),--base $(BASE)) $(if $(HEAD),--head $(HEAD)) $(if $(SKIP_TESTS),--skip-tests) $(if $(JSON),--json)
+
 

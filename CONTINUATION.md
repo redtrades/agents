@@ -41,23 +41,26 @@
 20. **GBrain Rules & Skills Codification:** Added Mandatory GBrain Knowledge Grounding invariant to `AGENTS.md`. Created `rules/memory.md` (`v1.0.0`) and updated `rules/README.md`. Created native `gbrain-memory` skill (`plugins/context-management/skills/gbrain-memory/SKILL.md`) and integrated GBrain into `research` and `investigate-first` skills. Synchronized all 5 harnesses (`make generate-all`), updated `docs/skills-moc.md` (226 skills), and verified all quality gates pass.
 21. **Jules Cloud Dispatch & Validation Automation (Issue #5 Closed):** Wired GitHub Jules cloud task automation (`.github/workflows/jules-dispatch.yml`, `tools/jules_dispatch.py`, `tools/tests/test_jules_dispatch.py`). Added 12 unit tests, added `make jules-validate ISSUE=<id>` recipe, verified all 625 tests pass, clean `make lint`, and `make gbrain-check` passed (286 tokens). Closed Issue #5 on GitHub and updated Project 13 to Done.
 22. **Hermes Progressive Disclosure & Memory Integration:** Configured `~/.hermes/config.yaml` to wire Garry Tan GBrain PGLite memory (`mcp_servers.gbrain`) and native skills progressive disclosure (`skills.external_dirs: [/Users/man/agents/plugins]`). Verified MCP connection (`hermes mcp test gbrain` -> 3 tools discovered) and indexed 229 native external skills with low token overhead.
+23. **Autonomous Cross-Model Peer Review Engine (Initiative 2 Completed):** Implemented `tools/cross_model_review.py` enforcing non-negotiable cross-model peer review (pairing validation, anti-slop audit, test execution, PASS/FAIL verdicts). Added 10 unit tests in `tools/tests/test_cross_model_review.py` (all passing). Added `make review-check` recipe. All 635 repository tests passing.
 
 ---
 
 ## 3. Active Step (Completed / In Progress)
-- **Step Name:** Initiative 1 Complete (Hermes Integration) - Next: Initiative 2 (Cross-Model Review)
-- **Target:** Implement autonomous cross-model peer review engine in `tools/cross_model_review.py`.
+- **Step Name:** Initiative 2 Complete (Cross-Model Review) - Next: Initiative 3 (Multi-Harness Canary)
+- **Target:** Execute Initiative 3 (File Issue #6 on `redtrades/agents` and run multi-harness canary suite).
 
 ---
 
 ## 4. Modified & Staged Files
-- `~/.hermes/config.yaml`
-- `docs/plans/20260905-hermes-progressive-disclosure-and-memory.md`
+- `tools/cross_model_review.py`
+- `tools/tests/test_cross_model_review.py`
+- `Makefile`
 - `TASK.md`
 - `CONTINUATION.md`
 
 ---
 
 ## 5. Next Immediate Actions
-1. Proceed with Initiative 2: Scaffold `tools/cross_model_review.py` and unit tests.
-2. Commit and push current verified state to `origin/main`.
+1. Merge `work/task-review` into `main` and prune worktree.
+2. File Issue #6 on `redtrades/agents` for Initiative 3: Multi-Harness Canary Verification.
+3. Commit and push current verified state to `origin/main`.

@@ -62,7 +62,8 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - **Issue #4** (`sdlc:done`): Wire Garry Tan GBrain PGLite WASM MCP server for cross-session recall. [CLOSED]
 - **Issue #5** (`sdlc:done`): Wire GitHub Jules App and cloud task dispatch workflow. [CLOSED]
 - **Hermes Integration** (`sdlc:done`): Configure Hermes progressive disclosure and GBrain MCP in `~/.hermes/config.yaml`. [COMPLETED]
+- **Cross-Model Review Engine** (`sdlc:done`): Build autonomous peer review engine in `tools/cross_model_review.py` enforcing author/reviewer separation and diff slop audits. [COMPLETED]
 - **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
 
 ## Next Immediate Action
-Execute Initiative 2 from ratified plan: implement autonomous cross-model peer review engine in `tools/cross_model_review.py`.
+Execute Initiative 3 from ratified plan: Multi-Harness Canary Verification & Estate Smoke Suite (File and claim Issue #6 on `redtrades/agents`).
