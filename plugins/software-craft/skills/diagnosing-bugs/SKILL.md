@@ -8,7 +8,7 @@ description: Diagnosis loop for hard bugs and performance regressions. Use when 
 
 A discipline for hard bugs. Skip phases only when explicitly justified.
 
-When exploring the codebase, read `CONTEXT.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
+When exploring the codebase, read `CONTEXT.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching. Query GBrain memory (`recall` MCP tool or `gbrain query`) for documented historical failure modes in `brain/110-failures-postmortems-and-lessons/`.
 ## Redact
 
 This skill has you show commands, outputs and captured artifacts. **Redact every secret first**  -  write `<REDACTED>` in its place. Build loops against env vars, so the credential stays in the environment rather than in what you show. Captured artifacts carry auth headers: quote only the lines that carry the signal.
@@ -75,11 +75,11 @@ Confirm:
 
 ### Minimise
 
-Once it's red, shrink the repro to the **smallest scenario that still goes red**. Cut inputs, callers, config, data, and steps **one at a time**, re-running the loop after each cut  -  keep only what's load-bearing for the failure.
+Once it's red, shrink the repro to the **smallest scenario that still goes red**. Cut inputs, callers, config, data, and steps **one at a time**, re-running the loop after each cut  -  keep only what is essential for the failure.
 
 Why bother: a minimal repro shrinks the hypothesis space in Phase 3 (fewer moving parts left to suspect) and becomes the clean regression test in Phase 5.
 
-Done when **every remaining element is load-bearing**  -  removing any one of them makes the loop go green.
+Done when **every remaining element is strictly necessary**  -  removing any one of them makes the loop go green.
 
 Do not proceed until you have reproduced **and** minimised.
 ## Phase 3  -  Hypothesise

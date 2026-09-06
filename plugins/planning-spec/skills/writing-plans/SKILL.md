@@ -17,6 +17,10 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 **Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)
 
+## Pre-Planning Memory Grounding
+
+Before defining tasks or proposing architecture, query GBrain memory (`recall` MCP tool or `gbrain query`) for relevant precedents, historical postmortems in `brain/110-failures-postmortems-and-lessons/`, and ratified decisions in `docs/decisions/DECISION_LOG.md`.
+
 ## Scope Check
 
 If the spec covers multiple independent subsystems, it should have been broken into sub-project specs during brainstorming. If it wasn't, suggest breaking this into separate plans  -  one per subsystem. Each plan should produce working, testable software on its own.

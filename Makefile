@@ -22,7 +22,7 @@ UV_TOOLS := uv run $(EVAL_PROJECT) python
 RUFF_PATHS := ../../tools/ src/plugin_eval/
 TY_PATHS := ../../tools/adapters/ ../../tools/generate.py ../../tools/validate_generated.py ../../tools/doc_gardener.py ../../tools/install_opencode.py ../../tools/install_copilot.py ../../tools/install_antigravity.py ../../tools/check_agent_name_collisions.py ../../tools/tests/ src/plugin_eval/
 
-.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks gbrain-check gbrain-sync jules-validate review-check canary
+.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks gbrain-check gbrain-sync jules-validate review-check canary context-compile context-check
 
 help:
 	@echo "claude-agents — multi-harness plugin marketplace"
@@ -310,5 +310,8 @@ review-check:
 canary:
 	$(UV_TOOLS) tools/canary_runner.py $(if $(TARGETS),--harnesses '$(TARGETS)') $(if $(JSON),--json)
 
+context-compile:
+	$(UV_TOOLS) tools/compile_context.py
 
-
+context-check:
+	$(UV_TOOLS) tools/compile_context.py --check

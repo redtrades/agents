@@ -12,7 +12,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import shutil
 import subprocess
 import sys
 from dataclasses import asdict, dataclass
@@ -243,6 +245,39 @@ def run_review_audit(
     )
 
 
+def remember_review_receipt(receipt: ReviewReceipt) -> bool:
+    """Record a passing cross-model review receipt into GBrain memory."""
+    fact_text = (
+        f"Cross-model review {receipt.review_id} passed: author {receipt.author} "
+        f"reviewed by {receipt.reviewer} on diff {receipt.base_commit}..{receipt.head_commit} "
+        f"with {len(receipt.findings)} findings."
+    )
+    gbrain_bin = os.environ.get("GBRAIN_BIN", "/Users/man/.bun/bin/gbrain")
+    if not (os.path.isfile(gbrain_bin) and os.access(gbrain_bin, os.X_OK)):
+        resolved = shutil.which("gbrain")
+        if resolved:
+            gbrain_bin = resolved
+        else:
+            return False
+
+    call_arg = json.dumps({
+        "fact": fact_text,
+        "provenance": "cross-model-review",
+        "entity": "cross-model-review",
+    })
+    try:
+        res = subprocess.run(
+            [gbrain_bin, "call", "remember", call_arg],
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=5,
+        )
+        return res.returncode == 0
+    except Exception:
+        return False
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Autonomous cross-model peer review engine")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -261,6 +296,9 @@ def main() -> int:
     audit_p.add_argument("--diff-file", help="Path to precomputed diff file")
     audit_p.add_argument("--skip-tests", action="store_true", help="Skip running test suite")
     audit_p.add_argument("--json", "-j", action="store_true", help="Output review receipt as JSON")
+    audit_p.add_argument(
+        "--remember", action="store_true", help="Externalize PASS verdict to GBrain memory"
+    )
 
     args = parser.parse_args()
 
@@ -279,6 +317,9 @@ def main() -> int:
                 diff_text=diff_text,
                 skip_tests=args.skip_tests,
             )
+            if args.remember and receipt.verdict == "PASS":
+                remember_review_receipt(receipt)
+
             if args.json:
                 print(json.dumps(receipt.to_dict(), indent=2))
             else:

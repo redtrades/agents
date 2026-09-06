@@ -136,3 +136,35 @@ def test_cli_audit_json(tmp_path: Path):
     assert data["verdict"] == "PASS"
     assert data["author"] == "hermes"
     assert data["reviewer"] == "jules"
+
+
+def test_remember_review_receipt(monkeypatch):
+    from unittest.mock import MagicMock
+    import subprocess
+    from tools.cross_model_review import ReviewReceipt, remember_review_receipt
+
+    receipt = ReviewReceipt(
+        review_id="rev-test-123",
+        author="codex",
+        reviewer="claude",
+        verdict="PASS",
+        base_commit="main",
+        head_commit="HEAD",
+        findings=(),
+        checks={"peer_distinct": True, "anti_slop_clean": True, "tests_passed": True},
+        summary="Review passed",
+        created_at="2026-09-06T00:00:00Z",
+    )
+
+    mock_run = MagicMock(return_value=MagicMock(returncode=0))
+    monkeypatch.setattr(subprocess, "run", mock_run)
+    monkeypatch.setenv("GBRAIN_BIN", "/nonexistent/gbrain")
+
+    # When binary does not exist and shutil.which fails
+    monkeypatch.setattr("shutil.which", lambda _: None)
+    assert remember_review_receipt(receipt) is False
+
+    # When binary exists or is resolved
+    monkeypatch.setattr("shutil.which", lambda _: "/usr/local/bin/gbrain")
+    assert remember_review_receipt(receipt) is True
+    assert mock_run.called

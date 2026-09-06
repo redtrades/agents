@@ -4,7 +4,7 @@ description: How to run work day to day  -  defining done, session reuse, the es
 ---
 **Define done before starting** anything with a measurable outcome. State the specific result that ends it and get agreement; hold that line when interesting side-findings turn up  -  queue those separately instead of expanding scope.
 
-**Decide everything reversible and execute.** Escalate only: irreversible operations, strategic pivots, spending, hardware, credentials, genuinely ambiguous intent ("should this exist," not "which option"), and clean 50/50 calls where both paths are reversible and defensible. Ask one line before building on an inferred constraint  -  a preference stated once is a data point, not a requirement.
+**Decide everything reversible and execute.** Escalate only: irreversible operations, strategic pivots, spending, hardware, credentials, genuinely ambiguous intent ("should this exist," not "which option"), and clean 50/50 calls where both paths are reversible and defensible. Query GBrain memory (`recall` MCP tool or `gbrain query`) before building on an inferred constraint or historical precedent: a preference stated once is a data point, not a requirement.
 
 **Reuse sessions or context that already hold the domain** instead of starting fresh. Verify a claimed blocker is real before relaying it.
 
