@@ -1,7 +1,7 @@
 # Agentic Plugin Marketplace
 
-> Production-ready agentic workflow building blocks: **101 plugins**, **204 agents**,
-> **228 skills**, **105 commands** - built for Claude Code and consumed natively by
+> Production-ready agentic workflow building blocks: **100 plugins**, **202 agents**,
+> **226 skills**, **105 commands** - built for Claude Code and consumed natively by
 > OpenAI Codex CLI, Cursor, OpenCode, the Antigravity CLI, and GitHub Copilot from a single Markdown source.
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-native-blueviolet)](#claude-code) [![Codex CLI](https://img.shields.io/badge/Codex%20CLI-supported-black)](docs/harnesses.md) [![Cursor](https://img.shields.io/badge/Cursor-supported-purple)](docs/harnesses.md) [![OpenCode](https://img.shields.io/badge/OpenCode-supported-green)](docs/harnesses.md) [![Antigravity CLI](https://img.shields.io/badge/Antigravity%20CLI-supported-blue)](docs/harnesses.md) [![Copilot](https://img.shields.io/badge/Copilot-supported-lightgrey)](docs/harnesses.md)
@@ -19,7 +19,7 @@ Pick your harness:
 
 ```bash
 /plugin marketplace add wshobson/agents
-/plugin install python-development          # or any of 101 plugins
+/plugin install python-development          # or any of 100 plugins
 ```
 
 [→ Full Claude Code setup, troubleshooting, and plugin catalog](docs/usage.md)
@@ -135,10 +135,10 @@ uv run plugin-eval certify path/to/skill
 
 Detail lives in `docs/`. Read in this order:
 
-- **[docs/plugins.md](docs/plugins.md)** - full catalog of all 101 plugins
-- **[docs/agents.md](docs/agents.md)** - all 204 agents by category
-- **[docs/skills-moc.md](docs/skills-moc.md)** - canonical Map of Content for all 228 skills
-- **[docs/agent-skills.md](docs/agent-skills.md)** - 228 skills with progressive disclosure
+- **[docs/plugins.md](docs/plugins.md)** - full catalog of all 100 plugins
+- **[docs/agents.md](docs/agents.md)** - all 202 agents by category
+- **[docs/skills-moc.md](docs/skills-moc.md)** - canonical Map of Content for all 226 skills
+- **[docs/agent-skills.md](docs/agent-skills.md)** - 226 skills with progressive disclosure
 - **[docs/usage.md](docs/usage.md)** - commands, workflows, examples
 - **[docs/architecture.md](docs/architecture.md)** - design principles
 - **[docs/harnesses.md](docs/harnesses.md)** - cross-harness capability matrix

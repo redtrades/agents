@@ -704,19 +704,6 @@
       "category": "Coding"
     },
     {
-      "name": "govcon-factory",
-      "description": "Federal RFP document shredder, compliance matrix generator, and proposal starter volumes for GovCon proposal deliverables",
-      "source": {
-        "source": "local",
-        "path": "./plugins/govcon-factory"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_USE"
-      },
-      "category": "Coding"
-    },
-    {
       "name": "hermes-tweet",
       "description": "Hermes Agent plugin for public X/Twitter research and approval-gated private or state-changing operations through Hermes Tweet",
       "source": {

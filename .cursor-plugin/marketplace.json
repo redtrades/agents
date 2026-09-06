@@ -608,17 +608,6 @@
       "license": "MIT"
     },
     {
-      "name": "govcon-factory",
-      "source": "./plugins/govcon-factory",
-      "version": "1.0.0",
-      "description": "Federal RFP document shredder, compliance matrix generator, and proposal starter volumes for GovCon proposal deliverables",
-      "author": {
-        "name": "Mike Ninov",
-        "email": ""
-      },
-      "license": "MIT"
-    },
-    {
       "name": "hermes-tweet",
       "source": "./plugins/hermes-tweet",
       "version": "0.1.13",

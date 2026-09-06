@@ -1,6 +1,6 @@
 # Agentic Operating Constitution: claude-agents
 
-Production-ready agentic operating foundation: **101 plugins**, **204 agents**, **228 skills**, **105 commands**. Canonical source-of-truth across Claude Code (`CLAUDE.md`), OpenAI Codex CLI, Cursor, OpenCode, and Google Antigravity CLI (`agy`).
+Production-ready agentic operating foundation: **100 plugins**, **202 agents**, **226 skills**, **105 commands**. Canonical source-of-truth across Claude Code (`CLAUDE.md`), OpenAI Codex CLI, Cursor, OpenCode, and Google Antigravity CLI (`agy`).
 
 > **Operational Constitution:** Governed by Boris Cherny ("Govern, don't inform"), Andrej Karpathy (failure-mode guards), Garry Tan (memory externalization), and OpenClaw §0 unbreakable laws. Keep <=150 lines. Detail lives in `rules/`, `docs/`, and `plugins/`.
 > **Dual Mission:**
@@ -30,7 +30,7 @@ Production-ready agentic operating foundation: **101 plugins**, **204 agents**, 
 - **2-Try Circuit Breaker:** If an action or test fails twice, STOP immediately. Consult documentation, search runtime state, or inspect root causes: never guess.
 - **State Continuity Protocol:** Maintain `TASK.md` and `CONTINUATION.md` in repository root. Commit diffs incrementally after every step. Cold-start resume in <500 tokens without re-ingesting conversation history.
 - **Ponytail YAGNI Ladder:** Standard tools > installed packages > minimal bespoke code. Surgical edits only: avoid orthogonal damage to adjacent working code.
-- **Skill-First Discipline:** 228 skills live under `plugins/`. Inspect keywords against `docs/skills-moc.md`. Load matching skill via `view_file` (<8 KB) before acting. Announce `Using [skill] for [purpose]`.
+- **Skill-First Discipline:** 226 skills live under `plugins/`. Inspect keywords against `docs/skills-moc.md`. Load matching skill via `view_file` (<8 KB) before acting. Announce `Using [skill] for [purpose]`.
 - **Proportional Rigor:** Tier 1 (<2 min doc/fix) executes directly, Tier 2 (MVP) tests focused diffs, Tier 3/4 require formal plans, ADRs, and full verification.
 - **Deterministic Proof of Work:** Verify completion via deterministic test assertions and exit code 0: avoid doubt theater.
 
@@ -49,5 +49,5 @@ make generate-all          # sync artifacts to .codex, .cursor, .opencode, .anti
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** : architectural overview and harness matrix
 - **[rules/README.md](rules/README.md)** : living operational rules (`communication.md`, `hygiene.md`, `memory.md`, `task-tracking.md`, `verification.md`)
 - **[docs/decisions/README.md](docs/decisions/README.md)** : ADR registry and operational decision log (`DECISION_LOG.md`)
-- **[docs/skills-moc.md](docs/skills-moc.md)** : canonical skills Map of Content (228 skills by domain and tier)
+- **[docs/skills-moc.md](docs/skills-moc.md)** : canonical skills Map of Content (226 skills by domain and tier)
 - **[docs/GLOSSARY.md](docs/GLOSSARY.md)** : canonical estate glossary and taxonomy

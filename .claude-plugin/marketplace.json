@@ -1364,18 +1364,6 @@
       },
       "license": "MIT",
       "category": "cloud"
-    },
-    {
-      "name": "govcon-factory",
-      "source": "./plugins/govcon-factory",
-      "description": "Federal RFP document shredder, compliance matrix generator, and proposal volume starters",
-      "version": "1.0.0",
-      "author": {
-        "name": "Mike Ninov",
-        "url": "https://github.com/redtrades"
-      },
-      "license": "MIT",
-      "category": "business"
     }
   ]
 }
