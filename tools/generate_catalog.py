@@ -11,7 +11,6 @@ Generates self-healing markdown index tables and validates declarative integrity
 
 from __future__ import annotations
 
-import os
 import re
 import sys
 from pathlib import Path
@@ -43,7 +42,9 @@ def parse_frontmatter(file_path: Path) -> dict[str, Any]:
             v = v.strip().strip('"').strip("'")
             if v == "" or v.startswith("["):
                 if v.startswith("[") and v.endswith("]"):
-                    items = [x.strip().strip('"').strip("'") for x in v[1:-1].split(",") if x.strip()]
+                    items = [
+                        x.strip().strip('"').strip("'") for x in v[1:-1].split(",") if x.strip()
+                    ]
                     meta[k] = items
                 else:
                     meta[k] = {}
@@ -77,14 +78,18 @@ def generate_rules_index() -> Path:
         updated = meta.get("last_updated", "2026-09-05")
         rows.append(f"| [{name}]({rf.name}) | `{version}` | **{status.upper()}** | `{updated}` |")
 
-    content = [
-        "# Canonical Rules Index",
-        "",
-        "Living operational rules binding all agents across all harnesses. Read at cold start.",
-        "",
-        "| Rule File | Version | Status | Last Updated |",
-        "| :--- | :--- | :--- | :--- |",
-    ] + rows + [""]
+    content = (
+        [
+            "# Canonical Rules Index",
+            "",
+            "Living operational rules binding all agents across all harnesses. Read at cold start.",
+            "",
+            "| Rule File | Version | Status | Last Updated |",
+            "| :--- | :--- | :--- | :--- |",
+        ]
+        + rows
+        + [""]
+    )
     out_file = rules_dir / "README.md"
     out_file.write_text("\n".join(content), encoding="utf-8")
     return out_file
@@ -107,14 +112,18 @@ def generate_decisions_index() -> Path:
         tier = meta.get("tier", "standard")
         rows.append(f"| [{af.name}]({af.name}) | **{status}** | `{tier}` | `{date}` |")
 
-    content = [
-        "# Architecture Decision Records (ADR) Registry",
-        "",
-        "Durable ledger of ratified architecture decisions. Eliminates re-litigation across sessions.",
-        "",
-        "| Decision Record | Status | Tier | Date |",
-        "| :--- | :--- | :--- | :--- |",
-    ] + rows + [""]
+    content = (
+        [
+            "# Architecture Decision Records (ADR) Registry",
+            "",
+            "Durable ledger of ratified architecture decisions. Eliminates re-litigation across sessions.",
+            "",
+            "| Decision Record | Status | Tier | Date |",
+            "| :--- | :--- | :--- | :--- |",
+        ]
+        + rows
+        + [""]
+    )
     out_file = decisions_dir / "README.md"
     out_file.write_text("\n".join(content), encoding="utf-8")
     return out_file
@@ -124,13 +133,52 @@ def infer_tier(plugin: str, skill: str, desc: str) -> str:
     """Infer difficulty tier from skill characteristics."""
     text = f"{plugin} {skill} {desc}".lower()
     # Tier 1: Quick / Docs / Syntax
-    if any(k in text for k in ["syntax", "format", "typo", "lint", "classifier", "caveman-syntax", "verify-and-stop"]):
+    if any(
+        k in text
+        for k in [
+            "syntax",
+            "format",
+            "typo",
+            "lint",
+            "classifier",
+            "caveman-syntax",
+            "verify-and-stop",
+        ]
+    ):
         return "Tier 1 (Quick)"
     # Tier 4: Complex / Audit / Security / Reverse Engineering
-    if any(k in text for k in ["audit", "reversing", "forensic", "finetuning", "quantiz", "grpo", "sast", "threat-mitigation", "incident", "parallel-debugging"]):
+    if any(
+        k in text
+        for k in [
+            "audit",
+            "reversing",
+            "forensic",
+            "finetuning",
+            "quantiz",
+            "grpo",
+            "sast",
+            "threat-mitigation",
+            "incident",
+            "parallel-debugging",
+        ]
+    ):
         return "Tier 4 (Audit)"
     # Tier 3: Architecture / Distributed / Strategic
-    if any(k in text for k in ["architecture", "saga", "event-store", "projection", "microservices", "terraform", "multi-cloud", "durable-objects", "wayfinder", "workflow-orchestration"]):
+    if any(
+        k in text
+        for k in [
+            "architecture",
+            "saga",
+            "event-store",
+            "projection",
+            "microservices",
+            "terraform",
+            "multi-cloud",
+            "durable-objects",
+            "wayfinder",
+            "workflow-orchestration",
+        ]
+    ):
         return "Tier 3 (Architecture)"
     # Tier 2: MVP / Standard
     return "Tier 2 (MVP)"
@@ -163,7 +211,7 @@ def generate_skills_moc() -> Path:
     """Generate docs/skills-moc.md with domain and tier classifications."""
     skills = sorted(REPO_ROOT.glob("plugins/*/skills/*/SKILL.md"))
     domains: dict[str, list[dict[str, str]]] = {}
-    
+
     for sp in skills:
         plugin = sp.parent.parent.parent.name
         skill_name = sp.parent.name
@@ -172,25 +220,25 @@ def generate_skills_moc() -> Path:
         if isinstance(desc, dict):
             desc = str(desc)
         desc_clean = desc.replace("\n", " ").strip()
-        
+
         # Extract triggers
         trigger_idx = desc_clean.lower().find("use when")
         trigger = desc_clean[trigger_idx:].strip().rstrip(".") if trigger_idx != -1 else desc_clean
-        
+
         tier = infer_tier(plugin, skill_name, desc_clean)
         domain = infer_domain(plugin)
-        
+
         rel_path = sp.relative_to(REPO_ROOT)
-        
+
         entry = {
             "name": skill_name,
             "plugin": plugin,
             "tier": tier,
             "trigger": trigger,
-            "path": str(rel_path)
+            "path": str(rel_path),
         }
         domains.setdefault(domain, []).append(entry)
-        
+
     lines = [
         "# Canonical Skills Map of Content (MOC)",
         "",
@@ -205,18 +253,20 @@ def generate_skills_moc() -> Path:
         "- **Tier 4 (Audit / Swarm):** Deep security scans, model fine-tuning, reverse engineering, and multi-agent coordination.",
         "",
         "---",
-        ""
+        "",
     ]
-    
+
     for domain_name in sorted(domains.keys()):
         lines.append(f"### {domain_name}")
         lines.append("")
         lines.append("| Skill | Plugin | Tier | Trigger Keywords / Activation |")
         lines.append("| :--- | :--- | :--- | :--- |")
         for s in domains[domain_name]:
-            lines.append(f"| [{s['name']}](../{s['path']}) | `{s['plugin']}` | **{s['tier']}** | {s['trigger']} |")
+            lines.append(
+                f"| [{s['name']}](../{s['path']}) | `{s['plugin']}` | **{s['tier']}** | {s['trigger']} |"
+            )
         lines.append("")
-        
+
     out_file = REPO_ROOT / "docs" / "skills-moc.md"
     out_file.write_text("\n".join(lines), encoding="utf-8")
     return out_file

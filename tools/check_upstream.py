@@ -21,7 +21,10 @@ def main():
 
     req = urllib.request.Request(
         UPSTREAM_API,
-        headers={"User-Agent": "agents-upstream-checker", "Accept": "application/vnd.github.v3+json"},
+        headers={
+            "User-Agent": "agents-upstream-checker",
+            "Accept": "application/vnd.github.v3+json",
+        },
     )
 
     try:

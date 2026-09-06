@@ -1,0 +1,71 @@
+name: Jules Cloud Dispatch Validation
+
+on:
+  issues:
+    types: [labeled, opened, edited]
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: read
+  contents: read
+
+jobs:
+  validate-dispatch:
+    name: Validate Issue Dispatch Candidate
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'issues' && (
+        contains(github.event.issue.labels.*.name, 'jules') ||
+        contains(github.event.issue.labels.*.name, 'jules:cloud')
+      )) ||
+      (github.event_name == 'issue_comment' && (
+        contains(github.event.comment.body, '/jules') ||
+        contains(github.event.comment.body, '@jules')
+      ))
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Extract Issue Metadata
+        id: meta
+        run: |
+          python3 -c "
+          import json, os, sys
+
+          event_path = os.environ.get('GITHUB_EVENT_PATH')
+          if not event_path or not os.path.exists(event_path):
+              sys.exit(1)
+
+          with open(event_path) as f:
+              data = json.load(f)
+
+          issue = data.get('issue', {})
+          labels = [l.get('name', '') for l in issue.get('labels', [])]
+
+          body = issue.get('body', '') or ''
+
+          with open('issue_body.txt', 'w', encoding='utf-8') as out:
+              out.write(body)
+
+          print(f'LABELS={','.join(labels)}')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write(f'labels={','.join(labels)}\n')
+          "
+
+      - name: Run Candidate Dispatch Validator
+        run: |
+          EXTRA_FLAG=""
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            EXTRA_FLAG="--allow-comment-trigger"
+          fi
+          python3 tools/jules_dispatch.py \
+            --body-file issue_body.txt \
+            --labels "${{ steps.meta.outputs.labels }}" \
+            $EXTRA_FLAG
