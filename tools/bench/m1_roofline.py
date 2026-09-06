@@ -8,21 +8,16 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 import time
-from pathlib import Path
 
 
 def measure_memory_bandwidth() -> dict[str, float]:
     """Measures local RAM bandwidth using large array memory operations."""
     size_mb = 256
-    num_elements = (size_mb * 1024 * 1024) // 8
-    
+
     # Allocate 256 MB buffer
-    start = time.perf_counter()
     data = bytearray(size_mb * 1024 * 1024)
-    alloc_time = time.perf_counter() - start
 
     # Sequential write sweep
     start = time.perf_counter()
@@ -30,7 +25,7 @@ def measure_memory_bandwidth() -> dict[str, float]:
         data[i] = 1
     sweep_time = time.perf_counter() - start
 
-    gb_processed = (size_mb / 1024.0)
+    gb_processed = size_mb / 1024.0
     bandwidth_gbps = gb_processed / max(sweep_time, 1e-6)
 
     return {
@@ -51,12 +46,14 @@ def simulate_prefix_cache(turns: int = 5) -> dict[str, object]:
         cumulative_tokens += tokens_per_turn
         cached_tokens = cumulative_tokens - tokens_per_turn
         hit_rate = cached_tokens / cumulative_tokens
-        results.append({
-            "turn": turn,
-            "total_tokens": cumulative_tokens,
-            "cached_tokens": cached_tokens,
-            "hit_rate_pct": round(hit_rate * 100.0, 1),
-        })
+        results.append(
+            {
+                "turn": turn,
+                "total_tokens": cumulative_tokens,
+                "cached_tokens": cached_tokens,
+                "hit_rate_pct": round(hit_rate * 100.0, 1),
+            }
+        )
 
     return {
         "turns_simulated": turns,

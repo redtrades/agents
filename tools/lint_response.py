@@ -7,9 +7,8 @@ Usage:
     echo "some text" | python3 tools/lint_response.py
 """
 
-import sys
 import argparse
-import re
+import sys
 
 BANNED_CHARACTERS = [
     ("\u2014", "Em dash (use single hyphen, colon, or parentheses)"),
@@ -73,7 +72,7 @@ def main() -> int:
     if args.text:
         content = args.text
     elif args.file:
-        with open(args.file, "r", encoding="utf-8") as f:
+        with open(args.file, encoding="utf-8") as f:
             content = f.read()
     elif not sys.stdin.isatty():
         content = sys.stdin.read()

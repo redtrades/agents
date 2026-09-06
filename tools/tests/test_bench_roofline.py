@@ -13,5 +13,9 @@ def test_measure_memory_bandwidth():
 def test_simulate_prefix_cache():
     cache = simulate_prefix_cache(turns=5)
     assert cache["turns_simulated"] == 5
-    assert cache["final_cache_hit_pct"] > 80.0
-    assert len(cache["turn_progression"]) == 5
+    hit_pct = cache["final_cache_hit_pct"]
+    assert isinstance(hit_pct, (int, float))
+    assert hit_pct > 80.0
+    progression = cache["turn_progression"]
+    assert isinstance(progression, list)
+    assert len(progression) == 5

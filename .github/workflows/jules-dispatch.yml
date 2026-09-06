@@ -1,0 +1,58 @@
+name: Jules Cloud Dispatch
+
+on:
+  issues:
+    types: [labeled, opened, edited]
+  issue_comment:
+    types: [created]
+
+jobs:
+  dispatch:
+    if: |
+      (
+        github.event_name == 'issues' &&
+        (
+          contains(github.event.issue.labels.*.name, 'jules') ||
+          contains(github.event.issue.labels.*.name, 'jules:cloud')
+        ) &&
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)
+      ) ||
+      (
+        github.event_name == 'issue_comment' &&
+        contains(github.event.comment.body, '/dispatch-jules') &&
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+      )
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate Issue Dispatch Payload
+        id: validate
+        env:
+          ISSUE_PAYLOAD: ${{ toJson(github.event.issue) }}
+        run: |
+          echo "$ISSUE_PAYLOAD" | python3 tools/jules_dispatch.py validate --format-packet > packet.json
+          echo "Task packet successfully validated."
+          cat packet.json
+
+      - name: Post Dispatch Confirmation
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "### 🚀 Jules Cloud Task Dispatched
+
+          - **Task ID:** \`jules-task-${ISSUE_NUMBER}\`
+          - **Status:** Validated and authorized for Jules cloud session
+          - **Branch:** \`jules/issue-${ISSUE_NUMBER}\`"

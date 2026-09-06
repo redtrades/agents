@@ -6,16 +6,17 @@ Exposes a minimal, highly compressed tool schema (recall, remember, forget)
 to keep resident system prompt overhead strictly under 800 tokens.
 """
 
+import contextlib
 import json
 import os
 import signal
 import subprocess
 import sys
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 GBRAIN_BIN = os.environ.get("GBRAIN_BIN", "/Users/man/.bun/bin/gbrain")
 
-LEAN_TOOLS: List[Dict[str, Any]] = [
+LEAN_TOOLS: list[dict[str, Any]] = [
     {
         "name": "recall",
         "description": "Search and retrieve facts, entities, and markdown pages from GBrain memory.",
@@ -76,7 +77,7 @@ LEAN_TOOLS: List[Dict[str, Any]] = [
 ]
 
 
-def calculate_token_overhead(tools: List[Dict[str, Any]]) -> int:
+def calculate_token_overhead(tools: list[dict[str, Any]]) -> int:
     """Calculate approximate token overhead of tool definitions (char/4 estimate)."""
     raw_json = json.dumps(tools, separators=(",", ":"))
     return len(raw_json) // 4
@@ -87,7 +88,7 @@ class GBrainClient:
 
     def __init__(self, gbrain_bin: str = GBRAIN_BIN):
         self.gbrain_bin = gbrain_bin
-        self.proc: Optional[subprocess.Popen] = None
+        self.proc: subprocess.Popen | None = None
         self._req_id = 100
         self._start_server()
 
@@ -122,7 +123,7 @@ class GBrainClient:
         except Exception:
             self.proc = None
 
-    def call_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
+    def call_tool(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         """Execute tool call on gbrain serve or fallback to CLI."""
         if self.proc and self.proc.poll() is None and self.proc.stdin and self.proc.stdout:
             try:
@@ -141,7 +142,10 @@ class GBrainClient:
                     if "result" in res:
                         return res["result"]
                     if "error" in res:
-                        return {"content": [{"type": "text", "text": f"Error: {res['error']}"}], "isError": True}
+                        return {
+                            "content": [{"type": "text", "text": f"Error: {res['error']}"}],
+                            "isError": True,
+                        }
             except Exception:
                 pass
 
@@ -156,7 +160,10 @@ class GBrainClient:
                 "isError": True,
             }
         except Exception as e:
-            return {"content": [{"type": "text", "text": f"Execution failed: {str(e)}"}], "isError": True}
+            return {
+                "content": [{"type": "text", "text": f"Execution failed: {str(e)}"}],
+                "isError": True,
+            }
 
     def close(self) -> None:
         """Terminate child process cleanly."""
@@ -165,10 +172,8 @@ class GBrainClient:
                 self.proc.terminate()
                 self.proc.wait(timeout=2)
             except Exception:
-                try:
+                with contextlib.suppress(Exception):
                     self.proc.kill()
-                except Exception:
-                    pass
             self.proc = None
 
 

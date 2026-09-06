@@ -22,7 +22,7 @@ UV_TOOLS := uv run $(EVAL_PROJECT) python
 RUFF_PATHS := ../../tools/ src/plugin_eval/
 TY_PATHS := ../../tools/adapters/ ../../tools/generate.py ../../tools/validate_generated.py ../../tools/doc_gardener.py ../../tools/install_opencode.py ../../tools/install_copilot.py ../../tools/install_antigravity.py ../../tools/check_agent_name_collisions.py ../../tools/tests/ src/plugin_eval/
 
-.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks gbrain-check gbrain-sync
+.PHONY: help install install-ocr install-easyocr deps check run run-full run-ocr run-transcript clean generate generate-all clean-generated install-opencode uninstall-opencode install-copilot uninstall-copilot install-antigravity uninstall-antigravity validate garden catalog check-upstream lint format test smoke-test worktree-spawn worktree-clean worktree-list lint-response bench install-hooks gbrain-check gbrain-sync jules-validate
 
 help:
 	@echo "claude-agents — multi-harness plugin marketplace"
@@ -229,7 +229,7 @@ install-hooks:
 lint:
 	cd plugins/plugin-eval && uv run --extra dev ruff check $(RUFF_PATHS)
 	cd plugins/plugin-eval && uv run --extra dev ruff format --check $(RUFF_PATHS)
-	cd plugins/plugin-eval && uv run --extra dev ty check $(TY_PATHS)
+	cd plugins/plugin-eval && uv run --extra dev --extra llm ty check $(TY_PATHS)
 
 format:
 	cd plugins/plugin-eval && uv run --extra dev ruff format $(RUFF_PATHS)
@@ -296,3 +296,8 @@ gbrain-check:
 
 gbrain-sync:
 	@/Users/man/.bun/bin/gbrain sync --source brain
+
+jules-validate:
+	@if [ -z "$(ISSUE)" ]; then echo "ERROR: ISSUE=<number> required (e.g. make jules-validate ISSUE=5)"; exit 1; fi
+	@gh issue view $(ISSUE) --repo redtrades/agents --json number,title,body,labels,url | $(UV_TOOLS) tools/jules_dispatch.py validate --format-packet
+

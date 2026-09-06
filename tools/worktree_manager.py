@@ -17,7 +17,9 @@ from pathlib import Path
 MAX_CONCURRENT_WORKTREES = 2
 
 
-def run_cmd(cmd: list[str], cwd: Path | None = None, check: bool = True) -> subprocess.CompletedProcess[str]:
+def run_cmd(
+    cmd: list[str], cwd: Path | None = None, check: bool = True
+) -> subprocess.CompletedProcess[str]:
     return subprocess.run(cmd, cwd=cwd, text=True, capture_output=True, check=check)
 
 
@@ -58,7 +60,9 @@ def cmd_spawn(repo_root: Path, task_id: str) -> int:
     # Check concurrency ceiling
     active = get_active_worktrees(repo_root)
     # Filter out the main root worktree
-    child_worktrees = [wt for wt in active if Path(wt.get("path", "")).resolve() != repo_root.resolve()]
+    child_worktrees = [
+        wt for wt in active if Path(wt.get("path", "")).resolve() != repo_root.resolve()
+    ]
     if len(child_worktrees) >= MAX_CONCURRENT_WORKTREES:
         print(
             f"ERROR: Concurrency ceiling reached ({len(child_worktrees)}/{MAX_CONCURRENT_WORKTREES} active).",
@@ -74,7 +78,12 @@ def cmd_spawn(repo_root: Path, task_id: str) -> int:
         return 1
 
     # Check if branch exists
-    branch_exists = run_cmd(["git", "rev-parse", "--verify", branch_name], cwd=repo_root, check=False).returncode == 0
+    branch_exists = (
+        run_cmd(
+            ["git", "rev-parse", "--verify", branch_name], cwd=repo_root, check=False
+        ).returncode
+        == 0
+    )
 
     print(f"Spawning worktree for task {task_id}...")
     worktree_path.parent.mkdir(parents=True, exist_ok=True)
@@ -82,7 +91,9 @@ def cmd_spawn(repo_root: Path, task_id: str) -> int:
     if branch_exists:
         run_cmd(["git", "worktree", "add", str(worktree_path), branch_name], cwd=repo_root)
     else:
-        run_cmd(["git", "worktree", "add", "-b", branch_name, str(worktree_path), "HEAD"], cwd=repo_root)
+        run_cmd(
+            ["git", "worktree", "add", "-b", branch_name, str(worktree_path), "HEAD"], cwd=repo_root
+        )
 
     print(f"SUCCESS: Worktree provisioned at {worktree_path}")
     print(f"Branch: {branch_name}")
@@ -102,11 +113,18 @@ def cmd_clean(repo_root: Path, task_id: str) -> int:
     # Zero-loss backup: check for dirty or untracked files
     status = run_cmd(["git", "status", "--porcelain"], cwd=worktree_path, check=False)
     if status.stdout.strip():
-        print(f"Zero-loss backup: Uncommitted changes detected in {task_id}. Backing up to {backup_branch}...")
+        print(
+            f"Zero-loss backup: Uncommitted changes detected in {task_id}. Backing up to {backup_branch}..."
+        )
         run_cmd(["git", "checkout", "-B", backup_branch], cwd=worktree_path, check=False)
         run_cmd(["git", "add", "-A"], cwd=worktree_path, check=False)
         run_cmd(
-            ["git", "commit", "-m", f"backup(worktree): zero-loss snapshot of {task_id} before pruning"],
+            [
+                "git",
+                "commit",
+                "-m",
+                f"backup(worktree): zero-loss snapshot of {task_id} before pruning",
+            ],
             cwd=worktree_path,
             check=False,
         )
@@ -114,7 +132,9 @@ def cmd_clean(repo_root: Path, task_id: str) -> int:
 
     # Remove worktree
     print(f"Removing worktree at {worktree_path}...")
-    remove_res = run_cmd(["git", "worktree", "remove", "--force", str(worktree_path)], cwd=repo_root, check=False)
+    remove_res = run_cmd(
+        ["git", "worktree", "remove", "--force", str(worktree_path)], cwd=repo_root, check=False
+    )
     if remove_res.returncode != 0:
         print(f"Git worktree remove returned: {remove_res.stderr.strip()}", file=sys.stderr)
 

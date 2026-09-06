@@ -3,15 +3,15 @@ Unit tests for tools/gbrain_mcp.py
 Verifies MCP JSON-RPC protocol handling, token limits, and tool routing.
 """
 
-import json
 import io
+import json
 import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 from tools.gbrain_mcp import (
     LEAN_TOOLS,
-    calculate_token_overhead,
     GBrainClient,
+    calculate_token_overhead,
     run_stdio_server,
 )
 
@@ -47,7 +47,9 @@ class TestGBrainMcp(unittest.TestCase):
         mock_proc = MagicMock()
         mock_proc.stdin = MagicMock()
         mock_proc.stdout = MagicMock()
-        mock_proc.stdout.readline.return_value = json.dumps({"result": {"serverInfo": {"name": "gbrain"}}}) + "\n"
+        mock_proc.stdout.readline.return_value = (
+            json.dumps({"result": {"serverInfo": {"name": "gbrain"}}}) + "\n"
+        )
         mock_popen.return_value = mock_proc
 
         client = GBrainClient(gbrain_bin="/fake/gbrain")
@@ -77,7 +79,14 @@ class TestGBrainMcp(unittest.TestCase):
             json.dumps({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}}),
             json.dumps({"jsonrpc": "2.0", "method": "notifications/initialized"}),
             json.dumps({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}}),
-            json.dumps({"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "recall", "arguments": {"query": "test"}}}),
+            json.dumps(
+                {
+                    "jsonrpc": "2.0",
+                    "id": 3,
+                    "method": "tools/call",
+                    "params": {"name": "recall", "arguments": {"query": "test"}},
+                }
+            ),
             json.dumps({"jsonrpc": "2.0", "id": 4, "method": "ping"}),
         ]
         input_stream = io.StringIO("\n".join(requests) + "\n")
@@ -86,7 +95,11 @@ class TestGBrainMcp(unittest.TestCase):
         with patch("sys.stdin", input_stream), patch("sys.stdout", output_stream):
             run_stdio_server()
 
-        lines = [json.loads(l) for l in output_stream.getvalue().strip().split("\n") if l.strip()]
+        lines = [
+            json.loads(line)
+            for line in output_stream.getvalue().strip().split("\n")
+            if line.strip()
+        ]
         self.assertEqual(len(lines), 4)  # init, list, call, ping (notification has no reply)
 
         # Verify initialize reply
