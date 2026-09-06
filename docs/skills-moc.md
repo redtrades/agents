@@ -2,7 +2,7 @@
 
 Master index of all specialized skills across the estate. Used by agents to infer and load matching skills Just-In-Time based on user request keywords and task complexity tiers.
 
-**Total Registered Skills:** 226 across 58 plugins.
+**Total Registered Skills:** 228 across 59 plugins.
 
 ## Complexity Tiers
 - **Tier 1 (Quick):** Focused single-file fixes, formatting, syntax, and direct configs (<2 min).
@@ -249,6 +249,13 @@ Master index of all specialized skills across the estate. Used by agents to infe
 | :--- | :--- | :--- | :--- |
 | [godot-gdscript-patterns](../plugins/game-development/skills/godot-gdscript-patterns/SKILL.md) | `game-development` | **Tier 2 (MVP)** | Use when building Godot games, implementing game systems, or learning GDScript best practices |
 | [unity-ecs-patterns](../plugins/game-development/skills/unity-ecs-patterns/SKILL.md) | `game-development` | **Tier 2 (MVP)** | Use when building data-oriented games, optimizing performance, or working with large entity counts |
+
+### Govcon Factory
+
+| Skill | Plugin | Tier | Trigger Keywords / Activation |
+| :--- | :--- | :--- | :--- |
+| [compliance-matrix](../plugins/govcon-factory/skills/compliance-matrix/SKILL.md) | `govcon-factory` | **Tier 4 (Audit)** | Use when verifying proposal volume alignment against Section M evaluation factors or auditing orphan instructions |
+| [rfp-shredder](../plugins/govcon-factory/skills/rfp-shredder/SKILL.md) | `govcon-factory` | **Tier 2 (MVP)** | Use when parsing FAR solicitations, extracting Section C/L/M clauses, or preparing proposal outlines |
 
 ### Hermes Tweet
 
