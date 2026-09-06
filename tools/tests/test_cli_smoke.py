@@ -317,6 +317,35 @@ class TestVercelSkillsSmoke:
         )
 
 
+# ── Hermes CLI ───────────────────────────────────────────────────────────────
+
+
+@pytest.mark.skipif(not _has("hermes"), reason="hermes CLI not installed")
+class TestHermesSmoke:
+    def test_hermes_version_runs(self):
+        """Sanity check that Hermes CLI is invokable and reports version."""
+        proc = _run(["hermes", "--version"])
+        assert proc.returncode == 0, f"hermes --version failed: {proc.stderr}"
+        assert "hermes" in proc.stdout.lower() or "version" in proc.stdout.lower()
+
+    def test_hermes_prompt_size_runs(self):
+        """Verify hermes prompt-size runs and reports system prompt breakdown."""
+        proc = _run(["hermes", "prompt-size", "--json"])
+        assert proc.returncode == 0, f"hermes prompt-size failed: {proc.stderr}"
+        data = json.loads(proc.stdout)
+        assert "system_prompt" in data
+        assert "toolsets_breakdown" in data
+
+    def test_hermes_mcp_gbrain_connected(self):
+        """Verify Hermes connects to Garry Tan GBrain MCP and discovers 3 tools."""
+        proc = _run(["hermes", "mcp", "test", "gbrain"])
+        assert proc.returncode == 0, f"hermes mcp test gbrain failed: {proc.stderr}"
+        assert "Connected" in proc.stdout
+        assert "recall" in proc.stdout
+        assert "remember" in proc.stdout
+        assert "forget" in proc.stdout
+
+
 # ── Cross-CLI sanity: marketplace + adapter agreement ────────────────────────
 
 
