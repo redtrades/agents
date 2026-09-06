@@ -31,6 +31,7 @@ Finalize `/Users/man/agents` as the sovereign, unified multi-agent operating eng
 19. Brain consolidation & zero dangling documents: consolidated `/Users/man/Brain` directly into `/Users/man/agents/brain/`, created backward-compatible symlinks (`/Users/man/Brain` and `/Users/man/agent-knowledge-archive`), organized 5 loose market reports and 2 loose audits/tasks into dated brain folders, archived all remaining backups into `~/archive/`. [COMPLETED]
 20. Implement GitHub Jules App cloud task dispatch and validation workflow (`tools/jules_dispatch.py`, `.github/workflows/jules-dispatch.yml`, `tools/tests/test_jules_dispatch.py`). Closed Issue #5. [COMPLETED]
 21. Multi-Harness Canary Verification runner and smoke suite implemented (`tools/canary_runner.py`, `tools/tests/test_canary_runner.py`, `tools/tests/test_cli_smoke.py`, `make canary`). Verified across all 5 installed CLIs. Closed Issue #7. [COMPLETED]
+22. Multi-Harness GBrain Grounding & Deterministic Context Compilation (`tools/compile_context.py`, `Makefile`, `tools/tests/test_gbrain_governance.py`, `make context-compile`, `make context-check`). [COMPLETED]
 
 ## Active Phase
 Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
@@ -55,6 +56,7 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - `GBrain PGLite WASM MCP Memory (Issue #4 Closed)`: Wired Garry Tan GBrain PGLite memory (`~/.gbrain/brain.pglite`) into `redtrades/agents` via lean MCP proxy (`tools/gbrain_mcp.py`). Indexed 373 brain markdown files (2,162 chunks), verified 64.6ms warm query latency, capped token overhead at 286 tokens (well below 800-token limit), added 5 unit tests (`tools/tests/test_gbrain_mcp.py`), and configured multi-harness entries across `.mcp.json`, `~/.claude/settings.json`, `~/.claude.json`, and `~/.codex/config.toml`. Closed Issue #4 on GitHub and updated Project 13 to Done.
 - `GBrain Rules & Skills Codified`: Added Mandatory GBrain Knowledge Grounding invariant to `AGENTS.md` (Section 1). Created `rules/memory.md` (`v1.0.0`) specifying when and how to query/persist memory. Created native `gbrain-memory` skill in `plugins/context-management/skills/gbrain-memory/SKILL.md`. Integrated GBrain checks into `research` and `investigate-first` skills. Synchronized all 5 harnesses via `make generate-all` and regenerated `docs/skills-moc.md` (226 skills). All quality gates verified.
 - `Multi-Harness Canary Suite (Issue #7 Closed)`: Built `tools/canary_runner.py` probing all 5 installed harness CLIs on PATH (`claude`, `codex`, `agy`, `opencode`, `hermes`). Added `TestHermesSmoke` in `tools/tests/test_cli_smoke.py` and unit tests in `tools/tests/test_canary_runner.py`. Added `make canary` recipe. All 5 CLIs pass in <600ms total. 640 unit tests passing cleanly. Closed Issue #7 on GitHub and marked Done in Project 13.
+- `GBrain Grounding & Context Compiler`: Codified mandatory GBrain memory recall directives in `writing-plans`, `wayfinder`, `operating-discipline`, and `diagnosing-bugs`. Implemented `tools/compile_context.py` wrapping `gbrain compile-context` with token budgets (1200 / 800 tokens) and added `make context-compile` and `make context-check` recipes with zero-token SHA256 digest validation. Added automatic memory logging (`remember`) to `tools/cross_model_review.py` (recorded fact #105). Added 5 governance unit tests in `tools/tests/test_gbrain_governance.py` (627 tests passing). Ratified `DEC-20260905-25` in `docs/decisions/DECISION_LOG.md`.
 - `Upstream Detachment`: Active git remote removed, read-only innovation check available via `make check-upstream`.
 
 ## Parked Backlog (On The Board / Tracked on GitHub redtrades/agents)
@@ -66,13 +68,9 @@ Phase 12: Historic Estate Extraction, Cold Archiving & Swarm SDLC Hardening
 - **Issue #7** (`sdlc:done`): Multi-harness canary verification runner and smoke suite. [CLOSED]
 - **Hermes Integration** (`sdlc:done`): Configure Hermes progressive disclosure and GBrain MCP in `~/.hermes/config.yaml`. [COMPLETED]
 - **Cross-Model Review Engine** (`sdlc:done`): Build autonomous peer review engine in `tools/cross_model_review.py` enforcing author/reviewer separation and diff slop audits. [COMPLETED]
+- **GBrain Grounding & Context Pipeline** (`sdlc:done`): Skills grounding, context compiler, review memory externalization, and governance tests. [COMPLETED]
 - **Parked (P0)**: GovCon Proposal Factory pipeline (Parked until swarm SDLC is hardened and historic archives extracted).
 
 ## Next Immediate Action
-Execute 5-part GBrain grounding and context compilation plan:
-1. Codify GBrain grounding directives into key planning, research, and debugging skills.
-2. Build deterministic context compilation pipeline (make context-compile, make context-check).
-3. Connect autonomous cross-model review engine to GBrain memory logging.
-4. Add deterministic governance test suite (test_gbrain_governance.py).
-5. Ratify ADR in DECISION_LOG.md and regenerate multi-harness catalog.
+Swarm Foundation & Autonomous SDLC Hardening: Run estate health scan, verify cross-harness prompt injection with compiled context, and evaluate next high-leverage backlog initiative.
 

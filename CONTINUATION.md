@@ -43,12 +43,13 @@
 22. **Hermes Progressive Disclosure & Memory Integration:** Configured `~/.hermes/config.yaml` to wire Garry Tan GBrain PGLite memory (`mcp_servers.gbrain`) and native skills progressive disclosure (`skills.external_dirs: [/Users/man/agents/plugins]`). Verified MCP connection (`hermes mcp test gbrain` -> 3 tools discovered) and indexed 229 native external skills with low token overhead.
 23. **Autonomous Cross-Model Peer Review Engine (Initiative 2 Completed):** Implemented `tools/cross_model_review.py` enforcing non-negotiable cross-model peer review (pairing validation, anti-slop audit, test execution, PASS/FAIL verdicts). Added 10 unit tests in `tools/tests/test_cross_model_review.py` (all passing). Added `make review-check` recipe. All 635 repository tests passing.
 24. **Multi-Harness Canary Verification & Estate Smoke Suite (Initiative 3 Completed):** Built `tools/canary_runner.py` verifying all 5 installed harness CLIs on PATH (`claude`, `codex`, `agy`, `opencode`, `hermes`) in <600ms total. Added `TestHermesSmoke` in `tools/tests/test_cli_smoke.py`, 5 unit tests in `tools/tests/test_canary_runner.py`, and `make canary` recipe. Closed Issue #7 on GitHub, updated Project 13 to Done, and recorded fact #101 in GBrain memory.
+25. **GBrain Grounding & Context Compilation Pipeline (Completed):** Codified mandatory GBrain memory recall in `writing-plans`, `wayfinder`, `operating-discipline`, and `diagnosing-bugs`. Implemented `tools/compile_context.py` wrapping `gbrain compile-context` with token budgets (1200 / 800 tokens) and added `make context-compile` and `make context-check` recipes with zero-token SHA256 digest verification. Added automatic memory logging (`remember`) to `tools/cross_model_review.py` (recorded fact #105). Added 5 governance unit tests in `tools/tests/test_gbrain_governance.py` (627 tests passing). Ratified `DEC-20260905-25` in `docs/decisions/DECISION_LOG.md`.
 
 ---
 
 ## 3. Active Step (Completed / In Progress)
-- **Step Name:** Scope Ratified (GovCon Reverted Forward to Clean Baseline) - Next: GBrain Grounding & Context Compilation
-- **Target:** Execute 5-part plan: Codify GBrain grounding in skills, build deterministic context compiler, link cross-model review to memory, add governance test suite, and ratify ADR.
+- **Step Name:** GBrain Grounding & Context Compilation Pipeline Complete - Next: Autonomous Swarm Foundation Evaluation
+- **Target:** Review estate health scan, verify cross-harness prompt injection with compiled context, and evaluate next high-leverage backlog initiative.
 
 ---
 
@@ -59,8 +60,6 @@
 ---
 
 ## 5. Next Immediate Actions
-1. Codify GBrain mandatory grounding directives into key planning, research, and debugging skills.
-2. Build deterministic context compilation pipeline (`make context-compile`, `make context-check`).
-3. Connect autonomous cross-model review engine to GBrain memory logging.
-4. Add deterministic governance test suite (`tools/tests/test_gbrain_governance.py`).
-5. Ratify ADR in `docs/decisions/DECISION_LOG.md` and regenerate multi-harness catalog.
+1. Run estate health scan across all 5 harnesses and evaluate next high-ROI initiative on the board.
+2. Verify compiled context injection in Claude Code and Codex CLI.
+3. Externalize current session milestone facts to GBrain memory.
